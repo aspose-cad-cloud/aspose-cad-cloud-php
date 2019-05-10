@@ -60,5 +60,11 @@ New SDK has the following advantages over the [previous version](https://github.
 
 New SDK is not backwards compatible with previous generation because of the last item. It should be straightforward to convert your code to using Request/Response objects, if you need any help on migration please ask at [Free Support Forums](https://forum.aspose.cloud/c/cad).
 
-## Contact Us
-Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.aspose.cloud/c/cad).
+## Resources
++ [**Web API reference**](https://apireference.aspose.cloud/cad/)
++ [**Website**](https://www.aspose.cloud/)
++ [**Product Home**](https://products.aspose.cloud/cad)
++ [**Documentation**](https://docs.aspose.cloud/display/cadcloud/Home)
++ [**Free Support Forum**](https://forum.aspose.cloud/c/cad)
++ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
++ [**Blog**](https://blog.aspose.cloud/category/cad/)
