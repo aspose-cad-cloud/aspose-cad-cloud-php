@@ -1,0 +1,29 @@
+# behat.yml
+default:
+    autoload:
+        '': %paths.base%/features/bootstrap/
+    suites:
+      alternate:
+        contexts:
+          - AlternateDocumentContext
+        paths: [%paths.base%/features/conversion/getAlternateDocument.feature]
+      putconvert:
+        contexts:
+          - PutConvertContext
+        paths: [%paths.base%/features/conversion/putConvert.feature]
+      saveas:
+        contexts:
+          - SaveAsContext
+        paths: [%paths.base%/features/conversion/saveAs.feature]
+      posttemplate:
+        contexts:
+          - PostExecuteTemplateContext
+        paths: [%paths.base%/features/mailMerge/postExecuteTemplate.feature]
+      puttemplate:
+        contexts:
+          - PutExecuteTemplateContext
+        paths: [%paths.base%/features/mailMerge/putExecuteTemplate.feature]
+      putmailmerge:
+        contexts:
+          - PutExecuteMailMergeContext
+        paths: [%paths.base%/features/mailMerge/putExecuteMailMerge.feature]
