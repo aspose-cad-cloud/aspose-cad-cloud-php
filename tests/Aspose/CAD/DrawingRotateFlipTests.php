@@ -1,7 +1,7 @@
 <?php
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DrawingSaveAsTests.php">
+* <copyright company="Aspose" file="DrawingRotateFlipTests.php">
 *   Copyright (c) 2017 Aspose.CAD for Cloud
 * </copyright>
 * <summary>
@@ -37,19 +37,19 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostImageSaveAsRequest.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetImageSaveAsRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostImageRotateFlipRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetImageRotateFlipRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
-class DrawingSaveAsTests extends BaseTestContext
+class DrawingRotateFlipTests extends BaseTestContext
 {
     /**
-     * Test case for postDrawingSaveAs
+     * Test case for PostDrawingRotateFlip
      *
-     * Convert document to destination format with detailed settings and retrieves result on response.
+     * Rotates, flips drawing and retrieves result on a response.
      *
      */
-    public function testPostDrawingSaveAs()
+    public function testPostDrawingRotateFlip()
     {
         $localName = "910609.dxf";
         $outputFormat = "pdf";
@@ -62,19 +62,19 @@ class DrawingSaveAsTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostImageSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostImageRotateFlipRequest($file, $outputFormat, 'Rotate180FlipXY', $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->postImageSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->postImageRotateFlipWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
     /**
-     * Test case for postDrawingSaveAs
+     * Test case for GetDrawingRotateFlip
      *
-     * Convert drawing to a specified format with detailed settings and saves result to storage.
+     * Flips drawing and saves it to a storage.
      *
      */
-    public function testGetDrawingSaveAs()
+    public function testGetDrawingRotateFlip()
     {
         $localName = "galeon.stl";
         $outputFormat = "jpg";
@@ -87,14 +87,14 @@ class DrawingSaveAsTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetImageSaveAsRequest($remoteName, $outputFormat, null, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetImageRotateFlipRequest($remoteName, $outputFormat, 'RotateNoneFlipX', null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
 
-        list($response, $code, $headers) = $this->CAD->getImageSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->getImageRotateFlipWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 }
 
-//$test = new DrawingSaveAsTests();
-//$test->setUp();
-//$test->testPostDrawingSaveAs();
-//$test->testGetDrawingSaveAs();
+$test = new DrawingRotateFlipTests();
+$test->setUp();
+$test->testPostDrawingRotateFlip();
+$test->testGetDrawingRotateFlip();

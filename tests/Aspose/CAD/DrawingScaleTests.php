@@ -1,7 +1,7 @@
 <?php
 /*
 * --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="DrawingSaveAsTests.php">
+* <copyright company="Aspose" file="DrawingScaleTests.php">
 *   Copyright (c) 2017 Aspose.CAD for Cloud
 * </copyright>
 * <summary>
@@ -37,19 +37,19 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostImageSaveAsRequest.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetImageSaveAsRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostChangeImageScaleRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetChangeImageScaleRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
-class DrawingSaveAsTests extends BaseTestContext
+class DrawingScaleTests extends BaseTestContext
 {
     /**
-     * Test case for postDrawingSaveAs
+     * Test case for postDrawingScale
      *
-     * Convert document to destination format with detailed settings and retrieves result on response.
+     * Scales drawing to a specified size retrieves result on a response
      *
      */
-    public function testPostDrawingSaveAs()
+    public function testPostDrawingScale()
     {
         $localName = "910609.dxf";
         $outputFormat = "pdf";
@@ -62,19 +62,19 @@ class DrawingSaveAsTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostImageSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostChangeImageScaleRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->postImageSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->postChangeImageScaleWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
     /**
-     * Test case for postDrawingSaveAs
+     * Test case for getDrawingScale
      *
-     * Convert drawing to a specified format with detailed settings and saves result to storage.
+     * Scales drawing to a specified size and saves result to storage.
      *
      */
-    public function testGetDrawingSaveAs()
+    public function testGetDrawingScale()
     {
         $localName = "galeon.stl";
         $outputFormat = "jpg";
@@ -87,14 +87,14 @@ class DrawingSaveAsTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetImageSaveAsRequest($remoteName, $outputFormat, null, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetChangeImageScaleRequest($remoteName, $outputFormat, 320, 240, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
 
-        list($response, $code, $headers) = $this->CAD->getImageSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->getChangeImageScaleWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 }
 
-//$test = new DrawingSaveAsTests();
+//$test = new DrawingScaleTests();
 //$test->setUp();
-//$test->testPostDrawingSaveAs();
-//$test->testGetDrawingSaveAs();
+//$test->testPostDrawingScale();
+//$test->testGetDrawingScale();

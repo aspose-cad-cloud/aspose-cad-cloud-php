@@ -2383,7 +2383,7 @@ class CadApi
          $UrlToSign = trim($url, "/");
          $urlQuery = http_build_query($queryParams);
  
-         $urlPartToSign = parse_url($UrlToSign, PHP_URL_SCHEME) . '://' . $this->config->getBasePath() .  "/" . parse_url($UrlToSign, PHP_URL_HOST) . parse_url($UrlToSign, PHP_URL_PATH) . "?" . $urlQuery;
+         $urlPartToSign = $this->config->getBasePath() .  "/" . parse_url($UrlToSign, PHP_URL_PATH) . "?" . $urlQuery;
         
         return $urlPartToSign;
     }

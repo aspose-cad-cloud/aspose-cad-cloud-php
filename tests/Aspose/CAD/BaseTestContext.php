@@ -28,13 +28,15 @@
 
 namespace BaseTest;
 
+include 'vendor/autoload.php';
+
 require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Configuration.php";
 
 use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-class BaseTestContext //extends \PHPUnit_Framework_TestCase
+class BaseTestContext extends \PHPUnit_Framework_TestCase
 {
     protected $CAD;
 
@@ -60,12 +62,10 @@ class BaseTestContext //extends \PHPUnit_Framework_TestCase
         $this->config->setAppKey($creds["AppKey"]);
         $this->config->setAppSid($creds["AppSid"]);
         $this->config->setHost($creds["BaseURL"]);
+        //$this->config->setDebug(true);
+        $this->config->setHost("http://localhost:61290/");
 
-        $client = new \GuzzleHttp\Client([
-            'base_uri' => $creds["BaseURL"]
-        ]);
-
-        $this->CAD = new CADApi($client, $this->config);
+        $this->CAD = new CADApi(null, $this->config);
 
         $this->storage = new StorageApi();
         $this->storage->getConfig()->setAppKey($creds["AppKey"])->setAppSid($creds["AppSid"])->setHost($creds["BaseURL"]);
