@@ -63,7 +63,6 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $this->config->setAppSid($creds["AppSid"]);
         $this->config->setHost($creds["BaseURL"]);
         //$this->config->setDebug(true);
-        $this->config->setHost("http://localhost:61290/");
 
         $this->CAD = new CADApi(null, $this->config);
 
