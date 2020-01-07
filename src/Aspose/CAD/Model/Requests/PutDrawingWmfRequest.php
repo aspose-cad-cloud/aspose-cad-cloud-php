@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PostChangeImageScaleRequest.php">
+ * <copyright company="Aspose" file="PutDrawingWmfRequest.php">
  *   Copyright (c) 2018 Aspose.Cad for Cloud
  * </copyright>
  * <summary>
@@ -29,9 +29,9 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for postChangeImageScale operation.
+ * Request model for putDrawingWmf operation.
  */
-class PostChangeImageScaleRequest
+class PutDrawingWmfRequest
 {
     /*
      * Input drawing
@@ -39,22 +39,12 @@ class PostChangeImageScaleRequest
     public $drawing_data;
 	
     /*
-     * Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WmfOptionsDTO model definition.
      */
-    public $format;
+    public $options;
 	
     /*
-     * New width of the scaled image.
-     */
-    public $new_width;
-	
-    /*
-     * New height of the scaled image.
-     */
-    public $new_height;
-	
-    /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public $out_path;
 	
@@ -65,21 +55,17 @@ class PostChangeImageScaleRequest
     
 	
     /*
-     * Initializes a new instance of the PostChangeImageScaleRequest class.
+     * Initializes a new instance of the PutDrawingWmfRequest class.
      *  
      * @param \SplFileObject $drawing_data Input drawing
-     * @param string $format Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
-     * @param int $new_width New width of the scaled image.
-     * @param int $new_height New height of the scaled image.
-     * @param string $out_path Path to updated file, if this is empty, response contains streamed image.
+     * @param map[string,string] $options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WmfOptionsDTO model definition.
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
      * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($drawing_data, $format, $new_width, $new_height, $out_path = null, $storage = null)             
+    public function __construct($drawing_data, $options = null, $out_path = null, $storage = null)             
     {
         $this->drawing_data = $drawing_data;
-        $this->format = $format;
-        $this->new_width = $new_width;
-        $this->new_height = $new_height;
+        $this->options = $options;
         $this->out_path = $out_path;
         $this->storage = $storage;
     }
@@ -102,58 +88,24 @@ class PostChangeImageScaleRequest
     }
 	
     /*
-     * Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WmfOptionsDTO model definition.
      */
-    public function get_format()
+    public function get_options()
     {
-        return $this->format;
+        return $this->options;
     }
 
     /*
-     * Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WmfOptionsDTO model definition.
      */
-    public function set_format($value)
+    public function set_options($value)
     {
-        $this->format = $value;
+        $this->options = $value;
         return $this;
     }
 	
     /*
-     * New width of the scaled image.
-     */
-    public function get_new_width()
-    {
-        return $this->new_width;
-    }
-
-    /*
-     * New width of the scaled image.
-     */
-    public function set_new_width($value)
-    {
-        $this->new_width = $value;
-        return $this;
-    }
-	
-    /*
-     * New height of the scaled image.
-     */
-    public function get_new_height()
-    {
-        return $this->new_height;
-    }
-
-    /*
-     * New height of the scaled image.
-     */
-    public function set_new_height($value)
-    {
-        $this->new_height = $value;
-        return $this;
-    }
-	
-    /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public function get_out_path()
     {
@@ -161,7 +113,7 @@ class PostChangeImageScaleRequest
     }
 
     /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public function set_out_path($value)
     {

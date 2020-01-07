@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetChangeImageScaleRequest.php">
+ * <copyright company="Aspose" file="GetDrawingResizeRequest.php">
  *   Copyright (c) 2018 Aspose.Cad for Cloud
  * </copyright>
  * <summary>
@@ -29,70 +29,70 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for getChangeImageScale operation.
+ * Request model for getDrawingResize operation.
  */
-class GetChangeImageScaleRequest
+class GetDrawingResizeRequest
 {
     /*
-     * The image name.
+     * Filename of a drawing.
      */
     public $name;
 	
     /*
-     * Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * Resulting image format.
      */
-    public $format;
+    public $output_format;
 	
     /*
-     * New width of the scaled image.
+     * New width.
      */
     public $new_width;
 	
     /*
-     * New height of the scaled image.
+     * New height.
      */
     public $new_height;
 	
     /*
-     * Original drawing folder.
+     * Folder with a drawing to process.
      */
     public $folder;
 	
     /*
-     * File storage, which has to be used.
-     */
-    public $storage;
-	
-    /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public $out_path;
+	
+    /*
+     * Your Aspose Cloud Storage name.
+     */
+    public $storage;
     
 	
     /*
-     * Initializes a new instance of the GetChangeImageScaleRequest class.
+     * Initializes a new instance of the GetDrawingResizeRequest class.
      *  
-     * @param string $name The image name.
-     * @param string $format Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
-     * @param int $new_width New width of the scaled image.
-     * @param int $new_height New height of the scaled image.
-     * @param string $folder Original drawing folder.
-     * @param string $storage File storage, which has to be used.
-     * @param string $out_path Path to updated file, if this is empty, response contains streamed image.
+     * @param string $name Filename of a drawing.
+     * @param string $output_format Resulting image format.
+     * @param int $new_width New width.
+     * @param int $new_height New height.
+     * @param string $folder Folder with a drawing to process.
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($name, $format, $new_width, $new_height, $folder = null, $storage = null, $out_path = null)             
+    public function __construct($name, $output_format, $new_width, $new_height, $folder = null, $out_path = null, $storage = null)             
     {
         $this->name = $name;
-        $this->format = $format;
+        $this->output_format = $output_format;
         $this->new_width = $new_width;
         $this->new_height = $new_height;
         $this->folder = $folder;
-        $this->storage = $storage;
         $this->out_path = $out_path;
+        $this->storage = $storage;
     }
 
     /*
-     * The image name.
+     * Filename of a drawing.
      */
     public function get_name()
     {
@@ -100,7 +100,7 @@ class GetChangeImageScaleRequest
     }
 
     /*
-     * The image name.
+     * Filename of a drawing.
      */
     public function set_name($value)
     {
@@ -109,24 +109,24 @@ class GetChangeImageScaleRequest
     }
 	
     /*
-     * Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * Resulting image format.
      */
-    public function get_format()
+    public function get_output_format()
     {
-        return $this->format;
+        return $this->output_format;
     }
 
     /*
-     * Output file format. Valid formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * Resulting image format.
      */
-    public function set_format($value)
+    public function set_output_format($value)
     {
-        $this->format = $value;
+        $this->output_format = $value;
         return $this;
     }
 	
     /*
-     * New width of the scaled image.
+     * New width.
      */
     public function get_new_width()
     {
@@ -134,7 +134,7 @@ class GetChangeImageScaleRequest
     }
 
     /*
-     * New width of the scaled image.
+     * New width.
      */
     public function set_new_width($value)
     {
@@ -143,7 +143,7 @@ class GetChangeImageScaleRequest
     }
 	
     /*
-     * New height of the scaled image.
+     * New height.
      */
     public function get_new_height()
     {
@@ -151,7 +151,7 @@ class GetChangeImageScaleRequest
     }
 
     /*
-     * New height of the scaled image.
+     * New height.
      */
     public function set_new_height($value)
     {
@@ -160,7 +160,7 @@ class GetChangeImageScaleRequest
     }
 	
     /*
-     * Original drawing folder.
+     * Folder with a drawing to process.
      */
     public function get_folder()
     {
@@ -168,7 +168,7 @@ class GetChangeImageScaleRequest
     }
 
     /*
-     * Original drawing folder.
+     * Folder with a drawing to process.
      */
     public function set_folder($value)
     {
@@ -177,24 +177,7 @@ class GetChangeImageScaleRequest
     }
 	
     /*
-     * File storage, which has to be used.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * File storage, which has to be used.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-	
-    /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public function get_out_path()
     {
@@ -202,11 +185,28 @@ class GetChangeImageScaleRequest
     }
 
     /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public function set_out_path($value)
     {
         $this->out_path = $value;
+        return $this;
+    }
+	
+    /*
+     * Your Aspose Cloud Storage name.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Your Aspose Cloud Storage name.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ImagePropertiesResponse.php">
+ * <copyright company="Aspose" file="IgsProperties.php">
  *   Copyright (c) 2018 Aspose.Cad for Cloud
  * </copyright>
  * <summary>
@@ -26,18 +26,20 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ImagePropertiesResponse
+ * IgsProperties
  */
 
 namespace Aspose\CAD\Model;
+
+use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ImagePropertiesResponse
+ * IgsProperties
  *
- * @description Represents properties of the image.
+ * @description Represents information about IGS drawing.
  */
-class ImagePropertiesResponse extends SaaSposeResponse 
+class IgsProperties implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +48,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      *
      * @var string
      */
-    protected static $swaggerModelName = "ImagePropertiesResponse";
+    protected static $swaggerModelName = "IgsProperties";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -73,7 +75,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -83,7 +85,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -122,7 +124,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -132,7 +134,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -142,7 +144,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -159,6 +161,12 @@ class ImagePropertiesResponse extends SaaSposeResponse
 
     
 
+    /*
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /*
      * Constructor
@@ -168,8 +176,6 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
     }
 
     /*
@@ -179,7 +185,7 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -192,9 +198,6 @@ class ImagePropertiesResponse extends SaaSposeResponse
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         return true;
     }

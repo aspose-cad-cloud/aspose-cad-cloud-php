@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PostImageSaveAsRequest.php">
+ * <copyright company="Aspose" file="PostDrawingSvgRequest.php">
  *   Copyright (c) 2018 Aspose.Cad for Cloud
  * </copyright>
  * <summary>
@@ -29,27 +29,27 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for postImageSaveAs operation.
+ * Request model for postDrawingSvg operation.
  */
-class PostImageSaveAsRequest
+class PostDrawingSvgRequest
 {
     /*
-     * Input drawing
+     * Filename of an input drawing on a storage.
      */
-    public $drawing_data;
+    public $name;
 	
     /*
-     * Output file format. Valid Formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * Export SVG options passed as a JSON on a request body.
      */
-    public $format;
+    public $options;
 	
     /*
-     * The raster options as Base64 string.
+     * Folder with a drawing to process.
      */
-    public $raster_options;
+    public $folder;
 	
     /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public $out_path;
 	
@@ -60,76 +60,76 @@ class PostImageSaveAsRequest
     
 	
     /*
-     * Initializes a new instance of the PostImageSaveAsRequest class.
+     * Initializes a new instance of the PostDrawingSvgRequest class.
      *  
-     * @param \SplFileObject $drawing_data Input drawing
-     * @param string $format Output file format. Valid Formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
-     * @param string $raster_options The raster options as Base64 string.
-     * @param string $out_path Path to updated file, if this is empty, response contains streamed image.
+     * @param string $name Filename of an input drawing on a storage.
+     * @param \Aspose\CAD\Model\SvgOptionsDTO $options Export SVG options passed as a JSON on a request body.
+     * @param string $folder Folder with a drawing to process.
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
      * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($drawing_data, $format, $raster_options = null, $out_path = null, $storage = null)             
+    public function __construct($name, $options = null, $folder = null, $out_path = null, $storage = null)             
     {
-        $this->drawing_data = $drawing_data;
-        $this->format = $format;
-        $this->raster_options = $raster_options;
+        $this->name = $name;
+        $this->options = $options;
+        $this->folder = $folder;
         $this->out_path = $out_path;
         $this->storage = $storage;
     }
 
     /*
-     * Input drawing
+     * Filename of an input drawing on a storage.
      */
-    public function get_drawing_data()
+    public function get_name()
     {
-        return $this->drawing_data;
+        return $this->name;
     }
 
     /*
-     * Input drawing
+     * Filename of an input drawing on a storage.
      */
-    public function set_drawing_data($value)
+    public function set_name($value)
     {
-        $this->drawing_data = $value;
+        $this->name = $value;
         return $this;
     }
 	
     /*
-     * Output file format. Valid Formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * Export SVG options passed as a JSON on a request body.
      */
-    public function get_format()
+    public function get_options()
     {
-        return $this->format;
+        return $this->options;
     }
 
     /*
-     * Output file format. Valid Formats: BMP, PNG, JPG, JPEG, JPEG2000, TIF, TIFF, PSD, GIF, PDF, WMF.
+     * Export SVG options passed as a JSON on a request body.
      */
-    public function set_format($value)
+    public function set_options($value)
     {
-        $this->format = $value;
+        $this->options = $value;
         return $this;
     }
 	
     /*
-     * The raster options as Base64 string.
+     * Folder with a drawing to process.
      */
-    public function get_raster_options()
+    public function get_folder()
     {
-        return $this->raster_options;
+        return $this->folder;
     }
 
     /*
-     * The raster options as Base64 string.
+     * Folder with a drawing to process.
      */
-    public function set_raster_options($value)
+    public function set_folder($value)
     {
-        $this->raster_options = $value;
+        $this->folder = $value;
         return $this;
     }
 	
     /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public function get_out_path()
     {
@@ -137,7 +137,7 @@ class PostImageSaveAsRequest
     }
 
     /*
-     * Path to updated file, if this is empty, response contains streamed image.
+     * Path to updated file (if this is empty, response contains streamed image).
      */
     public function set_out_path($value)
     {

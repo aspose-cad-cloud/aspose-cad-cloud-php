@@ -97,11 +97,11 @@ class Configuration
     protected $host = 'https://api.aspose.cloud';
 	
     /*
-     * Version of API to use, possible values are v1, v1.1, v2, v3
+     * Version of API to use, possible values are v1, v1.1, v2.0, v3.0
      * default value is v1
      * @var string
      */
-    protected $base_path = "v1";
+    protected $base_path = "v3.0";
 
     /*
      * User agent of the HTTP request, set to "PHP-Swagger" by default
@@ -135,7 +135,7 @@ class Configuration
      * Version of Aspose.Cad Cloud API
      *
      */
-    protected $clientVersion = '19.2';
+    protected $clientVersion = '19.9';
 
     /*
      * Constructor
@@ -522,7 +522,7 @@ class Configuration
         $report  = 'PHP SDK (Aspose\CAD) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 17.11' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 3.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

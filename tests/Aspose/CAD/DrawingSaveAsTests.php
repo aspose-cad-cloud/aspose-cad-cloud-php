@@ -37,8 +37,8 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostImageSaveAsRequest.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetImageSaveAsRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PutDrawingSaveAsRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetDrawingSaveAsRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
 class DrawingSaveAsTests extends BaseTestContext
@@ -62,9 +62,9 @@ class DrawingSaveAsTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostImageSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->postImageSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->putDrawingSaveAsWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
@@ -87,14 +87,14 @@ class DrawingSaveAsTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetImageSaveAsRequest($remoteName, $outputFormat, null, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingSaveAsRequest($remoteName, $outputFormat, $folder=trim(self::$baseRemoteFolder . $subfolder), null, null);
 
-        list($response, $code, $headers) = $this->CAD->getImageSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->getDrawingSaveAsWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 }
 
-//$test = new DrawingSaveAsTests();
-//$test->setUp();
+$test = new DrawingSaveAsTests();
+$test->setUp();
 //$test->testPostDrawingSaveAs();
-//$test->testGetDrawingSaveAs();
+$test->testGetDrawingSaveAs();

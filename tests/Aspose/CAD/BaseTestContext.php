@@ -40,6 +40,7 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
 {
     protected $CAD;
 
+    protected $defaultStorageName = "CAD-QA";
     protected $storage;
 
     protected static $relativeRootPath = "/../../../";
@@ -55,19 +56,39 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->config = new Configuration();
-        $creds = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__  . self::$relativeRootPath . "Settings/servercreds.json")), true);
+        $creds = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath . "serverAccess.json")), true);
+
+        if (!$this->endsWith($creds["BaseURL"], "/")) {
+            $creds["BaseURL"] = $creds["BaseURL"] . "/";
+        }
+
         /*
          * To run with your own credentials please, replace parameter in methods 'setAppKey' and 'setAppSid' accordingly to your's AppSid and AppKey
          */
         $this->config->setAppKey($creds["AppKey"]);
         $this->config->setAppSid($creds["AppSid"]);
         $this->config->setHost($creds["BaseURL"]);
-        //$this->config->setDebug(true);
+        $this->config->setDebug(true);
 
-        $this->CAD = new CADApi(null, $this->config);
+        $this->CAD = new CadApi(null, $this->config);
+
+        if ($creds["Storage"]) {
+            $this->defaultStorageName = $creds["Storage"];
+        }
 
         $this->storage = new StorageApi();
-        $this->storage->getConfig()->setAppKey($creds["AppKey"])->setAppSid($creds["AppSid"])->setHost($creds["BaseURL"]);
+        $this->storage->getConfig()
+                      ->setAppKey($creds["AppKey"])
+                      ->setAppSid($creds["AppSid"])
+                      ->setHost($creds["BaseURL"]);
+
+        $existsRequest = new \Aspose\Storage\Model\Requests\GetIsExistRequest(self::$baseRemoteFolder);
+        $isExistResponse = $this->storage->getIsExist($existsRequest);
+
+        if (!$isExistResponse->getFileExist()) {
+            $createDirRequest = new \Aspose\Storage\Model\Requests\PutCreateFolderRequest(self::$baseRemoteFolder);
+            $this->storage->putCreateFolder($createDirRequest);
+        }
     }
 
     /*
@@ -84,5 +105,11 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
     public function get_storage()
     {
         return $this->storage;
+    }
+
+    private function endsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        return (substr($haystack, -$length) === $needle);
     }
 }

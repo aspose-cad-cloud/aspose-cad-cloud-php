@@ -37,8 +37,8 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostChangeImageScaleRequest.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetChangeImageScaleRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PutDrawingResizeRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetDrawingResizeRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
 class DrawingScaleTests extends BaseTestContext
@@ -62,9 +62,9 @@ class DrawingScaleTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostChangeImageScaleRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PutDrawingResizeRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->postChangeImageScaleWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->putDrawingResizeWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
@@ -87,9 +87,9 @@ class DrawingScaleTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetChangeImageScaleRequest($remoteName, $outputFormat, 320, 240, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingResizeRequest($remoteName, $outputFormat, 320, 240, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
 
-        list($response, $code, $headers) = $this->CAD->getChangeImageScaleWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->getDrawingResizeWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="SaaSposeResponse.php">
+ * <copyright company="Aspose" file="ImageOptionsBaseDTO.php">
  *   Copyright (c) 2018 Aspose.Cad for Cloud
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * SaaSposeResponse
+ * ImageOptionsBaseDTO
  */
 
 namespace Aspose\CAD\Model;
@@ -35,11 +35,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * SaaSposeResponse
+ * ImageOptionsBaseDTO
  *
- * @description Base class for all responses.
+ * @description Image options base class
  */
-class SaaSposeResponse implements ArrayAccess
+class ImageOptionsBaseDTO implements ArrayAccess
 {
     const DISCRIMINATOR = 'Type';
 
@@ -48,7 +48,7 @@ class SaaSposeResponse implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "SaaSposeResponse";
+    protected static $swaggerModelName = "ImageOptionsBaseDTO";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,10 @@ class SaaSposeResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'status' => 'string'
+        'rotation' => 'string',
+        'layers' => 'string[]',
+        'resolution_settings' => '\Aspose\CAD\Model\ResolutionSetting',
+        'vector_rasterization_options' => '\Aspose\CAD\Model\CadRasterizationOptionsDTO'
     ];
 
     /*
@@ -66,8 +68,10 @@ class SaaSposeResponse implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'code' => null,
-        'status' => null
+        'rotation' => null,
+        'layers' => null,
+        'resolution_settings' => null,
+        'vector_rasterization_options' => null
     ];
 
     /*
@@ -97,8 +101,10 @@ class SaaSposeResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'Code',
-        'status' => 'Status'
+        'rotation' => 'Rotation',
+        'layers' => 'Layers',
+        'resolution_settings' => 'ResolutionSettings',
+        'vector_rasterization_options' => 'VectorRasterizationOptions'
     ];
 
     /*
@@ -107,8 +113,10 @@ class SaaSposeResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'status' => 'setStatus'
+        'rotation' => 'setRotation',
+        'layers' => 'setLayers',
+        'resolution_settings' => 'setResolutionSettings',
+        'vector_rasterization_options' => 'setVectorRasterizationOptions'
     ];
 
     /*
@@ -117,8 +125,10 @@ class SaaSposeResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'status' => 'getStatus'
+        'rotation' => 'getRotation',
+        'layers' => 'getLayers',
+        'resolution_settings' => 'getResolutionSettings',
+        'vector_rasterization_options' => 'getVectorRasterizationOptions'
     ];
 
     /*
@@ -162,53 +172,22 @@ class SaaSposeResponse implements ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const CODE__CONTINUE = 'Continue';
-    const CODE_SWITCHING_PROTOCOLS = 'SwitchingProtocols';
-    const CODE_OK = 'OK';
-    const CODE_CREATED = 'Created';
-    const CODE_ACCEPTED = 'Accepted';
-    const CODE_NON_AUTHORITATIVE_INFORMATION = 'NonAuthoritativeInformation';
-    const CODE_NO_CONTENT = 'NoContent';
-    const CODE_RESET_CONTENT = 'ResetContent';
-    const CODE_PARTIAL_CONTENT = 'PartialContent';
-    const CODE_MULTIPLE_CHOICES = 'MultipleChoices';
-    const CODE_AMBIGUOUS = 'Ambiguous';
-    const CODE_MOVED_PERMANENTLY = 'MovedPermanently';
-    const CODE_MOVED = 'Moved';
-    const CODE_FOUND = 'Found';
-    const CODE_REDIRECT = 'Redirect';
-    const CODE_SEE_OTHER = 'SeeOther';
-    const CODE_REDIRECT_METHOD = 'RedirectMethod';
-    const CODE_NOT_MODIFIED = 'NotModified';
-    const CODE_USE_PROXY = 'UseProxy';
-    const CODE_UNUSED = 'Unused';
-    const CODE_TEMPORARY_REDIRECT = 'TemporaryRedirect';
-    const CODE_REDIRECT_KEEP_VERB = 'RedirectKeepVerb';
-    const CODE_BAD_REQUEST = 'BadRequest';
-    const CODE_UNAUTHORIZED = 'Unauthorized';
-    const CODE_PAYMENT_REQUIRED = 'PaymentRequired';
-    const CODE_FORBIDDEN = 'Forbidden';
-    const CODE_NOT_FOUND = 'NotFound';
-    const CODE_METHOD_NOT_ALLOWED = 'MethodNotAllowed';
-    const CODE_NOT_ACCEPTABLE = 'NotAcceptable';
-    const CODE_PROXY_AUTHENTICATION_REQUIRED = 'ProxyAuthenticationRequired';
-    const CODE_REQUEST_TIMEOUT = 'RequestTimeout';
-    const CODE_CONFLICT = 'Conflict';
-    const CODE_GONE = 'Gone';
-    const CODE_LENGTH_REQUIRED = 'LengthRequired';
-    const CODE_PRECONDITION_FAILED = 'PreconditionFailed';
-    const CODE_REQUEST_ENTITY_TOO_LARGE = 'RequestEntityTooLarge';
-    const CODE_REQUEST_URI_TOO_LONG = 'RequestUriTooLong';
-    const CODE_UNSUPPORTED_MEDIA_TYPE = 'UnsupportedMediaType';
-    const CODE_REQUESTED_RANGE_NOT_SATISFIABLE = 'RequestedRangeNotSatisfiable';
-    const CODE_EXPECTATION_FAILED = 'ExpectationFailed';
-    const CODE_UPGRADE_REQUIRED = 'UpgradeRequired';
-    const CODE_INTERNAL_SERVER_ERROR = 'InternalServerError';
-    const CODE_NOT_IMPLEMENTED = 'NotImplemented';
-    const CODE_BAD_GATEWAY = 'BadGateway';
-    const CODE_SERVICE_UNAVAILABLE = 'ServiceUnavailable';
-    const CODE_GATEWAY_TIMEOUT = 'GatewayTimeout';
-    const CODE_HTTP_VERSION_NOT_SUPPORTED = 'HttpVersionNotSupported';
+    const ROTATION_ROTATE_NONE_FLIP_NONE = 'RotateNoneFlipNone';
+    const ROTATION_ROTATE90_FLIP_NONE = 'Rotate90FlipNone';
+    const ROTATION_ROTATE180_FLIP_NONE = 'Rotate180FlipNone';
+    const ROTATION_ROTATE270_FLIP_NONE = 'Rotate270FlipNone';
+    const ROTATION_ROTATE_NONE_FLIP_X = 'RotateNoneFlipX';
+    const ROTATION_ROTATE90_FLIP_X = 'Rotate90FlipX';
+    const ROTATION_ROTATE180_FLIP_X = 'Rotate180FlipX';
+    const ROTATION_ROTATE270_FLIP_X = 'Rotate270FlipX';
+    const ROTATION_ROTATE_NONE_FLIP_Y = 'RotateNoneFlipY';
+    const ROTATION_ROTATE90_FLIP_Y = 'Rotate90FlipY';
+    const ROTATION_ROTATE180_FLIP_Y = 'Rotate180FlipY';
+    const ROTATION_ROTATE270_FLIP_Y = 'Rotate270FlipY';
+    const ROTATION_ROTATE_NONE_FLIP_XY = 'RotateNoneFlipXY';
+    const ROTATION_ROTATE90_FLIP_XY = 'Rotate90FlipXY';
+    const ROTATION_ROTATE180_FLIP_XY = 'Rotate180FlipXY';
+    const ROTATION_ROTATE270_FLIP_XY = 'Rotate270FlipXY';
     
 
     
@@ -217,56 +196,25 @@ class SaaSposeResponse implements ArrayAccess
      *
      * @return string[]
      */
-    public function getCodeAllowableValues()
+    public function getRotationAllowableValues()
     {
         return [
-            self::CODE__CONTINUE,
-            self::CODE_SWITCHING_PROTOCOLS,
-            self::CODE_OK,
-            self::CODE_CREATED,
-            self::CODE_ACCEPTED,
-            self::CODE_NON_AUTHORITATIVE_INFORMATION,
-            self::CODE_NO_CONTENT,
-            self::CODE_RESET_CONTENT,
-            self::CODE_PARTIAL_CONTENT,
-            self::CODE_MULTIPLE_CHOICES,
-            self::CODE_AMBIGUOUS,
-            self::CODE_MOVED_PERMANENTLY,
-            self::CODE_MOVED,
-            self::CODE_FOUND,
-            self::CODE_REDIRECT,
-            self::CODE_SEE_OTHER,
-            self::CODE_REDIRECT_METHOD,
-            self::CODE_NOT_MODIFIED,
-            self::CODE_USE_PROXY,
-            self::CODE_UNUSED,
-            self::CODE_TEMPORARY_REDIRECT,
-            self::CODE_REDIRECT_KEEP_VERB,
-            self::CODE_BAD_REQUEST,
-            self::CODE_UNAUTHORIZED,
-            self::CODE_PAYMENT_REQUIRED,
-            self::CODE_FORBIDDEN,
-            self::CODE_NOT_FOUND,
-            self::CODE_METHOD_NOT_ALLOWED,
-            self::CODE_NOT_ACCEPTABLE,
-            self::CODE_PROXY_AUTHENTICATION_REQUIRED,
-            self::CODE_REQUEST_TIMEOUT,
-            self::CODE_CONFLICT,
-            self::CODE_GONE,
-            self::CODE_LENGTH_REQUIRED,
-            self::CODE_PRECONDITION_FAILED,
-            self::CODE_REQUEST_ENTITY_TOO_LARGE,
-            self::CODE_REQUEST_URI_TOO_LONG,
-            self::CODE_UNSUPPORTED_MEDIA_TYPE,
-            self::CODE_REQUESTED_RANGE_NOT_SATISFIABLE,
-            self::CODE_EXPECTATION_FAILED,
-            self::CODE_UPGRADE_REQUIRED,
-            self::CODE_INTERNAL_SERVER_ERROR,
-            self::CODE_NOT_IMPLEMENTED,
-            self::CODE_BAD_GATEWAY,
-            self::CODE_SERVICE_UNAVAILABLE,
-            self::CODE_GATEWAY_TIMEOUT,
-            self::CODE_HTTP_VERSION_NOT_SUPPORTED,
+            self::ROTATION_ROTATE_NONE_FLIP_NONE,
+            self::ROTATION_ROTATE90_FLIP_NONE,
+            self::ROTATION_ROTATE180_FLIP_NONE,
+            self::ROTATION_ROTATE270_FLIP_NONE,
+            self::ROTATION_ROTATE_NONE_FLIP_X,
+            self::ROTATION_ROTATE90_FLIP_X,
+            self::ROTATION_ROTATE180_FLIP_X,
+            self::ROTATION_ROTATE270_FLIP_X,
+            self::ROTATION_ROTATE_NONE_FLIP_Y,
+            self::ROTATION_ROTATE90_FLIP_Y,
+            self::ROTATION_ROTATE180_FLIP_Y,
+            self::ROTATION_ROTATE270_FLIP_Y,
+            self::ROTATION_ROTATE_NONE_FLIP_XY,
+            self::ROTATION_ROTATE90_FLIP_XY,
+            self::ROTATION_ROTATE180_FLIP_XY,
+            self::ROTATION_ROTATE270_FLIP_XY,
         ];
     }
     
@@ -286,8 +234,10 @@ class SaaSposeResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['rotation'] = isset($data['rotation']) ? $data['rotation'] : null;
+        $this->container['layers'] = isset($data['layers']) ? $data['layers'] : null;
+        $this->container['resolution_settings'] = isset($data['resolution_settings']) ? $data['resolution_settings'] : null;
+        $this->container['vector_rasterization_options'] = isset($data['vector_rasterization_options']) ? $data['vector_rasterization_options'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -303,13 +253,13 @@ class SaaSposeResponse implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['rotation'] === null) {
+            $invalidProperties[] = "'rotation' can't be null";
         }
-        $allowedValues = $this->getCodeAllowableValues();
-        if (!in_array($this->container['code'], $allowedValues)) {
+        $allowedValues = $this->getRotationAllowableValues();
+        if (!in_array($this->container['rotation'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'code', must be one of '%s'",
+                "invalid value for 'rotation', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -326,11 +276,11 @@ class SaaSposeResponse implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['code'] === null) {
+        if ($this->container['rotation'] === null) {
             return false;
         }
-        $allowedValues = $this->getCodeAllowableValues();
-        if (!in_array($this->container['code'], $allowedValues)) {
+        $allowedValues = $this->getRotationAllowableValues();
+        if (!in_array($this->container['rotation'], $allowedValues)) {
             return false;
         }
         return true;
@@ -338,54 +288,102 @@ class SaaSposeResponse implements ArrayAccess
 
 
     /*
-     * Gets code
+     * Gets rotation
      *
      * @return string
      */
-    public function getCode()
+    public function getRotation()
     {
-        return $this->container['code'];
+        return $this->container['rotation'];
     }
 
     /*
-     * Sets code
+     * Sets rotation
      *
-     * @param string $code Gets or sets the response status code.
+     * @param string $rotation Resulting rotation operation
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setRotation($rotation)
     {
-        $allowedValues = $this->getCodeAllowableValues();
-        if ((!is_numeric($code) && !in_array($code, $allowedValues)) || (is_numeric($code) && !in_array($allowedValues[$code], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'code', must be one of '%s'", implode("', '", $allowedValues)));
+        $allowedValues = $this->getRotationAllowableValues();
+        if ((!is_numeric($rotation) && !in_array($rotation, $allowedValues)) || (is_numeric($rotation) && !in_array($allowedValues[$rotation], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'rotation', must be one of '%s'", implode("', '", $allowedValues)));
         }
 			
-        $this->container['code'] = $code;
+        $this->container['rotation'] = $rotation;
 
         return $this;
     }
 
     /*
-     * Gets status
+     * Gets layers
      *
-     * @return string
+     * @return string[]
      */
-    public function getStatus()
+    public function getLayers()
     {
-        return $this->container['status'];
+        return $this->container['layers'];
     }
 
     /*
-     * Sets status
+     * Sets layers
      *
-     * @param string $status Gets or sets response status.
+     * @param string[] $layers Layers to export
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setLayers($layers)
     {
-        $this->container['status'] = $status;
+        $this->container['layers'] = $layers;
+
+        return $this;
+    }
+
+    /*
+     * Gets resolution_settings
+     *
+     * @return \Aspose\CAD\Model\ResolutionSetting
+     */
+    public function getResolutionSettings()
+    {
+        return $this->container['resolution_settings'];
+    }
+
+    /*
+     * Sets resolution_settings
+     *
+     * @param \Aspose\CAD\Model\ResolutionSetting $resolution_settings DPI resolution settings
+     *
+     * @return $this
+     */
+    public function setResolutionSettings($resolution_settings)
+    {
+        $this->container['resolution_settings'] = $resolution_settings;
+
+        return $this;
+    }
+
+    /*
+     * Gets vector_rasterization_options
+     *
+     * @return \Aspose\CAD\Model\CadRasterizationOptionsDTO
+     */
+    public function getVectorRasterizationOptions()
+    {
+        return $this->container['vector_rasterization_options'];
+    }
+
+    /*
+     * Sets vector_rasterization_options
+     *
+     * @param \Aspose\CAD\Model\CadRasterizationOptionsDTO $vector_rasterization_options Raster options
+     *
+     * @return $this
+     */
+    public function setVectorRasterizationOptions($vector_rasterization_options)
+    {
+        $this->container['vector_rasterization_options'] = $vector_rasterization_options;
 
         return $this;
     }

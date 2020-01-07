@@ -37,7 +37,7 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetImagePropertiesRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetDrawingPropertiesRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
 class DrawingPropertiesTests extends BaseTestContext
@@ -59,9 +59,9 @@ class DrawingPropertiesTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetImagePropertiesRequest($remoteName);
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName);
 
-        list($response, $code, $headers) = $this->CAD->getImagePropertiesWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->getDrawingPropertiesWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 }

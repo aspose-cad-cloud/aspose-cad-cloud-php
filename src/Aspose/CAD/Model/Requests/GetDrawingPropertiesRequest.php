@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetImagePropertiesRequest.php">
+ * <copyright company="Aspose" file="GetDrawingPropertiesRequest.php">
  *   Copyright (c) 2018 Aspose.Cad for Cloud
  * </copyright>
  * <summary>
@@ -29,32 +29,32 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for getImageProperties operation.
+ * Request model for getDrawingProperties operation.
  */
-class GetImagePropertiesRequest
+class GetDrawingPropertiesRequest
 {
     /*
-     * The image name.
+     * Filename of an input drawing on a storage.
      */
     public $name;
 	
     /*
-     * Original drawing folder.
+     * Folder with a drawing to get properties for.
      */
     public $folder;
 	
     /*
-     * File storage, which has to be used.
+     * Your Aspose Cloud Storage name.
      */
     public $storage;
     
 	
     /*
-     * Initializes a new instance of the GetImagePropertiesRequest class.
+     * Initializes a new instance of the GetDrawingPropertiesRequest class.
      *  
-     * @param string $name The image name.
-     * @param string $folder Original drawing folder.
-     * @param string $storage File storage, which has to be used.
+     * @param string $name Filename of an input drawing on a storage.
+     * @param string $folder Folder with a drawing to get properties for.
+     * @param string $storage Your Aspose Cloud Storage name.
      */
     public function __construct($name, $folder = null, $storage = null)             
     {
@@ -64,7 +64,7 @@ class GetImagePropertiesRequest
     }
 
     /*
-     * The image name.
+     * Filename of an input drawing on a storage.
      */
     public function get_name()
     {
@@ -72,7 +72,7 @@ class GetImagePropertiesRequest
     }
 
     /*
-     * The image name.
+     * Filename of an input drawing on a storage.
      */
     public function set_name($value)
     {
@@ -81,7 +81,7 @@ class GetImagePropertiesRequest
     }
 	
     /*
-     * Original drawing folder.
+     * Folder with a drawing to get properties for.
      */
     public function get_folder()
     {
@@ -89,7 +89,7 @@ class GetImagePropertiesRequest
     }
 
     /*
-     * Original drawing folder.
+     * Folder with a drawing to get properties for.
      */
     public function set_folder($value)
     {
@@ -98,7 +98,7 @@ class GetImagePropertiesRequest
     }
 	
     /*
-     * File storage, which has to be used.
+     * Your Aspose Cloud Storage name.
      */
     public function get_storage()
     {
@@ -106,7 +106,7 @@ class GetImagePropertiesRequest
     }
 
     /*
-     * File storage, which has to be used.
+     * Your Aspose Cloud Storage name.
      */
     public function set_storage($value)
     {
