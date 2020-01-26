@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BmpOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use \Aspose\CAD\ObjectSerializer;
  *
  * @description Export options for BMP format
  */
-class BmpOptionsDTO extends ImageOptionsBaseDTO 
+class BmpOptionsDTO extends DrawingOptionsBaseDTO 
 {
     const DISCRIMINATOR = null;
 

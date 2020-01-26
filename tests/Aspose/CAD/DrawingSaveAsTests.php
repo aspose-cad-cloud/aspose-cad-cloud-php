@@ -2,7 +2,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DrawingSaveAsTests.php">
-*   Copyright (c) 2017 Aspose.CAD for Cloud
+*   Copyright (c) 2017 Aspose.CAD Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PutDrawingSaveAsRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostDrawingSaveAsRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetDrawingSaveAsRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
@@ -64,7 +64,7 @@ class DrawingSaveAsTests extends BaseTestContext
 
         $request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->putDrawingSaveAsWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->postDrawingSaveAsWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
@@ -94,7 +94,7 @@ class DrawingSaveAsTests extends BaseTestContext
     }
 }
 
-$test = new DrawingSaveAsTests();
-$test->setUp();
+//$test = new DrawingSaveAsTests();
+//$test->setUp();
 //$test->testPostDrawingSaveAs();
-$test->testGetDrawingSaveAs();
+//$test->testGetDrawingSaveAs();

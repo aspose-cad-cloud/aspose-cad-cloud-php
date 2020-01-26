@@ -2,7 +2,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DrawingPropertiesTests.php">
-*   Copyright (c) 2017 Aspose.CAD for Cloud
+*   Copyright (c) 2017 Aspose.CAD Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,7 +59,7 @@ class DrawingPropertiesTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName);
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName, self::$baseRemoteFolder);
 
         list($response, $code, $headers) = $this->CAD->getDrawingPropertiesWithHttpInfo($request);
         Assert::assertEquals(200, $code);

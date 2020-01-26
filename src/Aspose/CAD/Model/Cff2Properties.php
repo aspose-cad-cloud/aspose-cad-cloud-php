@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="Jpeg2000OptionsDTO.php">
+ * <copyright company="Aspose" file="Cff2Properties.php">
  *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
@@ -26,18 +26,20 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * Jpeg2000OptionsDTO
+ * Cff2Properties
  */
 
 namespace Aspose\CAD\Model;
+
+use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * Jpeg2000OptionsDTO
+ * Cff2Properties
  *
- * @description Export options for JPEG2000 format
+ * @description Represents information about CFF2 drawing.
  */
-class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO 
+class Cff2Properties implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +48,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      *
      * @var string
      */
-    protected static $swaggerModelName = "Jpeg2000OptionsDTO";
+    protected static $swaggerModelName = "Cff2Properties";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -54,8 +56,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'comments' => 'string[]',
-        'codec' => 'string'
+        
     ];
 
     /*
@@ -64,8 +65,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'comments' => null,
-        'codec' => null
+        
     ];
 
     /*
@@ -75,7 +75,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /*
@@ -85,7 +85,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /*
@@ -95,8 +95,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $attributeMap = [
-        'comments' => 'Comments',
-        'codec' => 'Codec'
+        
     ];
 
     /*
@@ -105,8 +104,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $setters = [
-        'comments' => 'setComments',
-        'codec' => 'setCodec'
+        
     ];
 
     /*
@@ -115,8 +113,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $getters = [
-        'comments' => 'getComments',
-        'codec' => 'getCodec'
+        
     ];
 
     /*
@@ -127,7 +124,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /*
@@ -137,7 +134,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /*
@@ -147,7 +144,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /*
@@ -160,27 +157,16 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const CODEC_J2_K = 'J2K';
-    const CODEC_JP2 = 'Jp2';
-    const CODEC_JPT = 'Jpt';
     
 
     
+
     /*
-     * Gets allowable values of the enum
+     * Associative array for storing property values
      *
-     * @return string[]
+     * @var mixed[]
      */
-    public function getCodecAllowableValues()
-    {
-        return [
-            self::CODEC_J2_K,
-            self::CODEC_JP2,
-            self::CODEC_JPT,
-        ];
-    }
-    
-
+    protected $container = [];
 
     /*
      * Constructor
@@ -190,10 +176,6 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
-        $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
     }
 
     /*
@@ -203,18 +185,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['codec'] === null) {
-            $invalidProperties[] = "'codec' can't be null";
-        }
-        $allowedValues = $this->getCodecAllowableValues();
-        if (!in_array($this->container['codec'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'codec', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -227,73 +198,10 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['codec'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getCodecAllowableValues();
-        if (!in_array($this->container['codec'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
-
-    /*
-     * Gets comments
-     *
-     * @return string[]
-     */
-    public function getComments()
-    {
-        return $this->container['comments'];
-    }
-
-    /*
-     * Sets comments
-     *
-     * @param string[] $comments comments
-     *
-     * @return $this
-     */
-    public function setComments($comments)
-    {
-        $this->container['comments'] = $comments;
-
-        return $this;
-    }
-
-    /*
-     * Gets codec
-     *
-     * @return string
-     */
-    public function getCodec()
-    {
-        return $this->container['codec'];
-    }
-
-    /*
-     * Sets codec
-     *
-     * @param string $codec codec
-     *
-     * @return $this
-     */
-    public function setCodec($codec)
-    {
-        $allowedValues = $this->getCodecAllowableValues();
-        if ((!is_numeric($codec) && !in_array($codec, $allowedValues)) || (is_numeric($codec) && !in_array($allowedValues[$codec], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'codec', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
-        $this->container['codec'] = $codec;
-
-        return $this;
-    }
     /*
      * Returns true if offset exists. False otherwise.
      *

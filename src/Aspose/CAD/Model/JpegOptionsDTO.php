@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="JpegOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use \Aspose\CAD\ObjectSerializer;
  *
  * @description Export options for JPEG format
  */
-class JpegOptionsDTO extends ImageOptionsBaseDTO 
+class JpegOptionsDTO extends DrawingOptionsBaseDTO 
 {
     const DISCRIMINATOR = null;
 
@@ -320,7 +320,7 @@ class JpegOptionsDTO extends ImageOptionsBaseDTO
     /*
      * Sets comment
      *
-     * @param string $comment Comment to resulting image
+     * @param string $comment Comment to Resulting file
      *
      * @return $this
      */

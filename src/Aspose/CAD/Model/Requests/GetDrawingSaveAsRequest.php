@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDrawingSaveAsRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ class GetDrawingSaveAsRequest
     public $name;
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public $output_format;
 	
@@ -49,7 +49,7 @@ class GetDrawingSaveAsRequest
     public $folder;
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
 	
@@ -63,9 +63,9 @@ class GetDrawingSaveAsRequest
      * Initializes a new instance of the GetDrawingSaveAsRequest class.
      *  
      * @param string $name Filename of an input drawing on a storage.
-     * @param string $output_format Resulting image format.
+     * @param string $output_format Resulting file format.
      * @param string $folder Folder with a drawing to process.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
      */
     public function __construct($name, $output_format, $folder = null, $out_path = null, $storage = null)             
@@ -95,7 +95,7 @@ class GetDrawingSaveAsRequest
     }
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function get_output_format()
     {
@@ -103,7 +103,7 @@ class GetDrawingSaveAsRequest
     }
 
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function set_output_format($value)
     {
@@ -129,7 +129,7 @@ class GetDrawingSaveAsRequest
     }
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -137,7 +137,7 @@ class GetDrawingSaveAsRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {

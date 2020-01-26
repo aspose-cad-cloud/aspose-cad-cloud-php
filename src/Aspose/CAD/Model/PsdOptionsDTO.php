@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PsdOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use \Aspose\CAD\ObjectSerializer;
  *
  * @description Export options for PSD format
  */
-class PsdOptionsDTO extends ImageOptionsBaseDTO 
+class PsdOptionsDTO extends DrawingOptionsBaseDTO 
 {
     const DISCRIMINATOR = null;
 

@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostDrawingWmfRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,7 +49,7 @@ class PostDrawingWmfRequest
     public $folder;
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
 	
@@ -65,10 +65,10 @@ class PostDrawingWmfRequest
      * @param string $name Filename of an input drawing on a storage.
      * @param \Aspose\CAD\Model\WmfOptionsDTO $options Export WMF options passed as a JSON on a request body.
      * @param string $folder Folder with a drawing to process.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($name, $options = null, $folder = null, $out_path = null, $storage = null)             
+    public function __construct($name, $options, $folder = null, $out_path = null, $storage = null)             
     {
         $this->name = $name;
         $this->options = $options;
@@ -129,7 +129,7 @@ class PostDrawingWmfRequest
     }
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -137,7 +137,7 @@ class PostDrawingWmfRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {

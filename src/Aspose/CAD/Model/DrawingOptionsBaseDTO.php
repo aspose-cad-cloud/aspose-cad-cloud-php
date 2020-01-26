@@ -1,8 +1,8 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ImageOptionsBaseDTO.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ * <copyright company="Aspose" file="DrawingOptionsBaseDTO.php">
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ImageOptionsBaseDTO
+ * DrawingOptionsBaseDTO
  */
 
 namespace Aspose\CAD\Model;
@@ -35,11 +35,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ImageOptionsBaseDTO
+ * DrawingOptionsBaseDTO
  *
  * @description Image options base class
  */
-class ImageOptionsBaseDTO implements ArrayAccess
+class DrawingOptionsBaseDTO implements ArrayAccess
 {
     const DISCRIMINATOR = 'Type';
 
@@ -48,7 +48,7 @@ class ImageOptionsBaseDTO implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ImageOptionsBaseDTO";
+    protected static $swaggerModelName = "DrawingOptionsBaseDTO";
 
     /*
      * Array of property to type mappings. Used for (de)serialization

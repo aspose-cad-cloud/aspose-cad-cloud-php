@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="WmfOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use \Aspose\CAD\ObjectSerializer;
  *
  * @description Export options for WMF format
  */
-class WmfOptionsDTO extends ImageOptionsBaseDTO 
+class WmfOptionsDTO extends DrawingOptionsBaseDTO 
 {
     const DISCRIMINATOR = null;
 
@@ -220,7 +220,7 @@ class WmfOptionsDTO extends ImageOptionsBaseDTO
     /*
      * Sets bits_per_pixel
      *
-     * @param int $bits_per_pixel Bits per pixel for resulting image
+     * @param int $bits_per_pixel Bits per pixel for Resulting file
      *
      * @return $this
      */

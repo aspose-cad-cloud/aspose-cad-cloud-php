@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CadResponse.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use \Aspose\CAD\ObjectSerializer;
 /*
  * CadResponse
  *
- * @description Represents information about image.
+ * @description Represents information about a drawing.
  */
 class CadResponse implements ArrayAccess
 {
@@ -65,7 +65,8 @@ class CadResponse implements ArrayAccess
         'ifc_properties' => '\Aspose\CAD\Model\IfcProperties',
         'igs_properties' => '\Aspose\CAD\Model\IgsProperties',
         'stl_properties' => '\Aspose\CAD\Model\StlProperties',
-        'dwf_properties' => '\Aspose\CAD\Model\DwfProperties'
+        'dwf_properties' => '\Aspose\CAD\Model\DwfProperties',
+        'cff2_properties' => '\Aspose\CAD\Model\Cff2Properties'
     ];
 
     /*
@@ -83,7 +84,8 @@ class CadResponse implements ArrayAccess
         'ifc_properties' => null,
         'igs_properties' => null,
         'stl_properties' => null,
-        'dwf_properties' => null
+        'dwf_properties' => null,
+        'cff2_properties' => null
     ];
 
     /*
@@ -122,7 +124,8 @@ class CadResponse implements ArrayAccess
         'ifc_properties' => 'IfcProperties',
         'igs_properties' => 'IgsProperties',
         'stl_properties' => 'StlProperties',
-        'dwf_properties' => 'DwfProperties'
+        'dwf_properties' => 'DwfProperties',
+        'cff2_properties' => 'Cff2Properties'
     ];
 
     /*
@@ -140,7 +143,8 @@ class CadResponse implements ArrayAccess
         'ifc_properties' => 'setIfcProperties',
         'igs_properties' => 'setIgsProperties',
         'stl_properties' => 'setStlProperties',
-        'dwf_properties' => 'setDwfProperties'
+        'dwf_properties' => 'setDwfProperties',
+        'cff2_properties' => 'setCff2Properties'
     ];
 
     /*
@@ -158,7 +162,8 @@ class CadResponse implements ArrayAccess
         'ifc_properties' => 'getIfcProperties',
         'igs_properties' => 'getIgsProperties',
         'stl_properties' => 'getStlProperties',
-        'dwf_properties' => 'getDwfProperties'
+        'dwf_properties' => 'getDwfProperties',
+        'cff2_properties' => 'getCff2Properties'
     ];
 
     /*
@@ -231,6 +236,7 @@ class CadResponse implements ArrayAccess
         $this->container['igs_properties'] = isset($data['igs_properties']) ? $data['igs_properties'] : null;
         $this->container['stl_properties'] = isset($data['stl_properties']) ? $data['stl_properties'] : null;
         $this->container['dwf_properties'] = isset($data['dwf_properties']) ? $data['dwf_properties'] : null;
+        $this->container['cff2_properties'] = isset($data['cff2_properties']) ? $data['cff2_properties'] : null;
     }
 
     /*
@@ -283,7 +289,7 @@ class CadResponse implements ArrayAccess
     /*
      * Sets height
      *
-     * @param int $height Gets or sets the height of image.
+     * @param int $height Gets or sets the height of a drawing.
      *
      * @return $this
      */
@@ -307,7 +313,7 @@ class CadResponse implements ArrayAccess
     /*
      * Sets width
      *
-     * @param int $width Gets or sets the width of image.
+     * @param int $width Gets or sets the width of a drawing.
      *
      * @return $this
      */
@@ -506,6 +512,30 @@ class CadResponse implements ArrayAccess
     public function setDwfProperties($dwf_properties)
     {
         $this->container['dwf_properties'] = $dwf_properties;
+
+        return $this;
+    }
+
+    /*
+     * Gets cff2_properties
+     *
+     * @return \Aspose\CAD\Model\Cff2Properties
+     */
+    public function getCff2Properties()
+    {
+        return $this->container['cff2_properties'];
+    }
+
+    /*
+     * Sets cff2_properties
+     *
+     * @param \Aspose\CAD\Model\Cff2Properties $cff2_properties Gets or sets the CFF2 properties.
+     *
+     * @return $this
+     */
+    public function setCff2Properties($cff2_properties)
+    {
+        $this->container['cff2_properties'] = $cff2_properties;
 
         return $this;
     }

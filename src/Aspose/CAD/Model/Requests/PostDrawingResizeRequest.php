@@ -1,8 +1,8 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PutDrawingResizeRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ * <copyright company="Aspose" file="PostDrawingResizeRequest.php">
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,9 +29,9 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for putDrawingResize operation.
+ * Request model for postDrawingResize operation.
  */
-class PutDrawingResizeRequest
+class PostDrawingResizeRequest
 {
     /*
      * Input drawing
@@ -39,7 +39,7 @@ class PutDrawingResizeRequest
     public $drawing_data;
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public $output_format;
 	
@@ -54,7 +54,7 @@ class PutDrawingResizeRequest
     public $new_height;
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
 	
@@ -65,13 +65,13 @@ class PutDrawingResizeRequest
     
 	
     /*
-     * Initializes a new instance of the PutDrawingResizeRequest class.
+     * Initializes a new instance of the PostDrawingResizeRequest class.
      *  
      * @param \SplFileObject $drawing_data Input drawing
-     * @param string $output_format Resulting image format.
+     * @param string $output_format Resulting file format.
      * @param int $new_width New width.
      * @param int $new_height New height.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
      */
     public function __construct($drawing_data, $output_format, $new_width, $new_height, $out_path = null, $storage = null)             
@@ -102,7 +102,7 @@ class PutDrawingResizeRequest
     }
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function get_output_format()
     {
@@ -110,7 +110,7 @@ class PutDrawingResizeRequest
     }
 
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function set_output_format($value)
     {
@@ -153,7 +153,7 @@ class PutDrawingResizeRequest
     }
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -161,7 +161,7 @@ class PutDrawingResizeRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {

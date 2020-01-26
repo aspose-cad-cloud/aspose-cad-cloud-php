@@ -2,7 +2,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DrawingRotateFlipTests.php">
-*   Copyright (c) 2017 Aspose.CAD for Cloud
+*   Copyright (c) 2017 Aspose.CAD Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PutDrawingRotateFlipRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostDrawingRotateFlipRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetDrawingRotateFlipRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
@@ -49,7 +49,7 @@ class DrawingRotateFlipTests extends BaseTestContext
      * Rotates, flips drawing and retrieves result on a response.
      *
      */
-    public function testPutDrawingRotateFlip()
+    public function testPostDrawingRotateFlip()
     {
         $localName = "910609.dxf";
         $outputFormat = "pdf";
@@ -62,9 +62,9 @@ class DrawingRotateFlipTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PutDrawingRotateFlipRequest($file, $outputFormat, 'Rotate180FlipXY', $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostDrawingRotateFlipRequest($file, $outputFormat, 'Rotate180FlipXY', $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->putDrawingRotateFlipWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->postDrawingRotateFlipWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
@@ -87,7 +87,7 @@ class DrawingRotateFlipTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetDrawingRotateFlipRequest($remoteName, $outputFormat, 'RotateNoneFlipX', null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingRotateFlipRequest($remoteName, $outputFormat, 'RotateNoneFlipX', $folder=trim(self::$baseRemoteFolder . $subfolder));
 
         list($response, $code, $headers) = $this->CAD->getDrawingRotateFlipWithHttpInfo($request);
         Assert::assertEquals(200, $code);

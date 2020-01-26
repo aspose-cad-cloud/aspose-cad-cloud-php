@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDrawingRotateFlipRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ class GetDrawingRotateFlipRequest
     public $name;
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public $output_format;
 	
@@ -54,7 +54,7 @@ class GetDrawingRotateFlipRequest
     public $folder;
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
 	
@@ -68,10 +68,10 @@ class GetDrawingRotateFlipRequest
      * Initializes a new instance of the GetDrawingRotateFlipRequest class.
      *  
      * @param string $name Filename of a drawing.
-     * @param string $output_format Resulting image format.
+     * @param string $output_format Resulting file format.
      * @param string $rotate_flip_type Rotate/flip operation to apply.
      * @param string $folder Folder with a drawing to process.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
      */
     public function __construct($name, $output_format, $rotate_flip_type, $folder = null, $out_path = null, $storage = null)             
@@ -102,7 +102,7 @@ class GetDrawingRotateFlipRequest
     }
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function get_output_format()
     {
@@ -110,7 +110,7 @@ class GetDrawingRotateFlipRequest
     }
 
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function set_output_format($value)
     {
@@ -153,7 +153,7 @@ class GetDrawingRotateFlipRequest
     }
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -161,7 +161,7 @@ class GetDrawingRotateFlipRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {

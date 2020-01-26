@@ -1,8 +1,8 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PutDrawingPropertiesRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ * <copyright company="Aspose" file="PostDrawingPropertiesRequest.php">
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,9 +29,9 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for putDrawingProperties operation.
+ * Request model for postDrawingProperties operation.
  */
-class PutDrawingPropertiesRequest
+class PostDrawingPropertiesRequest
 {
     /*
      * Input drawing
@@ -40,7 +40,7 @@ class PutDrawingPropertiesRequest
     
 	
     /*
-     * Initializes a new instance of the PutDrawingPropertiesRequest class.
+     * Initializes a new instance of the PostDrawingPropertiesRequest class.
      *  
      * @param \SplFileObject $drawing_data Input drawing
      */

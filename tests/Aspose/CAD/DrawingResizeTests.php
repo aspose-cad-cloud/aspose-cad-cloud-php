@@ -2,7 +2,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="DrawingScaleTests.php">
-*   Copyright (c) 2017 Aspose.CAD for Cloud
+*   Copyright (c) 2017 Aspose.CAD Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PutDrawingResizeRequest.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/PostDrawingResizeRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Model/Requests/GetDrawingResizeRequest.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "tests/Aspose/CAD/BaseTestContext.php";
 
@@ -49,7 +49,7 @@ class DrawingScaleTests extends BaseTestContext
      * Scales drawing to a specified size retrieves result on a response
      *
      */
-    public function testPostDrawingScale()
+    public function testPostDrawingResize()
     {
         $localName = "910609.dxf";
         $outputFormat = "pdf";
@@ -62,9 +62,9 @@ class DrawingScaleTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PutDrawingResizeRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostDrawingResizeRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
-        list($response, $code, $headers) = $this->CAD->putDrawingResizeWithHttpInfo($request);
+        list($response, $code, $headers) = $this->CAD->postDrawingResizeWithHttpInfo($request);
         Assert::assertEquals(200, $code);
     }
 
@@ -74,7 +74,7 @@ class DrawingScaleTests extends BaseTestContext
      * Scales drawing to a specified size and saves result to storage.
      *
      */
-    public function testGetDrawingScale()
+    public function testGetDrawingResize()
     {
         $localName = "galeon.stl";
         $outputFormat = "jpg";
@@ -87,7 +87,7 @@ class DrawingScaleTests extends BaseTestContext
         $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetDrawingResizeRequest($remoteName, $outputFormat, 320, 240, null, null, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingResizeRequest($remoteName, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder));
 
         list($response, $code, $headers) = $this->CAD->getDrawingResizeWithHttpInfo($request);
         Assert::assertEquals(200, $code);

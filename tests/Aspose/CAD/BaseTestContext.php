@@ -2,7 +2,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="BaseTestContext.php">
-*   Copyright (c) 2017 Aspose.CAD for Cloud
+*   Copyright (c) 2017 Aspose.CAD Cloud
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Configuration.php";
 
 use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
-use Aspose\CAD\CADApi;
+use Aspose\CAD\CadApi;
+use GuzzleHttp\Client;
+use DirectoryIterator;
 
 class BaseTestContext extends \PHPUnit_Framework_TestCase
 {
@@ -58,8 +60,8 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $this->config = new Configuration();
         $creds = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath . "serverAccess.json")), true);
 
-        if (!$this->endsWith($creds["BaseURL"], "/")) {
-            $creds["BaseURL"] = $creds["BaseURL"] . "/";
+        if ($this->endsWith($creds["BaseURL"], "/")) {
+            $creds["BaseURL"] = substr($creds["BaseURL"], 0, -1);
         }
 
         /*
@@ -68,9 +70,20 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $this->config->setAppKey($creds["AppKey"]);
         $this->config->setAppSid($creds["AppSid"]);
         $this->config->setHost($creds["BaseURL"]);
-        $this->config->setDebug(true);
+        $this->config->setDebug(false);
 
-        $this->CAD = new CadApi(null, $this->config);
+        $useProxy = true;
+        $client = null;
+
+        if ($useProxy) {
+            $client = new Client([
+                'proxy' => 'http://localhost:8888'
+            ]);
+    
+            var_dump(openssl_get_cert_locations());            
+        }
+
+        $this->CAD = new CadApi($client, $this->config);
 
         if ($creds["Storage"]) {
             $this->defaultStorageName = $creds["Storage"];
@@ -85,10 +98,27 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $existsRequest = new \Aspose\Storage\Model\Requests\GetIsExistRequest(self::$baseRemoteFolder);
         $isExistResponse = $this->storage->getIsExist($existsRequest);
 
-        if (!$isExistResponse->getFileExist()) {
+        if (!$isExistResponse->getFileExist()->getIsExist()) {
             $createDirRequest = new \Aspose\Storage\Model\Requests\PutCreateFolderRequest(self::$baseRemoteFolder);
             $this->storage->putCreateFolder($createDirRequest);
         }
+
+        // upload all test files if not exist
+        $dir = new DirectoryIterator(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath));
+        foreach ($dir as $fileinfo) {
+            if (!$fileinfo->isDot() && $fileinfo->getFilename() != "serverAccess.json") {
+                $fileName = self::$baseRemoteFolder . $fileinfo->getFilename();
+                $existsRequest = new \Aspose\Storage\Model\Requests\GetIsExistRequest($fileName);
+                $isExistResponse = $this->storage->getIsExist($existsRequest);
+
+                if (!$isExistResponse->getFileExist()->getIsExist()) {
+                    $createFileRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fileName, $fileinfo->getPathname());
+                    $this->storage->putCreate($createFileRequest);
+                }
+            }
+        }
+
+        $creds = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath . "serverAccess.json")), true);
     }
 
     /*

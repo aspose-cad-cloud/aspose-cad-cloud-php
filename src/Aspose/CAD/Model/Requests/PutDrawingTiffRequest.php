@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutDrawingTiffRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +39,14 @@ class PutDrawingTiffRequest
     public $drawing_data;
 	
     /*
-     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
-     */
-    public $options;
-	
-    /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
+	
+    /*
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
+     */
+    public $export_options;
 	
     /*
      * Your Aspose Cloud Storage name.
@@ -58,15 +58,15 @@ class PutDrawingTiffRequest
      * Initializes a new instance of the PutDrawingTiffRequest class.
      *  
      * @param \SplFileObject $drawing_data Input drawing
-     * @param map[string,string] $options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
+     * @param string $export_options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
      * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($drawing_data, $options = null, $out_path = null, $storage = null)             
+    public function __construct($drawing_data, $out_path = null, $export_options = null, $storage = null)             
     {
         $this->drawing_data = $drawing_data;
-        $this->options = $options;
         $this->out_path = $out_path;
+        $this->export_options = $export_options;
         $this->storage = $storage;
     }
 
@@ -88,24 +88,7 @@ class PutDrawingTiffRequest
     }
 	
     /*
-     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
-     */
-    public function get_options()
-    {
-        return $this->options;
-    }
-
-    /*
-     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
-     */
-    public function set_options($value)
-    {
-        $this->options = $value;
-        return $this;
-    }
-	
-    /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -113,11 +96,28 @@ class PutDrawingTiffRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {
         $this->out_path = $value;
+        return $this;
+    }
+	
+    /*
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
+     */
+    public function get_export_options()
+    {
+        return $this->export_options;
+    }
+
+    /*
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/TiffOptionsDTO model definition.
+     */
+    public function set_export_options($value)
+    {
+        $this->export_options = $value;
         return $this;
     }
 	

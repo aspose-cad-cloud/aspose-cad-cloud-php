@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutDrawingGifRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,10 +41,10 @@ class PutDrawingGifRequest
     /*
      * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
      */
-    public $options;
+    public $export_options;
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
 	
@@ -58,14 +58,14 @@ class PutDrawingGifRequest
      * Initializes a new instance of the PutDrawingGifRequest class.
      *  
      * @param \SplFileObject $drawing_data Input drawing
-     * @param map[string,string] $options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $export_options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($drawing_data, $options = null, $out_path = null, $storage = null)             
+    public function __construct($drawing_data, $export_options = null, $out_path = null, $storage = null)             
     {
         $this->drawing_data = $drawing_data;
-        $this->options = $options;
+        $this->export_options = $export_options;
         $this->out_path = $out_path;
         $this->storage = $storage;
     }
@@ -90,22 +90,22 @@ class PutDrawingGifRequest
     /*
      * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
      */
-    public function get_options()
+    public function get_export_options()
     {
-        return $this->options;
+        return $this->export_options;
     }
 
     /*
      * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
      */
-    public function set_options($value)
+    public function set_export_options($value)
     {
-        $this->options = $value;
+        $this->export_options = $value;
         return $this;
     }
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -113,7 +113,7 @@ class PutDrawingGifRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {

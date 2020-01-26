@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CadApi.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use Aspose\CAD\Model\Requests;
 
 /*
- * CadApi Aspose.Cad for Cloud API.
+ * CadApi Aspose.CAD Cloud API.
  */
 class CadApi
 {
@@ -1525,6 +1525,10 @@ class CadApi
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingBmp');
         }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingBmp');
+        }
 
         $resourcePath = '/cad/{name}/bmp';
         $formParams = [];
@@ -1830,6 +1834,10 @@ class CadApi
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingGif');
+        }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingGif');
         }
 
         $resourcePath = '/cad/{name}/gif';
@@ -2137,6 +2145,10 @@ class CadApi
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingJpeg');
         }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingJpeg');
+        }
 
         $resourcePath = '/cad/{name}/jpeg';
         $formParams = [];
@@ -2442,6 +2454,10 @@ class CadApi
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingJpeg2000');
+        }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingJpeg2000');
         }
 
         $resourcePath = '/cad/{name}/jpeg2000';
@@ -2749,6 +2765,10 @@ class CadApi
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingPdf');
         }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingPdf');
+        }
 
         $resourcePath = '/cad/{name}/pdf';
         $formParams = [];
@@ -3055,6 +3075,10 @@ class CadApi
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingPng');
         }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingPng');
+        }
 
         $resourcePath = '/cad/{name}/png';
         $formParams = [];
@@ -3121,6 +3145,279 @@ class CadApi
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
                 ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = $formParams["data"];
+            }
+        }
+
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
+        }
+    
+        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+    
+        $req = new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath,
+            $headers,
+            $httpBody
+        );
+        if ($this->config->getDebug()) {
+            $this->_writeRequestLog('POST', $this->config->getHost() . $resourcePath, $headers, $httpBody);
+        }
+        
+        return $req;
+    }
+
+    /*
+     * Operation postDrawingProperties
+     *
+     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingPropertiesRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Aspose\CAD\Model\CadResponse
+     */
+    public function postDrawingProperties(Requests\postDrawingPropertiesRequest $request)
+    {
+        try {
+             list($response) = $this->postDrawingPropertiesWithHttpInfo($request);
+             return $response;
+        }
+        catch(RepeatRequestException $e) {
+             list($response) = $this->postDrawingPropertiesWithHttpInfo($request);
+             return $response;
+        } 
+    }
+
+    /*
+     * Operation postDrawingPropertiesWithHttpInfo
+     *
+     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingPropertiesRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Aspose\CAD\Model\CadResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postDrawingPropertiesWithHttpInfo(Requests\postDrawingPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\CAD\Model\CadResponse';
+        $request = $this->postDrawingPropertiesRequest($request);
+
+        try {
+            $options = $this->_createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                if ($statusCode === 401) {
+                    $this->_requestToken();
+                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                }
+          
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+            
+            if ($this->config->getDebug()) {
+                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\CAD\Model\CadResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            }
+            throw $e;
+        }
+    }
+
+    /*
+     * Operation postDrawingPropertiesAsync
+     *
+     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingPropertiesRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingPropertiesAsync(Requests\postDrawingPropertiesRequest $request) 
+    {
+        return $this->postDrawingPropertiesAsyncWithHttpInfo($request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /*
+     * Operation postDrawingPropertiesAsyncWithHttpInfo
+     *
+     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingPropertiesRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingPropertiesAsyncWithHttpInfo(Requests\postDrawingPropertiesRequest $request) 
+    {
+        $returnType = '\Aspose\CAD\Model\CadResponse';
+        $request = $this->postDrawingPropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($request, $this->_createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {        
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+          
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->_refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+          
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /*
+     * Create request for operation 'postDrawingProperties'
+     *
+     * @param Requests\postDrawingPropertiesRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postDrawingPropertiesRequest(Requests\postDrawingPropertiesRequest $request)
+    {
+        // verify the required parameter 'drawing_data' is set
+        if ($request->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling postDrawingProperties');
+        }
+
+        $resourcePath = '/cad/properties';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+    
+
+    
+    
+        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
+
+        // form params
+        if ($request->drawing_data !== null) {
+            $multipart = true;
+            $filename = ObjectSerializer::toFormValue($request->drawing_data);
+            $handle = fopen($filename, "rb");
+            $fsize = filesize($filename);
+            $contents = fread($handle, $fsize);
+            $formParams['drawing_data'] = $contents;
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -3361,6 +3658,10 @@ class CadApi
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingPsd');
         }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingPsd');
+        }
 
         $resourcePath = '/cad/{name}/psd';
         $formParams = [];
@@ -3427,6 +3728,964 @@ class CadApi
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
                 ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = $formParams["data"];
+            }
+        }
+
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
+        }
+    
+        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+    
+        $req = new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath,
+            $headers,
+            $httpBody
+        );
+        if ($this->config->getDebug()) {
+            $this->_writeRequestLog('POST', $this->config->getHost() . $resourcePath, $headers, $httpBody);
+        }
+        
+        return $req;
+    }
+
+    /*
+     * Operation postDrawingResize
+     *
+     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingResizeRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function postDrawingResize(Requests\postDrawingResizeRequest $request)
+    {
+        try {
+             list($response) = $this->postDrawingResizeWithHttpInfo($request);
+             return $response;
+        }
+        catch(RepeatRequestException $e) {
+             list($response) = $this->postDrawingResizeWithHttpInfo($request);
+             return $response;
+        } 
+    }
+
+    /*
+     * Operation postDrawingResizeWithHttpInfo
+     *
+     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingResizeRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postDrawingResizeWithHttpInfo(Requests\postDrawingResizeRequest $request)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->postDrawingResizeRequest($request);
+
+        try {
+            $options = $this->_createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                if ($statusCode === 401) {
+                    $this->_requestToken();
+                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                }
+          
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+            
+            if ($this->config->getDebug()) {
+                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            }
+            throw $e;
+        }
+    }
+
+    /*
+     * Operation postDrawingResizeAsync
+     *
+     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingResizeRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingResizeAsync(Requests\postDrawingResizeRequest $request) 
+    {
+        return $this->postDrawingResizeAsyncWithHttpInfo($request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /*
+     * Operation postDrawingResizeAsyncWithHttpInfo
+     *
+     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingResizeRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingResizeAsyncWithHttpInfo(Requests\postDrawingResizeRequest $request) 
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->postDrawingResizeRequest($request);
+
+        return $this->client
+            ->sendAsync($request, $this->_createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {        
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+          
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->_refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+          
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /*
+     * Create request for operation 'postDrawingResize'
+     *
+     * @param Requests\postDrawingResizeRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postDrawingResizeRequest(Requests\postDrawingResizeRequest $request)
+    {
+        // verify the required parameter 'drawing_data' is set
+        if ($request->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling postDrawingResize');
+        }
+        // verify the required parameter 'output_format' is set
+        if ($request->output_format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling postDrawingResize');
+        }
+        // verify the required parameter 'new_width' is set
+        if ($request->new_width === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $new_width when calling postDrawingResize');
+        }
+        // verify the required parameter 'new_height' is set
+        if ($request->new_height === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $new_height when calling postDrawingResize');
+        }
+
+        $resourcePath = '/cad/resize';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+    
+
+        // query params
+        if ($request->output_format !== null) {
+            $localName = lcfirst('outputFormat');
+            $localValue = is_bool($request->output_format) ? ($request->output_format ? 'true' : 'false') : $request->output_format;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->new_width !== null) {
+            $localName = lcfirst('newWidth');
+            $localValue = is_bool($request->new_width) ? ($request->new_width ? 'true' : 'false') : $request->new_width;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->new_height !== null) {
+            $localName = lcfirst('newHeight');
+            $localValue = is_bool($request->new_height) ? ($request->new_height ? 'true' : 'false') : $request->new_height;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->out_path !== null) {
+            $localName = lcfirst('outPath');
+            $localValue = is_bool($request->out_path) ? ($request->out_path ? 'true' : 'false') : $request->out_path;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->storage !== null) {
+            $localName = lcfirst('storage');
+            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
+
+        // form params
+        if ($request->drawing_data !== null) {
+            $multipart = true;
+            $filename = ObjectSerializer::toFormValue($request->drawing_data);
+            $handle = fopen($filename, "rb");
+            $fsize = filesize($filename);
+            $contents = fread($handle, $fsize);
+            $formParams['drawing_data'] = $contents;
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/octet-stream', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = $formParams["data"];
+            }
+        }
+
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
+        }
+    
+        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+    
+        $req = new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath,
+            $headers,
+            $httpBody
+        );
+        if ($this->config->getDebug()) {
+            $this->_writeRequestLog('POST', $this->config->getHost() . $resourcePath, $headers, $httpBody);
+        }
+        
+        return $req;
+    }
+
+    /*
+     * Operation postDrawingRotateFlip
+     *
+     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingRotateFlipRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function postDrawingRotateFlip(Requests\postDrawingRotateFlipRequest $request)
+    {
+        try {
+             list($response) = $this->postDrawingRotateFlipWithHttpInfo($request);
+             return $response;
+        }
+        catch(RepeatRequestException $e) {
+             list($response) = $this->postDrawingRotateFlipWithHttpInfo($request);
+             return $response;
+        } 
+    }
+
+    /*
+     * Operation postDrawingRotateFlipWithHttpInfo
+     *
+     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingRotateFlipRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postDrawingRotateFlipWithHttpInfo(Requests\postDrawingRotateFlipRequest $request)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->postDrawingRotateFlipRequest($request);
+
+        try {
+            $options = $this->_createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                if ($statusCode === 401) {
+                    $this->_requestToken();
+                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                }
+          
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+            
+            if ($this->config->getDebug()) {
+                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            }
+            throw $e;
+        }
+    }
+
+    /*
+     * Operation postDrawingRotateFlipAsync
+     *
+     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingRotateFlipRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingRotateFlipAsync(Requests\postDrawingRotateFlipRequest $request) 
+    {
+        return $this->postDrawingRotateFlipAsyncWithHttpInfo($request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /*
+     * Operation postDrawingRotateFlipAsyncWithHttpInfo
+     *
+     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingRotateFlipRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingRotateFlipAsyncWithHttpInfo(Requests\postDrawingRotateFlipRequest $request) 
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->postDrawingRotateFlipRequest($request);
+
+        return $this->client
+            ->sendAsync($request, $this->_createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {        
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+          
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->_refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+          
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /*
+     * Create request for operation 'postDrawingRotateFlip'
+     *
+     * @param Requests\postDrawingRotateFlipRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postDrawingRotateFlipRequest(Requests\postDrawingRotateFlipRequest $request)
+    {
+        // verify the required parameter 'drawing_data' is set
+        if ($request->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling postDrawingRotateFlip');
+        }
+        // verify the required parameter 'output_format' is set
+        if ($request->output_format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling postDrawingRotateFlip');
+        }
+        // verify the required parameter 'rotate_flip_type' is set
+        if ($request->rotate_flip_type === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rotate_flip_type when calling postDrawingRotateFlip');
+        }
+
+        $resourcePath = '/cad/rotateflip';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+    
+
+        // query params
+        if ($request->output_format !== null) {
+            $localName = lcfirst('outputFormat');
+            $localValue = is_bool($request->output_format) ? ($request->output_format ? 'true' : 'false') : $request->output_format;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->rotate_flip_type !== null) {
+            $localName = lcfirst('rotateFlipType');
+            $localValue = is_bool($request->rotate_flip_type) ? ($request->rotate_flip_type ? 'true' : 'false') : $request->rotate_flip_type;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->out_path !== null) {
+            $localName = lcfirst('outPath');
+            $localValue = is_bool($request->out_path) ? ($request->out_path ? 'true' : 'false') : $request->out_path;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->storage !== null) {
+            $localName = lcfirst('storage');
+            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
+
+        // form params
+        if ($request->drawing_data !== null) {
+            $multipart = true;
+            $filename = ObjectSerializer::toFormValue($request->drawing_data);
+            $handle = fopen($filename, "rb");
+            $fsize = filesize($filename);
+            $contents = fread($handle, $fsize);
+            $formParams['drawing_data'] = $contents;
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/octet-stream', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = $formParams["data"];
+            }
+        }
+
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
+        }
+    
+        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+    
+        $req = new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath,
+            $headers,
+            $httpBody
+        );
+        if ($this->config->getDebug()) {
+            $this->_writeRequestLog('POST', $this->config->getHost() . $resourcePath, $headers, $httpBody);
+        }
+        
+        return $req;
+    }
+
+    /*
+     * Operation postDrawingSaveAs
+     *
+     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingSaveAsRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject
+     */
+    public function postDrawingSaveAs(Requests\postDrawingSaveAsRequest $request)
+    {
+        try {
+             list($response) = $this->postDrawingSaveAsWithHttpInfo($request);
+             return $response;
+        }
+        catch(RepeatRequestException $e) {
+             list($response) = $this->postDrawingSaveAsWithHttpInfo($request);
+             return $response;
+        } 
+    }
+
+    /*
+     * Operation postDrawingSaveAsWithHttpInfo
+     *
+     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingSaveAsRequest $request is a request object for operation
+     *
+     * @throws \Aspose\CAD\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postDrawingSaveAsWithHttpInfo(Requests\postDrawingSaveAsRequest $request)
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->postDrawingSaveAsRequest($request);
+
+        try {
+            $options = $this->_createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                if ($statusCode === 401) {
+                    $this->_requestToken();
+                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                }
+          
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+            
+            if ($this->config->getDebug()) {
+                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            }
+            throw $e;
+        }
+    }
+
+    /*
+     * Operation postDrawingSaveAsAsync
+     *
+     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingSaveAsRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingSaveAsAsync(Requests\postDrawingSaveAsRequest $request) 
+    {
+        return $this->postDrawingSaveAsAsyncWithHttpInfo($request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /*
+     * Operation postDrawingSaveAsAsyncWithHttpInfo
+     *
+     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
+     *
+     * @param Requests\postDrawingSaveAsRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postDrawingSaveAsAsyncWithHttpInfo(Requests\postDrawingSaveAsRequest $request) 
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->postDrawingSaveAsRequest($request);
+
+        return $this->client
+            ->sendAsync($request, $this->_createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    
+                    if ($this->config->getDebug()) {
+                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {        
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+          
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->_refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+          
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /*
+     * Create request for operation 'postDrawingSaveAs'
+     *
+     * @param Requests\postDrawingSaveAsRequest $request is a request object for operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postDrawingSaveAsRequest(Requests\postDrawingSaveAsRequest $request)
+    {
+        // verify the required parameter 'drawing_data' is set
+        if ($request->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling postDrawingSaveAs');
+        }
+        // verify the required parameter 'output_format' is set
+        if ($request->output_format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling postDrawingSaveAs');
+        }
+
+        $resourcePath = '/cad/saveAs/{outputFormat}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = "";
+        $multipart = false;
+    
+        // path params
+        if ($request->output_format !== null) {
+            $localName = lcfirst('outputFormat');
+            $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($request->output_format), $resourcePath);
+        }
+
+        // query params
+        if ($request->out_path !== null) {
+            $localName = lcfirst('outPath');
+            $localValue = is_bool($request->out_path) ? ($request->out_path ? 'true' : 'false') : $request->out_path;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($request->storage !== null) {
+            $localName = lcfirst('storage');
+            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
+
+        // form params
+        if ($request->drawing_data !== null) {
+            $multipart = true;
+            $filename = ObjectSerializer::toFormValue($request->drawing_data);
+            $handle = fopen($filename, "rb");
+            $fsize = filesize($filename);
+            $contents = fread($handle, $fsize);
+            $formParams['drawing_data'] = $contents;
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/octet-stream', 'multipart/form-data']
             );
         }
 
@@ -3666,6 +4925,10 @@ class CadApi
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingSvg');
+        }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingSvg');
         }
 
         $resourcePath = '/cad/{name}/svg';
@@ -3973,6 +5236,10 @@ class CadApi
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingTiff');
         }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingTiff');
+        }
 
         $resourcePath = '/cad/{name}/tiff';
         $formParams = [];
@@ -4278,6 +5545,10 @@ class CadApi
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postDrawingWmf');
+        }
+        // verify the required parameter 'options' is set
+        if ($request->options === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $options when calling postDrawingWmf');
         }
 
         $resourcePath = '/cad/{name}/wmf';
@@ -4628,8 +5899,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -4641,7 +5912,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['application/octet-stream', 'multipart/form-data']
             );
         }
 
@@ -4925,8 +6196,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -4938,7 +6209,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -5222,8 +6493,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -5235,7 +6506,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -5519,8 +6790,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -5532,7 +6803,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -5816,8 +7087,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -5829,7 +7100,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -6113,281 +7384,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
-        }
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = $formParams["data"];
-            }
-        }
-
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
-        }
-    
-        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-    
-        $req = new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath,
-            $headers,
-            $httpBody
-        );
-        if ($this->config->getDebug()) {
-            $this->_writeRequestLog('PUT', $this->config->getHost() . $resourcePath, $headers, $httpBody);
-        }
-        
-        return $req;
-    }
-
-    /*
-     * Operation putDrawingProperties
-     *
-     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingPropertiesRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Aspose\CAD\Model\CadResponse
-     */
-    public function putDrawingProperties(Requests\putDrawingPropertiesRequest $request)
-    {
-        try {
-             list($response) = $this->putDrawingPropertiesWithHttpInfo($request);
-             return $response;
-        }
-        catch(RepeatRequestException $e) {
-             list($response) = $this->putDrawingPropertiesWithHttpInfo($request);
-             return $response;
-        } 
-    }
-
-    /*
-     * Operation putDrawingPropertiesWithHttpInfo
-     *
-     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingPropertiesRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Aspose\CAD\Model\CadResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function putDrawingPropertiesWithHttpInfo(Requests\putDrawingPropertiesRequest $request)
-    {
-        $returnType = '\Aspose\CAD\Model\CadResponse';
-        $request = $this->putDrawingPropertiesRequest($request);
-
-        try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                if ($statusCode === 401) {
-                    $this->_requestToken();
-                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                }
-          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-            
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\CAD\Model\CadResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
-        }
-    }
-
-    /*
-     * Operation putDrawingPropertiesAsync
-     *
-     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingPropertiesRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingPropertiesAsync(Requests\putDrawingPropertiesRequest $request) 
-    {
-        return $this->putDrawingPropertiesAsyncWithHttpInfo($request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /*
-     * Operation putDrawingPropertiesAsyncWithHttpInfo
-     *
-     * Retrieves info about drawing which is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingPropertiesRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingPropertiesAsyncWithHttpInfo(Requests\putDrawingPropertiesRequest $request) 
-    {
-        $returnType = '\Aspose\CAD\Model\CadResponse';
-        $request = $this->putDrawingPropertiesRequest($request);
-
-        return $this->client
-            ->sendAsync($request, $this->_createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    
-                    if ($this->config->getDebug()) {
-                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {        
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-          
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->_refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-          
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /*
-     * Create request for operation 'putDrawingProperties'
-     *
-     * @param Requests\putDrawingPropertiesRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function putDrawingPropertiesRequest(Requests\putDrawingPropertiesRequest $request)
-    {
-        // verify the required parameter 'drawing_data' is set
-        if ($request->drawing_data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putDrawingProperties');
-        }
-
-        $resourcePath = '/cad/properties';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = "";
-        $multipart = false;
-    
-
-    
-    
-        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
-
-        // form params
-        if ($request->drawing_data !== null) {
-            $multipart = true;
-            $filename = ObjectSerializer::toFormValue($request->drawing_data);
-            $handle = fopen($filename, "rb");
-            $fsize = filesize($filename);
-            $contents = fread($handle, $fsize);
-            $formParams['drawing_data'] = $contents;
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -6683,966 +7681,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
-        }
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = $formParams["data"];
-            }
-        }
-
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
-        }
-    
-        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-    
-        $req = new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath,
-            $headers,
-            $httpBody
-        );
-        if ($this->config->getDebug()) {
-            $this->_writeRequestLog('PUT', $this->config->getHost() . $resourcePath, $headers, $httpBody);
-        }
-        
-        return $req;
-    }
-
-    /*
-     * Operation putDrawingResize
-     *
-     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingResizeRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \SplFileObject
-     */
-    public function putDrawingResize(Requests\putDrawingResizeRequest $request)
-    {
-        try {
-             list($response) = $this->putDrawingResizeWithHttpInfo($request);
-             return $response;
-        }
-        catch(RepeatRequestException $e) {
-             list($response) = $this->putDrawingResizeWithHttpInfo($request);
-             return $response;
-        } 
-    }
-
-    /*
-     * Operation putDrawingResizeWithHttpInfo
-     *
-     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingResizeRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function putDrawingResizeWithHttpInfo(Requests\putDrawingResizeRequest $request)
-    {
-        $returnType = '\SplFileObject';
-        $request = $this->putDrawingResizeRequest($request);
-
-        try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                if ($statusCode === 401) {
-                    $this->_requestToken();
-                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                }
-          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-            
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
-        }
-    }
-
-    /*
-     * Operation putDrawingResizeAsync
-     *
-     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingResizeRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingResizeAsync(Requests\putDrawingResizeRequest $request) 
-    {
-        return $this->putDrawingResizeAsyncWithHttpInfo($request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /*
-     * Operation putDrawingResizeAsyncWithHttpInfo
-     *
-     * Resize a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingResizeRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingResizeAsyncWithHttpInfo(Requests\putDrawingResizeRequest $request) 
-    {
-        $returnType = '\SplFileObject';
-        $request = $this->putDrawingResizeRequest($request);
-
-        return $this->client
-            ->sendAsync($request, $this->_createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    
-                    if ($this->config->getDebug()) {
-                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {        
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-          
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->_refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-          
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /*
-     * Create request for operation 'putDrawingResize'
-     *
-     * @param Requests\putDrawingResizeRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function putDrawingResizeRequest(Requests\putDrawingResizeRequest $request)
-    {
-        // verify the required parameter 'drawing_data' is set
-        if ($request->drawing_data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putDrawingResize');
-        }
-        // verify the required parameter 'output_format' is set
-        if ($request->output_format === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling putDrawingResize');
-        }
-        // verify the required parameter 'new_width' is set
-        if ($request->new_width === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $new_width when calling putDrawingResize');
-        }
-        // verify the required parameter 'new_height' is set
-        if ($request->new_height === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $new_height when calling putDrawingResize');
-        }
-
-        $resourcePath = '/cad/resize';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = "";
-        $multipart = false;
-    
-
-        // query params
-        if ($request->output_format !== null) {
-            $localName = lcfirst('outputFormat');
-            $localValue = is_bool($request->output_format) ? ($request->output_format ? 'true' : 'false') : $request->output_format;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->new_width !== null) {
-            $localName = lcfirst('newWidth');
-            $localValue = is_bool($request->new_width) ? ($request->new_width ? 'true' : 'false') : $request->new_width;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->new_height !== null) {
-            $localName = lcfirst('newHeight');
-            $localValue = is_bool($request->new_height) ? ($request->new_height ? 'true' : 'false') : $request->new_height;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->out_path !== null) {
-            $localName = lcfirst('outPath');
-            $localValue = is_bool($request->out_path) ? ($request->out_path ? 'true' : 'false') : $request->out_path;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->storage !== null) {
-            $localName = lcfirst('storage');
-            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-    
-    
-        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
-
-        // form params
-        if ($request->drawing_data !== null) {
-            $multipart = true;
-            $filename = ObjectSerializer::toFormValue($request->drawing_data);
-            $handle = fopen($filename, "rb");
-            $fsize = filesize($filename);
-            $contents = fread($handle, $fsize);
-            $formParams['drawing_data'] = $contents;
-        }
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = $formParams["data"];
-            }
-        }
-
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
-        }
-    
-        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-    
-        $req = new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath,
-            $headers,
-            $httpBody
-        );
-        if ($this->config->getDebug()) {
-            $this->_writeRequestLog('PUT', $this->config->getHost() . $resourcePath, $headers, $httpBody);
-        }
-        
-        return $req;
-    }
-
-    /*
-     * Operation putDrawingRotateFlip
-     *
-     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingRotateFlipRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \SplFileObject
-     */
-    public function putDrawingRotateFlip(Requests\putDrawingRotateFlipRequest $request)
-    {
-        try {
-             list($response) = $this->putDrawingRotateFlipWithHttpInfo($request);
-             return $response;
-        }
-        catch(RepeatRequestException $e) {
-             list($response) = $this->putDrawingRotateFlipWithHttpInfo($request);
-             return $response;
-        } 
-    }
-
-    /*
-     * Operation putDrawingRotateFlipWithHttpInfo
-     *
-     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingRotateFlipRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function putDrawingRotateFlipWithHttpInfo(Requests\putDrawingRotateFlipRequest $request)
-    {
-        $returnType = '\SplFileObject';
-        $request = $this->putDrawingRotateFlipRequest($request);
-
-        try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                if ($statusCode === 401) {
-                    $this->_requestToken();
-                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                }
-          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-            
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
-        }
-    }
-
-    /*
-     * Operation putDrawingRotateFlipAsync
-     *
-     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingRotateFlipRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingRotateFlipAsync(Requests\putDrawingRotateFlipRequest $request) 
-    {
-        return $this->putDrawingRotateFlipAsyncWithHttpInfo($request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /*
-     * Operation putDrawingRotateFlipAsyncWithHttpInfo
-     *
-     * Rotate/flip a drawing. Drawing data is passed as a zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingRotateFlipRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingRotateFlipAsyncWithHttpInfo(Requests\putDrawingRotateFlipRequest $request) 
-    {
-        $returnType = '\SplFileObject';
-        $request = $this->putDrawingRotateFlipRequest($request);
-
-        return $this->client
-            ->sendAsync($request, $this->_createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    
-                    if ($this->config->getDebug()) {
-                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {        
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-          
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->_refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-          
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /*
-     * Create request for operation 'putDrawingRotateFlip'
-     *
-     * @param Requests\putDrawingRotateFlipRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function putDrawingRotateFlipRequest(Requests\putDrawingRotateFlipRequest $request)
-    {
-        // verify the required parameter 'drawing_data' is set
-        if ($request->drawing_data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putDrawingRotateFlip');
-        }
-        // verify the required parameter 'output_format' is set
-        if ($request->output_format === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling putDrawingRotateFlip');
-        }
-        // verify the required parameter 'rotate_flip_type' is set
-        if ($request->rotate_flip_type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $rotate_flip_type when calling putDrawingRotateFlip');
-        }
-
-        $resourcePath = '/cad/rotateflip';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = "";
-        $multipart = false;
-    
-
-        // query params
-        if ($request->output_format !== null) {
-            $localName = lcfirst('outputFormat');
-            $localValue = is_bool($request->output_format) ? ($request->output_format ? 'true' : 'false') : $request->output_format;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->rotate_flip_type !== null) {
-            $localName = lcfirst('rotateFlipType');
-            $localValue = is_bool($request->rotate_flip_type) ? ($request->rotate_flip_type ? 'true' : 'false') : $request->rotate_flip_type;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->out_path !== null) {
-            $localName = lcfirst('outPath');
-            $localValue = is_bool($request->out_path) ? ($request->out_path ? 'true' : 'false') : $request->out_path;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->storage !== null) {
-            $localName = lcfirst('storage');
-            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-    
-    
-        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
-
-        // form params
-        if ($request->drawing_data !== null) {
-            $multipart = true;
-            $filename = ObjectSerializer::toFormValue($request->drawing_data);
-            $handle = fopen($filename, "rb");
-            $fsize = filesize($filename);
-            $contents = fread($handle, $fsize);
-            $formParams['drawing_data'] = $contents;
-        }
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['multipart/form-data', 'application/octet-stream']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = $formParams["data"];
-            }
-        }
-
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
-        }
-    
-        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-    
-        $req = new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath,
-            $headers,
-            $httpBody
-        );
-        if ($this->config->getDebug()) {
-            $this->_writeRequestLog('PUT', $this->config->getHost() . $resourcePath, $headers, $httpBody);
-        }
-        
-        return $req;
-    }
-
-    /*
-     * Operation putDrawingSaveAs
-     *
-     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingSaveAsRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \SplFileObject
-     */
-    public function putDrawingSaveAs(Requests\putDrawingSaveAsRequest $request)
-    {
-        try {
-             list($response) = $this->putDrawingSaveAsWithHttpInfo($request);
-             return $response;
-        }
-        catch(RepeatRequestException $e) {
-             list($response) = $this->putDrawingSaveAsWithHttpInfo($request);
-             return $response;
-        } 
-    }
-
-    /*
-     * Operation putDrawingSaveAsWithHttpInfo
-     *
-     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingSaveAsRequest $request is a request object for operation
-     *
-     * @throws \Aspose\CAD\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function putDrawingSaveAsWithHttpInfo(Requests\putDrawingSaveAsRequest $request)
-    {
-        $returnType = '\SplFileObject';
-        $request = $this->putDrawingSaveAsRequest($request);
-
-        try {
-            $options = $this->_createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null);
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                if ($statusCode === 401) {
-                    $this->_requestToken();
-                    throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                }
-          
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-            
-            if ($this->config->getDebug()) {
-                $this->_writeResponseLog($statusCode, $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                break;
-            }
-            throw $e;
-        }
-    }
-
-    /*
-     * Operation putDrawingSaveAsAsync
-     *
-     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingSaveAsRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingSaveAsAsync(Requests\putDrawingSaveAsRequest $request) 
-    {
-        return $this->putDrawingSaveAsAsyncWithHttpInfo($request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /*
-     * Operation putDrawingSaveAsAsyncWithHttpInfo
-     *
-     * Export existing drawing to another format. Drawing data is passed as zero-indexed multipart/form-data content or as raw body stream.
-     *
-     * @param Requests\putDrawingSaveAsRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function putDrawingSaveAsAsyncWithHttpInfo(Requests\putDrawingSaveAsRequest $request) 
-    {
-        $returnType = '\SplFileObject';
-        $request = $this->putDrawingSaveAsRequest($request);
-
-        return $this->client
-            ->sendAsync($request, $this->_createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    
-                    if ($this->config->getDebug()) {
-                        $this->_writeResponseLog($response->getStatusCode(), $response->getHeaders(), ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {        
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-          
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->_refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-          
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /*
-     * Create request for operation 'putDrawingSaveAs'
-     *
-     * @param Requests\putDrawingSaveAsRequest $request is a request object for operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function putDrawingSaveAsRequest(Requests\putDrawingSaveAsRequest $request)
-    {
-        // verify the required parameter 'drawing_data' is set
-        if ($request->drawing_data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putDrawingSaveAs');
-        }
-        // verify the required parameter 'output_format' is set
-        if ($request->output_format === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling putDrawingSaveAs');
-        }
-
-        $resourcePath = '/cad/saveAs/{outputFormat}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = "";
-        $multipart = false;
-    
-        // path params
-        if ($request->output_format !== null) {
-            $localName = lcfirst('outputFormat');
-            $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($request->output_format), $resourcePath);
-        }
-
-        // query params
-        if ($request->out_path !== null) {
-            $localName = lcfirst('outPath');
-            $localValue = is_bool($request->out_path) ? ($request->out_path ? 'true' : 'false') : $request->out_path;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-        // query params
-        if ($request->storage !== null) {
-            $localName = lcfirst('storage');
-            $localValue = is_bool($request->storage) ? ($request->storage ? 'true' : 'false') : $request->storage;
-            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
-                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
-            } else {
-                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
-            }
-        }
-    
-    
-        $resourcePath = $this->_parseURL($resourcePath, $queryParams);
-
-        // form params
-        if ($request->drawing_data !== null) {
-            $multipart = true;
-            $filename = ObjectSerializer::toFormValue($request->drawing_data);
-            $handle = fopen($filename, "rb");
-            $fsize = filesize($filename);
-            $contents = fread($handle, $fsize);
-            $formParams['drawing_data'] = $contents;
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -7938,8 +7978,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -7951,7 +7991,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -8235,8 +8275,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -8248,7 +8288,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -8532,8 +8572,8 @@ class CadApi
             $formParams['drawing_data'] = $contents;
         }
         // form params
-        if ($request->options !== null) {
-            $formParams['options'] = ObjectSerializer::toFormValue($request->options);
+        if ($request->export_options !== null) {
+            $formParams['export_options'] = ObjectSerializer::toFormValue($request->export_options);
         }
         // body params
         $_tempBody = null;
@@ -8545,7 +8585,7 @@ class CadApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/octet-stream']
             );
         }
 
@@ -8666,7 +8706,7 @@ class CadApi
          $UrlToSign = trim($url, "/");
          $urlQuery = http_build_query($queryParams);
  
-         $urlPartToSign = $this->config->getBasePath() .  "/" . parse_url($UrlToSign, PHP_URL_PATH) . "?" . $urlQuery;
+         $urlPartToSign = "/" . $this->config->getBasePath() .  "/" . parse_url($UrlToSign, PHP_URL_PATH) . "?" . $urlQuery;
         
         return $urlPartToSign;
     }
@@ -8676,12 +8716,11 @@ class CadApi
      */
     private function _requestToken() 
     {
-        $requestUrl = $this->config->getHost() . "/oauth2/token";
+        $requestUrl = $this->config->getHost() . "/connect/token";
         $postData = "grant_type=client_credentials" . "&client_id=" . $this->config->getAppSid() . "&client_secret=" . $this->config->getAppKey();
-        $response = $this->client->send(new Request('POST', $requestUrl, [], $postData));
+        $response = $this->client->send(new Request('POST', $requestUrl, [ 'Content-Type' => 'application/x-www-form-urlencoded' ], $postData));
         $result = json_decode($response->getBody()->getContents(), true);
         $this->config->setAccessToken($result["access_token"]);
-        $this->config->setRefreshToken($result["refresh_token"]);
     }
   
     /*
@@ -8689,7 +8728,7 @@ class CadApi
      */
     private function _refreshToken() 
     {
-        $requestUrl = $this->config->getHost() . "/oauth2/token";
+        $requestUrl = $this->config->getHost() . "/connect/token";
         $postData = "grant_type=refresh_token&refresh_token=" . $this->config->getRefreshToken();
         $response = $this->client->send(new Request('POST', $requestUrl, [], $postData));
         $result = json_decode($response->getBody()->getContents(), true);

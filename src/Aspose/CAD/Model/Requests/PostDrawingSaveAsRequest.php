@@ -1,8 +1,8 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PutDrawingSaveAsRequest.php">
- *   Copyright (c) 2018 Aspose.Cad for Cloud
+ * <copyright company="Aspose" file="PostDrawingSaveAsRequest.php">
+ *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,9 +29,9 @@
 namespace Aspose\CAD\Model\Requests;
 
 /*
- * Request model for putDrawingSaveAs operation.
+ * Request model for postDrawingSaveAs operation.
  */
-class PutDrawingSaveAsRequest
+class PostDrawingSaveAsRequest
 {
     /*
      * Input drawing
@@ -39,12 +39,12 @@ class PutDrawingSaveAsRequest
     public $drawing_data;
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public $output_format;
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public $out_path;
 	
@@ -55,11 +55,11 @@ class PutDrawingSaveAsRequest
     
 	
     /*
-     * Initializes a new instance of the PutDrawingSaveAsRequest class.
+     * Initializes a new instance of the PostDrawingSaveAsRequest class.
      *  
      * @param \SplFileObject $drawing_data Input drawing
-     * @param string $output_format Resulting image format.
-     * @param string $out_path Path to updated file (if this is empty, response contains streamed image).
+     * @param string $output_format Resulting file format.
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
      */
     public function __construct($drawing_data, $output_format, $out_path = null, $storage = null)             
@@ -88,7 +88,7 @@ class PutDrawingSaveAsRequest
     }
 	
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function get_output_format()
     {
@@ -96,7 +96,7 @@ class PutDrawingSaveAsRequest
     }
 
     /*
-     * Resulting image format.
+     * Resulting file format.
      */
     public function set_output_format($value)
     {
@@ -105,7 +105,7 @@ class PutDrawingSaveAsRequest
     }
 	
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function get_out_path()
     {
@@ -113,7 +113,7 @@ class PutDrawingSaveAsRequest
     }
 
     /*
-     * Path to updated file (if this is empty, response contains streamed image).
+     * Path to updated file (if this is empty, response contains streamed file).
      */
     public function set_out_path($value)
     {
