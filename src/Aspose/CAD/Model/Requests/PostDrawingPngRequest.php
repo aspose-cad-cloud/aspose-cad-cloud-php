@@ -1,4 +1,5 @@
 <?php
+
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostDrawingPngRequest.php">
@@ -161,4 +162,4 @@ class PostDrawingPngRequest
         $this->storage = $value;
         return $this;
     }
-}
+}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDrawingRotateFlipRequest.php">
@@ -185,4 +186,4 @@ class GetDrawingRotateFlipRequest
         $this->storage = $value;
         return $this;
     }
-}
+}

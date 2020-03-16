@@ -1,4 +1,5 @@
 <?php
+
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostDrawingWmfRequest.php">
@@ -161,4 +162,4 @@ class PostDrawingWmfRequest
         $this->storage = $value;
         return $this;
     }
-}
+}

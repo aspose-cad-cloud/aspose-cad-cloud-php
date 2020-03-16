@@ -1,4 +1,5 @@
 <?php
+
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDrawingSaveAsRequest.php">
@@ -161,4 +162,4 @@ class GetDrawingSaveAsRequest
         $this->storage = $value;
         return $this;
     }
-}
+}
