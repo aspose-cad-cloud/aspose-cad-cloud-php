@@ -1,19 +1,48 @@
 {
-    "description": 	"This repository contains Aspose Cloud SDK for PHP source code. Aspose Cloud SDK for PHP lets PHP developers convert and process a variety of file formats in the cloud quickly and easily.",
-    "name": 		"aspose-cloud/php-sdk",
-    "type": 		"library",
-    "keycad" : 	["aspose", "php", "aspose cloud"],
-	"license": 		"MIT",
+    "description":     "Aspose.CAD Cloud PHP SDK",
+    "name":         "aspose/aspose-cad-cloud",
+    "type":         "library",
+    "version":         "19.11",
+    "keywords" :     [
+        "Aspose",
+        "CAD",
+        "Cloud",
+        "REST",
+        "API",
+        "SDK",
+        "drawing",
+        "DWG",
+        "DXF",
+        "DWF",
+        "DWT",
+        "STL",
+        "IGS",
+        "DGN",
+        "OBJ",
+        "CF2",
+        "image",
+        "bmp",
+        "gif",
+        "jpg",
+        "jpeg",
+        "jpeg2000",
+        "jp2",
+        "j2k",
+        "png",
+        "psd",
+        "tiff",
+        "tif",
+        "wmf",
+        "svg",
+        "export",
+        "conversion"],
+    "license":         "MIT",
     "homepage": "https://github.com/aspose-cad-cloud/aspose-cad-cloud-php",
     "authors": [
         {
-            "name": "YaroslawEkimov",
-			"homepage": "https://github.com/aspose-cad-cloud"
-        },
-		{
-            "name": "IvanovJohnAspose",
-			"homepage": "https://github.com/aspose-cad-cloud"
-		}
+            "name": "Aspose.CAD Cloud",
+            "homepage": "https://github.com/aspose-cad-cloud"
+        }
     ],
 	"config": {
         "platform": {

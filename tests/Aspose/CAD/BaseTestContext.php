@@ -72,12 +72,12 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $this->config->setHost($creds["BaseURL"]);
         $this->config->setDebug(false);
 
-        $useProxy = true;
+        $useProxy = array_key_exists("Proxy", $creds);
         $client = null;
 
         if ($useProxy) {
             $client = new Client([
-                'proxy' => 'http://localhost:8888'
+                'proxy' => $creds["Proxy"]
             ]);
     
             var_dump(openssl_get_cert_locations());            
@@ -93,7 +93,8 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $this->storage->getConfig()
                       ->setAppKey($creds["AppKey"])
                       ->setAppSid($creds["AppSid"])
-                      ->setHost($creds["BaseURL"]);
+                      ->setHost($creds["BaseURL"])
+                      ->setDebug(false);
 
         $existsRequest = new \Aspose\Storage\Model\Requests\GetIsExistRequest(self::$baseRemoteFolder);
         $isExistResponse = $this->storage->getIsExist($existsRequest);
