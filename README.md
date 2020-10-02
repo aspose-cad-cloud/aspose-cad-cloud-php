@@ -1,4 +1,4 @@
-# Aspose.cad Cloud PHP SDK
+# Aspose.CAD Cloud PHP SDK
 [Aspose.CAD Cloud](https://products.aspose.cloud/cad) is a true [REST API](https://apireference.aspose.cloud/cad/) that enables you to perform a wide range of drawing processing operations including manipulation, editing, conversion and export in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process images in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
 
 This repository contains [Aspose.CAD Cloud PHP SDK](https://products.aspose.cloud/cad/php) source code which is written in PHP. This SDK allows you to work with Aspose.CAD Cloud REST APIs in your PHP applications quickly and easily, with zero initial cost and gain all benefits of strong types and IDE highlights.
@@ -57,9 +57,9 @@ Look at [API Reference](https://apireference.aspose.cloud/cad/) for full API spe
 
 The solution is updated using [code generator](https://github.com/aspose-cad-cloud/aspose-cad-cloud-codegen).
 
-For the complete list of use-cases, please refer to the [format support document](https://docs.aspose.cloud/display/cadcloud/Supported+File+Formats) to see what you can achieve!
+For the complete list of use-cases, please refer to the [format support document](https://docs.aspose.cloud/cad/supported-file-formats/) to see what you can achieve!
 
-Detalied official documentation can be found at the [following link](https://docs.aspose.cloud/display/cadcloud).
+Detalied official documentation can be found at the [following link](https://docs.aspose.cloud/cad/).
 
 ## Getting Started
 1. **Sign Up**. Before you begin, you need to sign up for an account on our [Dashboard](https://dashboard.aspose.cloud/) and retrieve your [credentials](https://dashboard.aspose.cloud/#/apps).
@@ -81,7 +81,7 @@ use \Aspose\CAD\Configuration;
 use \Aspose\CAD\Model;
 use \Aspose\CAD\Model\Requests;
 ```
-4. **Using the SDK**. The best way to become familiar with how to use the SDK is to read the [Developer Guide](https://docs.aspose.cloud/display/cadcloud/Developer+Guide). The [Getting Started Guide](https://docs.aspose.cloud/display/cadcloud/Getting+Started) will help you to become familiar with the common concepts.
+4. **Using the SDK**. The best way to become familiar with how to use the SDK is to read the [Developer Guide](https://docs.aspose.cloud/cad/developer-guide/). The [Getting Started Guide](https://docs.aspose.cloud/cad/getting-started/) will help you to become familiar with the common concepts.
 
 ## Sample Usage
 
@@ -112,7 +112,7 @@ Your feedback is very important to us. Please feel free to contact via
 + [**Web API reference**](https://apireference.aspose.cloud/cad/)
 + [**Website**](https://www.aspose.cloud)
 + [**Product Home**](https://products.aspose.cloud/cad)
-+ [**Documentation**](https://docs.aspose.cloud/display/cadcloud/Home)
++ [**Documentation**](https://docs.aspose.cloud/cad/)
 + [**Blog**](https://blog.aspose.cloud/category/aspose-products/aspose.cad-cloud/)
 
 ## Other languages
