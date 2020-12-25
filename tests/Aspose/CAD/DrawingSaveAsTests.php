@@ -30,10 +30,9 @@ namespace BaseTest;
 
 include 'vendor/autoload.php';
 
-use Aspose\CAD\Model\Requests;
+use Aspose\CAD\Model\Requests as Requests;
 use PHPUnit\Framework\Assert;
 
-use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CADApi;
 
@@ -59,7 +58,7 @@ class DrawingSaveAsTests extends BaseTestContext
         $destName = self::$baseTestOut . $remoteName . "." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
+        $putRequest = new Requests\UploadFileRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
@@ -84,7 +83,7 @@ class DrawingSaveAsTests extends BaseTestContext
         $destName = self::$baseTestOut . $remoteName ."." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fullName, $file);
+        $putRequest = new Requests\UploadFileRequest($fullName, $file);
         $this->storage->PutCreate($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\GetDrawingSaveAsRequest($remoteName, $outputFormat, $folder=trim(self::$baseRemoteFolder . $subfolder), null, null);

@@ -32,9 +32,10 @@ include 'vendor/autoload.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "src/Aspose/CAD/Configuration.php";
 
-use Aspose\Storage\Api\StorageApi;
 use Aspose\CAD\Configuration;
 use Aspose\CAD\CadApi;
+use Aspose\CAD\Model as Models;
+use Aspose\CAD\Model\Requests as Requests;
 use GuzzleHttp\Client;
 use DirectoryIterator;
 
@@ -43,7 +44,6 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
     protected $CAD;
 
     protected $defaultStorageName = "CAD-QA";
-    protected $storage;
 
     protected static $relativeRootPath = "/../../../";
 
@@ -89,19 +89,12 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
             $this->defaultStorageName = $creds["Storage"];
         }
 
-        $this->storage = new StorageApi();
-        $this->storage->getConfig()
-                      ->setAppKey($creds["AppKey"])
-                      ->setAppSid($creds["AppSid"])
-                      ->setHost($creds["BaseURL"])
-                      ->setDebug(false);
+        $existsRequest = new Requests\ObjectExistsRequest(self::$baseRemoteFolder, $this->defaultStorageName);
+        $isExistResponse = $this->CAD->objectExists($existsRequest);
 
-        $existsRequest = new \Aspose\Storage\Model\Requests\GetIsExistRequest(self::$baseRemoteFolder);
-        $isExistResponse = $this->storage->getIsExist($existsRequest);
-
-        if (!$isExistResponse->getFileExist()->getIsExist()) {
-            $createDirRequest = new \Aspose\Storage\Model\Requests\PutCreateFolderRequest(self::$baseRemoteFolder);
-            $this->storage->putCreateFolder($createDirRequest);
+        if (!$isExistResponse->exists) {
+            $createDirRequest = new Requests\CreateFolderRequest(self::$baseRemoteFolder, $this->defaultStorageName);
+            $this->CAD->createFolder($createDirRequest);
         }
 
         // upload all test files if not exist
@@ -109,12 +102,12 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         foreach ($dir as $fileinfo) {
             if (!$fileinfo->isDot() && $fileinfo->getFilename() != "serverAccess.json") {
                 $fileName = self::$baseRemoteFolder . $fileinfo->getFilename();
-                $existsRequest = new \Aspose\Storage\Model\Requests\GetIsExistRequest($fileName);
-                $isExistResponse = $this->storage->getIsExist($existsRequest);
+                $existsRequest = new Requests\ObjectExistsRequest($fileName, $this->defaultStorageName);
+                $isExistResponse = $this->CAD->objectExists($existsRequest);
 
-                if (!$isExistResponse->getFileExist()->getIsExist()) {
-                    $createFileRequest = new \Aspose\Storage\Model\Requests\PutCreateRequest($fileName, $fileinfo->getPathname());
-                    $this->storage->putCreate($createFileRequest);
+                if (!$isExistResponse->exists) {
+                    $createFileRequest = new Requests\UploadFileRequest($fileName, $fileinfo->getPathname(), $this->defaultStorageName);
+                    $this->CAD->uploadFile($createFileRequest);
                 }
             }
         }
