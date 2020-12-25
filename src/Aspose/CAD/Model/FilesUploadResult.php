@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ResolutionSetting.php">
+ * <copyright company="Aspose" file="FilesUploadResult.php">
  *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ResolutionSetting
+ * FilesUploadResult
  */
 
 namespace Aspose\CAD\Model;
@@ -35,10 +35,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ResolutionSetting
+ * FilesUploadResult
  *
+ * @description File upload result
  */
-class ResolutionSetting implements ArrayAccess
+class FilesUploadResult implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ResolutionSetting implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ResolutionSetting";
+    protected static $swaggerModelName = "FilesUploadResult";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +56,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'uploaded' => 'string[]',
+        'errors' => '\Aspose\CAD\Model\Error[]'
     ];
 
     /*
@@ -65,8 +66,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'uploaded' => null,
+        'errors' => null
     ];
 
     /*
@@ -96,8 +97,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'horizontal_resolution' => 'HorizontalResolution',
-        'vertical_resolution' => 'VerticalResolution'
+        'uploaded' => 'Uploaded',
+        'errors' => 'Errors'
     ];
 
     /*
@@ -106,8 +107,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'horizontal_resolution' => 'setHorizontalResolution',
-        'vertical_resolution' => 'setVerticalResolution'
+        'uploaded' => 'setUploaded',
+        'errors' => 'setErrors'
     ];
 
     /*
@@ -116,8 +117,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'horizontal_resolution' => 'getHorizontalResolution',
-        'vertical_resolution' => 'getVerticalResolution'
+        'uploaded' => 'getUploaded',
+        'errors' => 'getErrors'
     ];
 
     /*
@@ -180,8 +181,8 @@ class ResolutionSetting implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['horizontal_resolution'] = isset($data['horizontal_resolution']) ? $data['horizontal_resolution'] : null;
-        $this->container['vertical_resolution'] = isset($data['vertical_resolution']) ? $data['vertical_resolution'] : null;
+        $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /*
@@ -193,12 +194,6 @@ class ResolutionSetting implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['horizontal_resolution'] === null) {
-            $invalidProperties[] = "'horizontal_resolution' can't be null";
-        }
-        if ($this->container['vertical_resolution'] === null) {
-            $invalidProperties[] = "'vertical_resolution' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -211,60 +206,54 @@ class ResolutionSetting implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['horizontal_resolution'] === null) {
-            return false;
-        }
-        if ($this->container['vertical_resolution'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /*
-     * Gets horizontal_resolution
+     * Gets uploaded
      *
-     * @return double
+     * @return string[]
      */
-    public function getHorizontalResolution()
+    public function getUploaded()
     {
-        return $this->container['horizontal_resolution'];
+        return $this->container['uploaded'];
     }
 
     /*
-     * Sets horizontal_resolution
+     * Sets uploaded
      *
-     * @param double $horizontal_resolution horizontal_resolution
+     * @param string[] $uploaded List of uploaded file names
      *
      * @return $this
      */
-    public function setHorizontalResolution($horizontal_resolution)
+    public function setUploaded($uploaded)
     {
-        $this->container['horizontal_resolution'] = $horizontal_resolution;
+        $this->container['uploaded'] = $uploaded;
 
         return $this;
     }
 
     /*
-     * Gets vertical_resolution
+     * Gets errors
      *
-     * @return double
+     * @return \Aspose\CAD\Model\Error[]
      */
-    public function getVerticalResolution()
+    public function getErrors()
     {
-        return $this->container['vertical_resolution'];
+        return $this->container['errors'];
     }
 
     /*
-     * Sets vertical_resolution
+     * Sets errors
      *
-     * @param double $vertical_resolution vertical_resolution
+     * @param \Aspose\CAD\Model\Error[] $errors List of errors.
      *
      * @return $this
      */
-    public function setVerticalResolution($vertical_resolution)
+    public function setErrors($errors)
     {
-        $this->container['vertical_resolution'] = $vertical_resolution;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ResolutionSetting.php">
+ * <copyright company="Aspose" file="FileVersion.php">
  *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
@@ -26,19 +26,18 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ResolutionSetting
+ * FileVersion
  */
 
 namespace Aspose\CAD\Model;
-
-use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ResolutionSetting
+ * FileVersion
  *
+ * @description File Version
  */
-class ResolutionSetting implements ArrayAccess
+class FileVersion extends StorageFile 
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +46,7 @@ class ResolutionSetting implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ResolutionSetting";
+    protected static $swaggerModelName = "FileVersion";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +54,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'version_id' => 'string',
+        'is_latest' => 'bool'
     ];
 
     /*
@@ -65,8 +64,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'version_id' => null,
+        'is_latest' => null
     ];
 
     /*
@@ -76,7 +75,7 @@ class ResolutionSetting implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /*
@@ -86,7 +85,7 @@ class ResolutionSetting implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /*
@@ -96,8 +95,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'horizontal_resolution' => 'HorizontalResolution',
-        'vertical_resolution' => 'VerticalResolution'
+        'version_id' => 'VersionId',
+        'is_latest' => 'IsLatest'
     ];
 
     /*
@@ -106,8 +105,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'horizontal_resolution' => 'setHorizontalResolution',
-        'vertical_resolution' => 'setVerticalResolution'
+        'version_id' => 'setVersionId',
+        'is_latest' => 'setIsLatest'
     ];
 
     /*
@@ -116,8 +115,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'horizontal_resolution' => 'getHorizontalResolution',
-        'vertical_resolution' => 'getVerticalResolution'
+        'version_id' => 'getVersionId',
+        'is_latest' => 'getIsLatest'
     ];
 
     /*
@@ -128,7 +127,7 @@ class ResolutionSetting implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /*
@@ -138,7 +137,7 @@ class ResolutionSetting implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /*
@@ -148,7 +147,7 @@ class ResolutionSetting implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /*
@@ -165,12 +164,6 @@ class ResolutionSetting implements ArrayAccess
 
     
 
-    /*
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /*
      * Constructor
@@ -180,8 +173,10 @@ class ResolutionSetting implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['horizontal_resolution'] = isset($data['horizontal_resolution']) ? $data['horizontal_resolution'] : null;
-        $this->container['vertical_resolution'] = isset($data['vertical_resolution']) ? $data['vertical_resolution'] : null;
+        parent::__construct($data);
+
+        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['is_latest'] = isset($data['is_latest']) ? $data['is_latest'] : null;
     }
 
     /*
@@ -191,13 +186,10 @@ class ResolutionSetting implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['horizontal_resolution'] === null) {
-            $invalidProperties[] = "'horizontal_resolution' can't be null";
-        }
-        if ($this->container['vertical_resolution'] === null) {
-            $invalidProperties[] = "'vertical_resolution' can't be null";
+        if ($this->container['is_latest'] === null) {
+            $invalidProperties[] = "'is_latest' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,11 +202,11 @@ class ResolutionSetting implements ArrayAccess
      */
     public function valid()
     {
-
-        if ($this->container['horizontal_resolution'] === null) {
+        if (!parent::valid()) {
             return false;
         }
-        if ($this->container['vertical_resolution'] === null) {
+
+        if ($this->container['is_latest'] === null) {
             return false;
         }
         return true;
@@ -222,49 +214,49 @@ class ResolutionSetting implements ArrayAccess
 
 
     /*
-     * Gets horizontal_resolution
+     * Gets version_id
      *
-     * @return double
+     * @return string
      */
-    public function getHorizontalResolution()
+    public function getVersionId()
     {
-        return $this->container['horizontal_resolution'];
+        return $this->container['version_id'];
     }
 
     /*
-     * Sets horizontal_resolution
+     * Sets version_id
      *
-     * @param double $horizontal_resolution horizontal_resolution
+     * @param string $version_id File Version ID.
      *
      * @return $this
      */
-    public function setHorizontalResolution($horizontal_resolution)
+    public function setVersionId($version_id)
     {
-        $this->container['horizontal_resolution'] = $horizontal_resolution;
+        $this->container['version_id'] = $version_id;
 
         return $this;
     }
 
     /*
-     * Gets vertical_resolution
+     * Gets is_latest
      *
-     * @return double
+     * @return bool
      */
-    public function getVerticalResolution()
+    public function getIsLatest()
     {
-        return $this->container['vertical_resolution'];
+        return $this->container['is_latest'];
     }
 
     /*
-     * Sets vertical_resolution
+     * Sets is_latest
      *
-     * @param double $vertical_resolution vertical_resolution
+     * @param bool $is_latest Specifies whether the file is (true) or is not (false) the latest version of an file.
      *
      * @return $this
      */
-    public function setVerticalResolution($vertical_resolution)
+    public function setIsLatest($is_latest)
     {
-        $this->container['vertical_resolution'] = $vertical_resolution;
+        $this->container['is_latest'] = $is_latest;
 
         return $this;
     }

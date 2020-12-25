@@ -37,7 +37,6 @@ use \Aspose\CAD\ObjectSerializer;
 /*
  * GraphicsOptions
  *
- * @description Represents graphics options for embedded bitmap.
  */
 class GraphicsOptions implements ArrayAccess
 {
@@ -358,7 +357,7 @@ class GraphicsOptions implements ArrayAccess
     /*
      * Sets text_rendering_hint
      *
-     * @param string $text_rendering_hint Gets or sets text rendering hint.
+     * @param string $text_rendering_hint text_rendering_hint
      *
      * @return $this
      */
@@ -387,7 +386,7 @@ class GraphicsOptions implements ArrayAccess
     /*
      * Sets smoothing_mode
      *
-     * @param string $smoothing_mode Gets or sets smoothing mode.
+     * @param string $smoothing_mode smoothing_mode
      *
      * @return $this
      */
@@ -416,7 +415,7 @@ class GraphicsOptions implements ArrayAccess
     /*
      * Sets interpolation_mode
      *
-     * @param string $interpolation_mode Gets or sets interpolation mode.
+     * @param string $interpolation_mode interpolation_mode
      *
      * @return $this
      */

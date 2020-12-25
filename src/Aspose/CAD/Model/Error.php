@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ResolutionSetting.php">
+ * <copyright company="Aspose" file="Error.php">
  *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ResolutionSetting
+ * Error
  */
 
 namespace Aspose\CAD\Model;
@@ -35,10 +35,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ResolutionSetting
+ * Error
  *
+ * @description Error
  */
-class ResolutionSetting implements ArrayAccess
+class Error implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ResolutionSetting implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ResolutionSetting";
+    protected static $swaggerModelName = "Error";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +56,10 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'code' => 'string',
+        'message' => 'string',
+        'description' => 'string',
+        'inner_error' => '\Aspose\CAD\Model\ErrorDetails'
     ];
 
     /*
@@ -65,8 +68,10 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'code' => null,
+        'message' => null,
+        'description' => null,
+        'inner_error' => null
     ];
 
     /*
@@ -96,8 +101,10 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'horizontal_resolution' => 'HorizontalResolution',
-        'vertical_resolution' => 'VerticalResolution'
+        'code' => 'Code',
+        'message' => 'Message',
+        'description' => 'Description',
+        'inner_error' => 'InnerError'
     ];
 
     /*
@@ -106,8 +113,10 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'horizontal_resolution' => 'setHorizontalResolution',
-        'vertical_resolution' => 'setVerticalResolution'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'description' => 'setDescription',
+        'inner_error' => 'setInnerError'
     ];
 
     /*
@@ -116,8 +125,10 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'horizontal_resolution' => 'getHorizontalResolution',
-        'vertical_resolution' => 'getVerticalResolution'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'description' => 'getDescription',
+        'inner_error' => 'getInnerError'
     ];
 
     /*
@@ -180,8 +191,10 @@ class ResolutionSetting implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['horizontal_resolution'] = isset($data['horizontal_resolution']) ? $data['horizontal_resolution'] : null;
-        $this->container['vertical_resolution'] = isset($data['vertical_resolution']) ? $data['vertical_resolution'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['inner_error'] = isset($data['inner_error']) ? $data['inner_error'] : null;
     }
 
     /*
@@ -193,12 +206,6 @@ class ResolutionSetting implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['horizontal_resolution'] === null) {
-            $invalidProperties[] = "'horizontal_resolution' can't be null";
-        }
-        if ($this->container['vertical_resolution'] === null) {
-            $invalidProperties[] = "'vertical_resolution' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -211,60 +218,102 @@ class ResolutionSetting implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['horizontal_resolution'] === null) {
-            return false;
-        }
-        if ($this->container['vertical_resolution'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /*
-     * Gets horizontal_resolution
+     * Gets code
      *
-     * @return double
+     * @return string
      */
-    public function getHorizontalResolution()
+    public function getCode()
     {
-        return $this->container['horizontal_resolution'];
+        return $this->container['code'];
     }
 
     /*
-     * Sets horizontal_resolution
+     * Sets code
      *
-     * @param double $horizontal_resolution horizontal_resolution
+     * @param string $code Code
      *
      * @return $this
      */
-    public function setHorizontalResolution($horizontal_resolution)
+    public function setCode($code)
     {
-        $this->container['horizontal_resolution'] = $horizontal_resolution;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /*
-     * Gets vertical_resolution
+     * Gets message
      *
-     * @return double
+     * @return string
      */
-    public function getVerticalResolution()
+    public function getMessage()
     {
-        return $this->container['vertical_resolution'];
+        return $this->container['message'];
     }
 
     /*
-     * Sets vertical_resolution
+     * Sets message
      *
-     * @param double $vertical_resolution vertical_resolution
+     * @param string $message Message
      *
      * @return $this
      */
-    public function setVerticalResolution($vertical_resolution)
+    public function setMessage($message)
     {
-        $this->container['vertical_resolution'] = $vertical_resolution;
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /*
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /*
+     * Sets description
+     *
+     * @param string $description Description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /*
+     * Gets inner_error
+     *
+     * @return \Aspose\CAD\Model\ErrorDetails
+     */
+    public function getInnerError()
+    {
+        return $this->container['inner_error'];
+    }
+
+    /*
+     * Sets inner_error
+     *
+     * @param \Aspose\CAD\Model\ErrorDetails $inner_error Inner Error
+     *
+     * @return $this
+     */
+    public function setInnerError($inner_error)
+    {
+        $this->container['inner_error'] = $inner_error;
 
         return $this;
     }

@@ -37,7 +37,6 @@ use \Aspose\CAD\ObjectSerializer;
 /*
  * PenOptions
  *
- * @description Drawing pen options
  */
 class PenOptions implements ArrayAccess
 {
@@ -325,7 +324,7 @@ class PenOptions implements ArrayAccess
     /*
      * Sets start_cap
      *
-     * @param string $start_cap Gets or sets the start cap.
+     * @param string $start_cap start_cap
      *
      * @return $this
      */
@@ -354,7 +353,7 @@ class PenOptions implements ArrayAccess
     /*
      * Sets end_cap
      *
-     * @param string $end_cap Gets or sets the end cap.
+     * @param string $end_cap end_cap
      *
      * @return $this
      */

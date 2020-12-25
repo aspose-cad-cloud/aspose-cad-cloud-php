@@ -138,4 +138,4 @@ class PutDrawingWmfRequest
         $this->storage = $value;
         return $this;
     }
-}
+}

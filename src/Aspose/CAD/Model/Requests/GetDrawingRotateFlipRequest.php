@@ -45,7 +45,7 @@ class GetDrawingRotateFlipRequest
     public $output_format;
 	
     /*
-     * Rotate/flip operation to apply.
+     * Rotate/flip operation to apply. Possible values: RotateNoneFlipNone, Rotate90FlipNone, Rotate180FlipNone, Rotate270FlipNone, RotateNoneFlipX, Rotate90FlipX, Rotate180FlipX, Rotate270FlipX, RotateNoneFlipY, Rotate90FlipY, Rotate180FlipY, Rotate270FlipY, RotateNoneFlipXY, Rotate90FlipXY, Rotate180FlipXY, Rotate270FlipXY
      */
     public $rotate_flip_type;
 	
@@ -70,7 +70,7 @@ class GetDrawingRotateFlipRequest
      *  
      * @param string $name Filename of a drawing.
      * @param string $output_format Resulting file format.
-     * @param string $rotate_flip_type Rotate/flip operation to apply.
+     * @param string $rotate_flip_type Rotate/flip operation to apply. Possible values: RotateNoneFlipNone, Rotate90FlipNone, Rotate180FlipNone, Rotate270FlipNone, RotateNoneFlipX, Rotate90FlipX, Rotate180FlipX, Rotate270FlipX, RotateNoneFlipY, Rotate90FlipY, Rotate180FlipY, Rotate270FlipY, RotateNoneFlipXY, Rotate90FlipXY, Rotate180FlipXY, Rotate270FlipXY
      * @param string $folder Folder with a drawing to process.
      * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
@@ -120,7 +120,7 @@ class GetDrawingRotateFlipRequest
     }
 	
     /*
-     * Rotate/flip operation to apply.
+     * Rotate/flip operation to apply. Possible values: RotateNoneFlipNone, Rotate90FlipNone, Rotate180FlipNone, Rotate270FlipNone, RotateNoneFlipX, Rotate90FlipX, Rotate180FlipX, Rotate270FlipX, RotateNoneFlipY, Rotate90FlipY, Rotate180FlipY, Rotate270FlipY, RotateNoneFlipXY, Rotate90FlipXY, Rotate180FlipXY, Rotate270FlipXY
      */
     public function get_rotate_flip_type()
     {
@@ -128,7 +128,7 @@ class GetDrawingRotateFlipRequest
     }
 
     /*
-     * Rotate/flip operation to apply.
+     * Rotate/flip operation to apply. Possible values: RotateNoneFlipNone, Rotate90FlipNone, Rotate180FlipNone, Rotate270FlipNone, RotateNoneFlipX, Rotate90FlipX, Rotate180FlipX, Rotate270FlipX, RotateNoneFlipY, Rotate90FlipY, Rotate180FlipY, Rotate270FlipY, RotateNoneFlipXY, Rotate90FlipXY, Rotate180FlipXY, Rotate270FlipXY
      */
     public function set_rotate_flip_type($value)
     {

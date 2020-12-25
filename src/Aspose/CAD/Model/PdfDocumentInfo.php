@@ -37,7 +37,6 @@ use \Aspose\CAD\ObjectSerializer;
 /*
  * PdfDocumentInfo
  *
- * @description This class represents set of metadata for document description.
  */
 class PdfDocumentInfo implements ArrayAccess
 {
@@ -235,7 +234,7 @@ class PdfDocumentInfo implements ArrayAccess
     /*
      * Sets keywords
      *
-     * @param string $keywords Gets or sets keywords of the document.
+     * @param string $keywords keywords
      *
      * @return $this
      */
@@ -259,7 +258,7 @@ class PdfDocumentInfo implements ArrayAccess
     /*
      * Sets title
      *
-     * @param string $title Gets or sets title of the document.
+     * @param string $title title
      *
      * @return $this
      */
@@ -283,7 +282,7 @@ class PdfDocumentInfo implements ArrayAccess
     /*
      * Sets author
      *
-     * @param string $author Gets or sets author of the document.
+     * @param string $author author
      *
      * @return $this
      */
@@ -307,7 +306,7 @@ class PdfDocumentInfo implements ArrayAccess
     /*
      * Sets subject
      *
-     * @param string $subject Gets or sets subject of the document.
+     * @param string $subject subject
      *
      * @return $this
      */

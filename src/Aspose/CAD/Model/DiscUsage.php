@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ResolutionSetting.php">
+ * <copyright company="Aspose" file="DiscUsage.php">
  *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ResolutionSetting
+ * DiscUsage
  */
 
 namespace Aspose\CAD\Model;
@@ -35,10 +35,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ResolutionSetting
+ * DiscUsage
  *
+ * @description Class for disc space information.
  */
-class ResolutionSetting implements ArrayAccess
+class DiscUsage implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ResolutionSetting implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ResolutionSetting";
+    protected static $swaggerModelName = "DiscUsage";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +56,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'used_size' => 'int',
+        'total_size' => 'int'
     ];
 
     /*
@@ -65,8 +66,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'used_size' => 'int64',
+        'total_size' => 'int64'
     ];
 
     /*
@@ -96,8 +97,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'horizontal_resolution' => 'HorizontalResolution',
-        'vertical_resolution' => 'VerticalResolution'
+        'used_size' => 'UsedSize',
+        'total_size' => 'TotalSize'
     ];
 
     /*
@@ -106,8 +107,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'horizontal_resolution' => 'setHorizontalResolution',
-        'vertical_resolution' => 'setVerticalResolution'
+        'used_size' => 'setUsedSize',
+        'total_size' => 'setTotalSize'
     ];
 
     /*
@@ -116,8 +117,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'horizontal_resolution' => 'getHorizontalResolution',
-        'vertical_resolution' => 'getVerticalResolution'
+        'used_size' => 'getUsedSize',
+        'total_size' => 'getTotalSize'
     ];
 
     /*
@@ -180,8 +181,8 @@ class ResolutionSetting implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['horizontal_resolution'] = isset($data['horizontal_resolution']) ? $data['horizontal_resolution'] : null;
-        $this->container['vertical_resolution'] = isset($data['vertical_resolution']) ? $data['vertical_resolution'] : null;
+        $this->container['used_size'] = isset($data['used_size']) ? $data['used_size'] : null;
+        $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;
     }
 
     /*
@@ -193,11 +194,11 @@ class ResolutionSetting implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['horizontal_resolution'] === null) {
-            $invalidProperties[] = "'horizontal_resolution' can't be null";
+        if ($this->container['used_size'] === null) {
+            $invalidProperties[] = "'used_size' can't be null";
         }
-        if ($this->container['vertical_resolution'] === null) {
-            $invalidProperties[] = "'vertical_resolution' can't be null";
+        if ($this->container['total_size'] === null) {
+            $invalidProperties[] = "'total_size' can't be null";
         }
         return $invalidProperties;
     }
@@ -211,10 +212,10 @@ class ResolutionSetting implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['horizontal_resolution'] === null) {
+        if ($this->container['used_size'] === null) {
             return false;
         }
-        if ($this->container['vertical_resolution'] === null) {
+        if ($this->container['total_size'] === null) {
             return false;
         }
         return true;
@@ -222,49 +223,49 @@ class ResolutionSetting implements ArrayAccess
 
 
     /*
-     * Gets horizontal_resolution
+     * Gets used_size
      *
-     * @return double
+     * @return int
      */
-    public function getHorizontalResolution()
+    public function getUsedSize()
     {
-        return $this->container['horizontal_resolution'];
+        return $this->container['used_size'];
     }
 
     /*
-     * Sets horizontal_resolution
+     * Sets used_size
      *
-     * @param double $horizontal_resolution horizontal_resolution
+     * @param int $used_size Application used disc space.
      *
      * @return $this
      */
-    public function setHorizontalResolution($horizontal_resolution)
+    public function setUsedSize($used_size)
     {
-        $this->container['horizontal_resolution'] = $horizontal_resolution;
+        $this->container['used_size'] = $used_size;
 
         return $this;
     }
 
     /*
-     * Gets vertical_resolution
+     * Gets total_size
      *
-     * @return double
+     * @return int
      */
-    public function getVerticalResolution()
+    public function getTotalSize()
     {
-        return $this->container['vertical_resolution'];
+        return $this->container['total_size'];
     }
 
     /*
-     * Sets vertical_resolution
+     * Sets total_size
      *
-     * @param double $vertical_resolution vertical_resolution
+     * @param int $total_size Total disc space.
      *
      * @return $this
      */
-    public function setVerticalResolution($vertical_resolution)
+    public function setTotalSize($total_size)
     {
-        $this->container['vertical_resolution'] = $vertical_resolution;
+        $this->container['total_size'] = $total_size;
 
         return $this;
     }

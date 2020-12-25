@@ -37,7 +37,6 @@ use \Aspose\CAD\ObjectSerializer;
 /*
  * RdOptimizerSettings
  *
- * @description RD optimizer settings class
  */
 class RdOptimizerSettings implements ArrayAccess
 {
@@ -295,7 +294,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets bpp_scale
      *
-     * @param int $bpp_scale Gets or sets the BPP (bits per pixel) scale factor.
+     * @param int $bpp_scale bpp_scale
      *
      * @return $this
      */
@@ -319,7 +318,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets bpp_max
      *
-     * @param double $bpp_max Gets or sets the maximum R value for consideration in  in bits per pixel
+     * @param double $bpp_max bpp_max
      *
      * @return $this
      */
@@ -343,7 +342,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets max_q
      *
-     * @param int $max_q Gets or sets the maximum quantization value.
+     * @param int $max_q max_q
      *
      * @return $this
      */
@@ -367,7 +366,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets min_q
      *
-     * @param int $min_q Gets the minimum allowed quantization value.
+     * @param int $min_q min_q
      *
      * @return $this
      */
@@ -391,7 +390,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets max_pixel_value
      *
-     * @param int $max_pixel_value Gets the maximum pixel value.
+     * @param int $max_pixel_value max_pixel_value
      *
      * @return $this
      */
@@ -415,7 +414,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets psnr_max
      *
-     * @param int $psnr_max Gets the PSNR maximum expected value.
+     * @param int $psnr_max psnr_max
      *
      * @return $this
      */
@@ -439,7 +438,7 @@ class RdOptimizerSettings implements ArrayAccess
     /*
      * Sets discretized_bpp_max
      *
-     * @param int $discretized_bpp_max Gets the maximum R value for consideration.
+     * @param int $discretized_bpp_max discretized_bpp_max
      *
      * @return $this
      */

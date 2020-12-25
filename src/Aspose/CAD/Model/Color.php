@@ -301,7 +301,7 @@ class Color implements ArrayAccess
     /*
      * Sets r
      *
-     * @param int $r Gets the red component value of this Color structure.
+     * @param int $r r
      *
      * @return $this
      */
@@ -325,7 +325,7 @@ class Color implements ArrayAccess
     /*
      * Sets g
      *
-     * @param int $g Gets the green component value of this Color structure.
+     * @param int $g g
      *
      * @return $this
      */
@@ -349,7 +349,7 @@ class Color implements ArrayAccess
     /*
      * Sets b
      *
-     * @param int $b Gets the blue component value of this Color structure.
+     * @param int $b b
      *
      * @return $this
      */
@@ -373,7 +373,7 @@ class Color implements ArrayAccess
     /*
      * Sets a
      *
-     * @param int $a Gets the alpha component value of this Color structure.
+     * @param int $a a
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class Color implements ArrayAccess
     /*
      * Sets is_known_color
      *
-     * @param bool $is_known_color Gets a value indicating whether this Color structure is a predefined color. Predefined colors are represented by the elements of the KnownColor enumeration.
+     * @param bool $is_known_color is_known_color
      *
      * @return $this
      */
@@ -421,7 +421,7 @@ class Color implements ArrayAccess
     /*
      * Sets is_empty
      *
-     * @param bool $is_empty Gets a value indicating whether this Color structure is uninitialized.
+     * @param bool $is_empty is_empty
      *
      * @return $this
      */
@@ -445,7 +445,7 @@ class Color implements ArrayAccess
     /*
      * Sets is_named_color
      *
-     * @param bool $is_named_color Gets a value indicating whether this Color structure is a named color or a member of the KnownColor enumeration.
+     * @param bool $is_named_color is_named_color
      *
      * @return $this
      */
@@ -469,7 +469,7 @@ class Color implements ArrayAccess
     /*
      * Sets name
      *
-     * @param string $name Gets the name of this Color.
+     * @param string $name name
      *
      * @return $this
      */

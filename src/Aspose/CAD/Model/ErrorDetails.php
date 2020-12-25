@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ResolutionSetting.php">
+ * <copyright company="Aspose" file="ErrorDetails.php">
  *   Copyright (c) 2018 Aspose.CAD Cloud
  * </copyright>
  * <summary>
@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 /*
- * ResolutionSetting
+ * ErrorDetails
  */
 
 namespace Aspose\CAD\Model;
@@ -35,10 +35,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /*
- * ResolutionSetting
+ * ErrorDetails
  *
+ * @description The error details
  */
-class ResolutionSetting implements ArrayAccess
+class ErrorDetails implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ResolutionSetting implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ResolutionSetting";
+    protected static $swaggerModelName = "ErrorDetails";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +56,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'request_id' => 'string',
+        'date' => '\DateTime'
     ];
 
     /*
@@ -65,8 +66,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'horizontal_resolution' => 'double',
-        'vertical_resolution' => 'double'
+        'request_id' => null,
+        'date' => 'date-time'
     ];
 
     /*
@@ -96,8 +97,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'horizontal_resolution' => 'HorizontalResolution',
-        'vertical_resolution' => 'VerticalResolution'
+        'request_id' => 'RequestId',
+        'date' => 'Date'
     ];
 
     /*
@@ -106,8 +107,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'horizontal_resolution' => 'setHorizontalResolution',
-        'vertical_resolution' => 'setVerticalResolution'
+        'request_id' => 'setRequestId',
+        'date' => 'setDate'
     ];
 
     /*
@@ -116,8 +117,8 @@ class ResolutionSetting implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'horizontal_resolution' => 'getHorizontalResolution',
-        'vertical_resolution' => 'getVerticalResolution'
+        'request_id' => 'getRequestId',
+        'date' => 'getDate'
     ];
 
     /*
@@ -180,8 +181,8 @@ class ResolutionSetting implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['horizontal_resolution'] = isset($data['horizontal_resolution']) ? $data['horizontal_resolution'] : null;
-        $this->container['vertical_resolution'] = isset($data['vertical_resolution']) ? $data['vertical_resolution'] : null;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
     }
 
     /*
@@ -193,11 +194,8 @@ class ResolutionSetting implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['horizontal_resolution'] === null) {
-            $invalidProperties[] = "'horizontal_resolution' can't be null";
-        }
-        if ($this->container['vertical_resolution'] === null) {
-            $invalidProperties[] = "'vertical_resolution' can't be null";
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
         }
         return $invalidProperties;
     }
@@ -211,10 +209,7 @@ class ResolutionSetting implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['horizontal_resolution'] === null) {
-            return false;
-        }
-        if ($this->container['vertical_resolution'] === null) {
+        if ($this->container['date'] === null) {
             return false;
         }
         return true;
@@ -222,49 +217,49 @@ class ResolutionSetting implements ArrayAccess
 
 
     /*
-     * Gets horizontal_resolution
+     * Gets request_id
      *
-     * @return double
+     * @return string
      */
-    public function getHorizontalResolution()
+    public function getRequestId()
     {
-        return $this->container['horizontal_resolution'];
+        return $this->container['request_id'];
     }
 
     /*
-     * Sets horizontal_resolution
+     * Sets request_id
      *
-     * @param double $horizontal_resolution horizontal_resolution
+     * @param string $request_id The request id
      *
      * @return $this
      */
-    public function setHorizontalResolution($horizontal_resolution)
+    public function setRequestId($request_id)
     {
-        $this->container['horizontal_resolution'] = $horizontal_resolution;
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }
 
     /*
-     * Gets vertical_resolution
+     * Gets date
      *
-     * @return double
+     * @return \DateTime
      */
-    public function getVerticalResolution()
+    public function getDate()
     {
-        return $this->container['vertical_resolution'];
+        return $this->container['date'];
     }
 
     /*
-     * Sets vertical_resolution
+     * Sets date
      *
-     * @param double $vertical_resolution vertical_resolution
+     * @param \DateTime $date Date
      *
      * @return $this
      */
-    public function setVerticalResolution($vertical_resolution)
+    public function setDate($date)
     {
-        $this->container['vertical_resolution'] = $vertical_resolution;
+        $this->container['date'] = $date;
 
         return $this;
     }
