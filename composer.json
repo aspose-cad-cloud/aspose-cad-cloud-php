@@ -14,6 +14,7 @@
         "DWG",
         "DXF",
         "DWF",
+        "DWFX",
         "DWT",
         "STL",
         "IGS",
@@ -40,13 +41,9 @@
     "homepage": "https://github.com/aspose-cad-cloud/aspose-cad-cloud-php",
     "authors": [
         {
-            "name": "DenisDemenko",
+            "name": "Aspose",
 			"homepage": "https://github.com/aspose-cad-cloud"
-        },
-		{
-            "name": "VitaliiKornyliuk",
-			"homepage": "https://github.com/aspose-cad-cloud"
-		}
+        }
     ],
 	"config": {
         "platform": {
