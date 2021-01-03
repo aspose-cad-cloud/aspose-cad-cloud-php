@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="JpegOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * JpegOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * JpegOptionsDTO
  *
  * @description Export options for JPEG format
@@ -41,27 +38,27 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "JpegOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
      */
     protected static $swaggerTypes = [
         'comment' => 'string',
-        'compression_type' => 'string',
-        'color_type' => 'string',
+        'compression_type' => 'object',
+        'color_type' => 'object',
         'quality' => 'int',
         'rd_opt_settings' => '\Aspose\CAD\Model\RdOptimizerSettings'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -74,7 +71,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         'rd_opt_settings' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -84,7 +81,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -94,7 +91,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -108,7 +105,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         'rd_opt_settings' => 'RdOptSettings'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -121,7 +118,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         'rd_opt_settings' => 'setRdOptSettings'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -134,7 +131,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         'rd_opt_settings' => 'getRdOptSettings'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -145,7 +142,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -155,7 +152,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -165,7 +162,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -175,52 +172,12 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const COMPRESSION_TYPE_BASELINE = 'Baseline';
-    const COMPRESSION_TYPE_PROGRESSIVE = 'Progressive';
-    const COMPRESSION_TYPE_LOSSLESS = 'Lossless';
-    const COMPRESSION_TYPE_JPEG_LS = 'JpegLs';
-    const COLOR_TYPE_GRAYSCALE = 'Grayscale';
-    const COLOR_TYPE_Y_CB_CR = 'YCbCr';
-    const COLOR_TYPE_CMYK = 'Cmyk';
-    const COLOR_TYPE_YCCK = 'Ycck';
-    const COLOR_TYPE_RGB = 'Rgb';
     
 
     
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCompressionTypeAllowableValues()
-    {
-        return [
-            self::COMPRESSION_TYPE_BASELINE,
-            self::COMPRESSION_TYPE_PROGRESSIVE,
-            self::COMPRESSION_TYPE_LOSSLESS,
-            self::COMPRESSION_TYPE_JPEG_LS,
-        ];
-    }
-    
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getColorTypeAllowableValues()
-    {
-        return [
-            self::COLOR_TYPE_GRAYSCALE,
-            self::COLOR_TYPE_Y_CB_CR,
-            self::COLOR_TYPE_CMYK,
-            self::COLOR_TYPE_YCCK,
-            self::COLOR_TYPE_RGB,
-        ];
-    }
-    
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -237,7 +194,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         $this->container['rd_opt_settings'] = isset($data['rd_opt_settings']) ? $data['rd_opt_settings'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -249,32 +206,16 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression_type'] === null) {
             $invalidProperties[] = "'compression_type' can't be null";
         }
-        $allowedValues = $this->getCompressionTypeAllowableValues();
-        if (!in_array($this->container['compression_type'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'compression_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['color_type'] === null) {
             $invalidProperties[] = "'color_type' can't be null";
         }
-        $allowedValues = $this->getColorTypeAllowableValues();
-        if (!in_array($this->container['color_type'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'color_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['quality'] === null) {
             $invalidProperties[] = "'quality' can't be null";
         }
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -289,15 +230,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression_type'] === null) {
             return false;
         }
-        $allowedValues = $this->getCompressionTypeAllowableValues();
-        if (!in_array($this->container['compression_type'], $allowedValues)) {
-            return false;
-        }
         if ($this->container['color_type'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getColorTypeAllowableValues();
-        if (!in_array($this->container['color_type'], $allowedValues)) {
             return false;
         }
         if ($this->container['quality'] === null) {
@@ -307,7 +240,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
     }
 
 
-    /*
+    /**
      * Gets comment
      *
      * @return string
@@ -317,7 +250,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['comment'];
     }
 
-    /*
+    /**
      * Sets comment
      *
      * @param string $comment Comment to Resulting file
@@ -331,65 +264,55 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets compression_type
      *
-     * @return string
+     * @return object
      */
     public function getCompressionType()
     {
         return $this->container['compression_type'];
     }
 
-    /*
+    /**
      * Sets compression_type
      *
-     * @param string $compression_type Compression type
+     * @param object $compression_type Compression type
      *
      * @return $this
      */
     public function setCompressionType($compression_type)
     {
-        $allowedValues = $this->getCompressionTypeAllowableValues();
-        if ((!is_numeric($compression_type) && !in_array($compression_type, $allowedValues)) || (is_numeric($compression_type) && !in_array($allowedValues[$compression_type], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression_type', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
         $this->container['compression_type'] = $compression_type;
 
         return $this;
     }
 
-    /*
+    /**
      * Gets color_type
      *
-     * @return string
+     * @return object
      */
     public function getColorType()
     {
         return $this->container['color_type'];
     }
 
-    /*
+    /**
      * Sets color_type
      *
-     * @param string $color_type Color type
+     * @param object $color_type Color type
      *
      * @return $this
      */
     public function setColorType($color_type)
     {
-        $allowedValues = $this->getColorTypeAllowableValues();
-        if ((!is_numeric($color_type) && !in_array($color_type, $allowedValues)) || (is_numeric($color_type) && !in_array($allowedValues[$color_type], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'color_type', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
         $this->container['color_type'] = $color_type;
 
         return $this;
     }
 
-    /*
+    /**
      * Gets quality
      *
      * @return int
@@ -399,7 +322,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['quality'];
     }
 
-    /*
+    /**
      * Sets quality
      *
      * @param int $quality Quality level
@@ -413,7 +336,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets rd_opt_settings
      *
      * @return \Aspose\CAD\Model\RdOptimizerSettings
@@ -423,7 +346,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['rd_opt_settings'];
     }
 
-    /*
+    /**
      * Sets rd_opt_settings
      *
      * @param \Aspose\CAD\Model\RdOptimizerSettings $rd_opt_settings Optimizer settings
@@ -436,7 +359,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -448,7 +371,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -460,7 +383,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -477,7 +400,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -489,7 +412,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

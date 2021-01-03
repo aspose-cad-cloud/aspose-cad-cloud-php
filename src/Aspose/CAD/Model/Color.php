@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="Color.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,32 +25,28 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * Color
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * Color
  *
- * @description The color of the pixel.
  */
 class Color implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "Color";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -66,7 +62,7 @@ class Color implements ArrayAccess
         'name' => 'string'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -82,7 +78,7 @@ class Color implements ArrayAccess
         'name' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -92,7 +88,7 @@ class Color implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -102,7 +98,7 @@ class Color implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -119,7 +115,7 @@ class Color implements ArrayAccess
         'name' => 'Name'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -135,7 +131,7 @@ class Color implements ArrayAccess
         'name' => 'setName'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -151,7 +147,7 @@ class Color implements ArrayAccess
         'name' => 'getName'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -162,7 +158,7 @@ class Color implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -172,7 +168,7 @@ class Color implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -182,7 +178,7 @@ class Color implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -196,14 +192,14 @@ class Color implements ArrayAccess
 
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -221,7 +217,7 @@ class Color implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -254,7 +250,7 @@ class Color implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -288,7 +284,7 @@ class Color implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets r
      *
      * @return int
@@ -298,7 +294,7 @@ class Color implements ArrayAccess
         return $this->container['r'];
     }
 
-    /*
+    /**
      * Sets r
      *
      * @param int $r r
@@ -312,7 +308,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets g
      *
      * @return int
@@ -322,7 +318,7 @@ class Color implements ArrayAccess
         return $this->container['g'];
     }
 
-    /*
+    /**
      * Sets g
      *
      * @param int $g g
@@ -336,7 +332,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets b
      *
      * @return int
@@ -346,7 +342,7 @@ class Color implements ArrayAccess
         return $this->container['b'];
     }
 
-    /*
+    /**
      * Sets b
      *
      * @param int $b b
@@ -360,7 +356,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets a
      *
      * @return int
@@ -370,7 +366,7 @@ class Color implements ArrayAccess
         return $this->container['a'];
     }
 
-    /*
+    /**
      * Sets a
      *
      * @param int $a a
@@ -384,7 +380,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets is_known_color
      *
      * @return bool
@@ -394,7 +390,7 @@ class Color implements ArrayAccess
         return $this->container['is_known_color'];
     }
 
-    /*
+    /**
      * Sets is_known_color
      *
      * @param bool $is_known_color is_known_color
@@ -408,7 +404,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets is_empty
      *
      * @return bool
@@ -418,7 +414,7 @@ class Color implements ArrayAccess
         return $this->container['is_empty'];
     }
 
-    /*
+    /**
      * Sets is_empty
      *
      * @param bool $is_empty is_empty
@@ -432,7 +428,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets is_named_color
      *
      * @return bool
@@ -442,7 +438,7 @@ class Color implements ArrayAccess
         return $this->container['is_named_color'];
     }
 
-    /*
+    /**
      * Sets is_named_color
      *
      * @param bool $is_named_color is_named_color
@@ -456,7 +452,7 @@ class Color implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets name
      *
      * @return string
@@ -466,7 +462,7 @@ class Color implements ArrayAccess
         return $this->container['name'];
     }
 
-    /*
+    /**
      * Sets name
      *
      * @param string $name name
@@ -479,7 +475,7 @@ class Color implements ArrayAccess
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -491,7 +487,7 @@ class Color implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -503,7 +499,7 @@ class Color implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -520,7 +516,7 @@ class Color implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -532,7 +528,7 @@ class Color implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

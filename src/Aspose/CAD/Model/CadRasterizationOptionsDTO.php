@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CadRasterizationOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * CadRasterizationOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * CadRasterizationOptionsDTO
  *
  * @description Raster export options
@@ -41,14 +38,14 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "CadRasterizationOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -59,11 +56,11 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         'automatic_layouts_scaling' => 'bool',
         'layers' => 'string[]',
         'layouts' => 'string[]',
-        'draw_type' => 'string',
+        'draw_type' => 'object',
         'no_scaling' => 'bool'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -78,7 +75,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         'no_scaling' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -98,7 +95,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -114,7 +111,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         'no_scaling' => 'NoScaling'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -129,7 +126,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         'no_scaling' => 'setNoScaling'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -144,7 +141,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         'no_scaling' => 'getNoScaling'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -155,7 +152,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -165,7 +162,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -175,7 +172,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -185,27 +182,12 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return self::$swaggerModelName;
     }
 
-    const DRAW_TYPE_USE_DRAW_COLOR = 'UseDrawColor';
-    const DRAW_TYPE_USE_OBJECT_COLOR = 'UseObjectColor';
     
 
     
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDrawTypeAllowableValues()
-    {
-        return [
-            self::DRAW_TYPE_USE_DRAW_COLOR,
-            self::DRAW_TYPE_USE_OBJECT_COLOR,
-        ];
-    }
-    
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -224,7 +206,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         $this->container['no_scaling'] = isset($data['no_scaling']) ? $data['no_scaling'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -242,21 +224,13 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         if ($this->container['draw_type'] === null) {
             $invalidProperties[] = "'draw_type' can't be null";
         }
-        $allowedValues = $this->getDrawTypeAllowableValues();
-        if (!in_array($this->container['draw_type'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'draw_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['no_scaling'] === null) {
             $invalidProperties[] = "'no_scaling' can't be null";
         }
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -277,10 +251,6 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         if ($this->container['draw_type'] === null) {
             return false;
         }
-        $allowedValues = $this->getDrawTypeAllowableValues();
-        if (!in_array($this->container['draw_type'], $allowedValues)) {
-            return false;
-        }
         if ($this->container['no_scaling'] === null) {
             return false;
         }
@@ -288,7 +258,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
     }
 
 
-    /*
+    /**
      * Gets zoom
      *
      * @return double
@@ -298,7 +268,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this->container['zoom'];
     }
 
-    /*
+    /**
      * Sets zoom
      *
      * @param double $zoom Zoom factor
@@ -312,7 +282,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets pen_options
      *
      * @return \Aspose\CAD\Model\PenOptions
@@ -322,7 +292,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this->container['pen_options'];
     }
 
-    /*
+    /**
      * Sets pen_options
      *
      * @param \Aspose\CAD\Model\PenOptions $pen_options Pen options
@@ -336,7 +306,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets automatic_layouts_scaling
      *
      * @return bool
@@ -346,7 +316,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this->container['automatic_layouts_scaling'];
     }
 
-    /*
+    /**
      * Sets automatic_layouts_scaling
      *
      * @param bool $automatic_layouts_scaling Determines whether layout has to be scaled automatically
@@ -360,7 +330,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets layers
      *
      * @return string[]
@@ -370,7 +340,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this->container['layers'];
     }
 
-    /*
+    /**
      * Sets layers
      *
      * @param string[] $layers Layers to export
@@ -384,7 +354,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets layouts
      *
      * @return string[]
@@ -394,7 +364,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this->container['layouts'];
     }
 
-    /*
+    /**
      * Sets layouts
      *
      * @param string[] $layouts Layouts to export
@@ -408,36 +378,31 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets draw_type
      *
-     * @return string
+     * @return object
      */
     public function getDrawType()
     {
         return $this->container['draw_type'];
     }
 
-    /*
+    /**
      * Sets draw_type
      *
-     * @param string $draw_type Drawing mode
+     * @param object $draw_type Drawing mode
      *
      * @return $this
      */
     public function setDrawType($draw_type)
     {
-        $allowedValues = $this->getDrawTypeAllowableValues();
-        if ((!is_numeric($draw_type) && !in_array($draw_type, $allowedValues)) || (is_numeric($draw_type) && !in_array($allowedValues[$draw_type], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'draw_type', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
         $this->container['draw_type'] = $draw_type;
 
         return $this;
     }
 
-    /*
+    /**
      * Gets no_scaling
      *
      * @return bool
@@ -447,7 +412,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return $this->container['no_scaling'];
     }
 
-    /*
+    /**
      * Sets no_scaling
      *
      * @param bool $no_scaling Determines whether scaling has to be turned off
@@ -460,7 +425,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -472,7 +437,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -484,7 +449,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -501,7 +466,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -513,7 +478,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

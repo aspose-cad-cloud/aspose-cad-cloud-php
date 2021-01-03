@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfDocumentOptions.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,32 +25,28 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * PdfDocumentOptions
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * PdfDocumentOptions
  *
- * @description The PDF options.
  */
 class PdfDocumentOptions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "PdfDocumentOptions";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -59,7 +55,7 @@ class PdfDocumentOptions implements ArrayAccess
         'compliance' => 'string'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -68,7 +64,7 @@ class PdfDocumentOptions implements ArrayAccess
         'compliance' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -78,7 +74,7 @@ class PdfDocumentOptions implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +84,7 @@ class PdfDocumentOptions implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -98,7 +94,7 @@ class PdfDocumentOptions implements ArrayAccess
         'compliance' => 'Compliance'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -107,7 +103,7 @@ class PdfDocumentOptions implements ArrayAccess
         'compliance' => 'setCompliance'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -116,7 +112,7 @@ class PdfDocumentOptions implements ArrayAccess
         'compliance' => 'getCompliance'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -127,7 +123,7 @@ class PdfDocumentOptions implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -137,7 +133,7 @@ class PdfDocumentOptions implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -147,7 +143,7 @@ class PdfDocumentOptions implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -163,7 +159,7 @@ class PdfDocumentOptions implements ArrayAccess
     
 
     
-    /*
+    /**
      * Gets allowable values of the enum
      *
      * @return string[]
@@ -178,14 +174,14 @@ class PdfDocumentOptions implements ArrayAccess
     }
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -196,7 +192,7 @@ class PdfDocumentOptions implements ArrayAccess
         $this->container['compliance'] = isset($data['compliance']) ? $data['compliance'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -219,7 +215,7 @@ class PdfDocumentOptions implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -239,7 +235,7 @@ class PdfDocumentOptions implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets compliance
      *
      * @return string
@@ -249,10 +245,10 @@ class PdfDocumentOptions implements ArrayAccess
         return $this->container['compliance'];
     }
 
-    /*
+    /**
      * Sets compliance
      *
-     * @param string $compliance Desired conformance level for generated PDF document. Important note: This option should not be changed after PdfDocument object is constructed. Default is Pdf15.
+     * @param string $compliance compliance
      *
      * @return $this
      */
@@ -262,13 +258,12 @@ class PdfDocumentOptions implements ArrayAccess
         if ((!is_numeric($compliance) && !in_array($compliance, $allowedValues)) || (is_numeric($compliance) && !in_array($allowedValues[$compliance], $allowedValues))) {
             throw new \InvalidArgumentException(sprintf("Invalid value for 'compliance', must be one of '%s'", implode("', '", $allowedValues)));
         }
-			
+            
         $this->container['compliance'] = $compliance;
 
         return $this;
     }
-
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -280,7 +275,7 @@ class PdfDocumentOptions implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -292,7 +287,7 @@ class PdfDocumentOptions implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -309,7 +304,7 @@ class PdfDocumentOptions implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -321,7 +316,7 @@ class PdfDocumentOptions implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

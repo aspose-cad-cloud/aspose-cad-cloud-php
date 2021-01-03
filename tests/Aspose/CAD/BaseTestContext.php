@@ -49,8 +49,8 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
 
     protected $config;
     protected static $baseTestPath = "TestData/";
-    public static $baseTestOut = "TestOut/";
-    public static $baseRemoteFolder = "CloudTestPhp/";
+    public static $baseTestOut = "TestOut2/";
+    public static $baseRemoteFolder = "CloudTestPhp2/";
 
     /**
      * Setup before running each test case
@@ -69,7 +69,7 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
          */
         $this->config->setAppKey($creds["AppKey"]);
         $this->config->setAppSid($creds["AppSid"]);
-        $this->config->setHost($creds["BaseURL"]);
+        $this->config->setBaseUrl($creds["BaseURL"]);
         $this->config->setDebug(false);
 
         $useProxy = array_key_exists("Proxy", $creds);
@@ -83,7 +83,7 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
             var_dump(openssl_get_cert_locations());            
         }
 
-        $this->CAD = new CadApi($client, $this->config);
+        $this->CAD = new CadApi($this->config, $client);
 
         if ($creds["Storage"]) {
             $this->defaultStorageName = $creds["Storage"];
@@ -91,6 +91,8 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
 
         $existsRequest = new Requests\ObjectExistsRequest(self::$baseRemoteFolder, $this->defaultStorageName);
         $isExistResponse = $this->CAD->objectExists($existsRequest);
+
+        var_dump($isExistResponse);
 
         if (!$isExistResponse->getexists()) {
             $createDirRequest = new Requests\CreateFolderRequest(self::$baseRemoteFolder, $this->defaultStorageName);
@@ -101,9 +103,11 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $dir = new DirectoryIterator(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath));
         foreach ($dir as $fileinfo) {
             if (!$fileinfo->isDot() && $fileinfo->getFilename() != "serverAccess.json") {
-                $fileName = self::$baseRemoteFolder . $fileinfo->getFilename();
+                $fileName = "/" . self::$baseRemoteFolder . $fileinfo->getFilename();
                 $existsRequest = new Requests\ObjectExistsRequest($fileName, $this->defaultStorageName);
                 $isExistResponse = $this->CAD->objectExists($existsRequest);
+
+                var_dump($isExistResponse);
 
                 if (!$isExistResponse->getexists()) {
                     $createFileRequest = new Requests\UploadFileRequest($fileName, $fileinfo->getPathname(), $this->defaultStorageName);

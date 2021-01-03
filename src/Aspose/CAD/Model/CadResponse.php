@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CadResponse.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,13 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * CadResponse
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * CadResponse
  *
  * @description Represents information about a drawing.
@@ -43,14 +40,14 @@ class CadResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "CadResponse";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -69,7 +66,7 @@ class CadResponse implements ArrayAccess
         'cff2_properties' => '\Aspose\CAD\Model\Cff2Properties'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -88,7 +85,7 @@ class CadResponse implements ArrayAccess
         'cff2_properties' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -98,7 +95,7 @@ class CadResponse implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -108,7 +105,7 @@ class CadResponse implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -128,7 +125,7 @@ class CadResponse implements ArrayAccess
         'cff2_properties' => 'Cff2Properties'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -147,7 +144,7 @@ class CadResponse implements ArrayAccess
         'cff2_properties' => 'setCff2Properties'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -166,7 +163,7 @@ class CadResponse implements ArrayAccess
         'cff2_properties' => 'getCff2Properties'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -177,7 +174,7 @@ class CadResponse implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -187,7 +184,7 @@ class CadResponse implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -197,7 +194,7 @@ class CadResponse implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -211,14 +208,14 @@ class CadResponse implements ArrayAccess
 
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -239,7 +236,7 @@ class CadResponse implements ArrayAccess
         $this->container['cff2_properties'] = isset($data['cff2_properties']) ? $data['cff2_properties'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -257,7 +254,7 @@ class CadResponse implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -276,7 +273,7 @@ class CadResponse implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets height
      *
      * @return int
@@ -286,7 +283,7 @@ class CadResponse implements ArrayAccess
         return $this->container['height'];
     }
 
-    /*
+    /**
      * Sets height
      *
      * @param int $height Gets or sets the height of a drawing.
@@ -300,7 +297,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets width
      *
      * @return int
@@ -310,7 +307,7 @@ class CadResponse implements ArrayAccess
         return $this->container['width'];
     }
 
-    /*
+    /**
      * Sets width
      *
      * @param int $width Gets or sets the width of a drawing.
@@ -324,7 +321,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets dwg_properties
      *
      * @return \Aspose\CAD\Model\DwgProperties
@@ -334,7 +331,7 @@ class CadResponse implements ArrayAccess
         return $this->container['dwg_properties'];
     }
 
-    /*
+    /**
      * Sets dwg_properties
      *
      * @param \Aspose\CAD\Model\DwgProperties $dwg_properties Gets or sets the DWG properties.
@@ -348,7 +345,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets dxf_properties
      *
      * @return \Aspose\CAD\Model\DxfProperties
@@ -358,7 +355,7 @@ class CadResponse implements ArrayAccess
         return $this->container['dxf_properties'];
     }
 
-    /*
+    /**
      * Sets dxf_properties
      *
      * @param \Aspose\CAD\Model\DxfProperties $dxf_properties Gets or sets the DXF properties.
@@ -372,7 +369,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets dwt_properties
      *
      * @return \Aspose\CAD\Model\DwgProperties
@@ -382,7 +379,7 @@ class CadResponse implements ArrayAccess
         return $this->container['dwt_properties'];
     }
 
-    /*
+    /**
      * Sets dwt_properties
      *
      * @param \Aspose\CAD\Model\DwgProperties $dwt_properties Gets or sets the DWT properties.
@@ -396,7 +393,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets dgn_properties
      *
      * @return \Aspose\CAD\Model\DgnProperties
@@ -406,7 +403,7 @@ class CadResponse implements ArrayAccess
         return $this->container['dgn_properties'];
     }
 
-    /*
+    /**
      * Sets dgn_properties
      *
      * @param \Aspose\CAD\Model\DgnProperties $dgn_properties Gets or sets the DGN properties.
@@ -420,7 +417,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets ifc_properties
      *
      * @return \Aspose\CAD\Model\IfcProperties
@@ -430,7 +427,7 @@ class CadResponse implements ArrayAccess
         return $this->container['ifc_properties'];
     }
 
-    /*
+    /**
      * Sets ifc_properties
      *
      * @param \Aspose\CAD\Model\IfcProperties $ifc_properties Gets or sets the IFC properties.
@@ -444,7 +441,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets igs_properties
      *
      * @return \Aspose\CAD\Model\IgsProperties
@@ -454,7 +451,7 @@ class CadResponse implements ArrayAccess
         return $this->container['igs_properties'];
     }
 
-    /*
+    /**
      * Sets igs_properties
      *
      * @param \Aspose\CAD\Model\IgsProperties $igs_properties Gets or sets the IGS properties.
@@ -468,7 +465,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets stl_properties
      *
      * @return \Aspose\CAD\Model\StlProperties
@@ -478,7 +475,7 @@ class CadResponse implements ArrayAccess
         return $this->container['stl_properties'];
     }
 
-    /*
+    /**
      * Sets stl_properties
      *
      * @param \Aspose\CAD\Model\StlProperties $stl_properties Gets or sets the STL properties.
@@ -492,7 +489,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets dwf_properties
      *
      * @return \Aspose\CAD\Model\DwfProperties
@@ -502,7 +499,7 @@ class CadResponse implements ArrayAccess
         return $this->container['dwf_properties'];
     }
 
-    /*
+    /**
      * Sets dwf_properties
      *
      * @param \Aspose\CAD\Model\DwfProperties $dwf_properties Gets or sets the DWF properties.
@@ -516,7 +513,7 @@ class CadResponse implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets cff2_properties
      *
      * @return \Aspose\CAD\Model\Cff2Properties
@@ -526,7 +523,7 @@ class CadResponse implements ArrayAccess
         return $this->container['cff2_properties'];
     }
 
-    /*
+    /**
      * Sets cff2_properties
      *
      * @param \Aspose\CAD\Model\Cff2Properties $cff2_properties Gets or sets the CFF2 properties.
@@ -539,7 +536,7 @@ class CadResponse implements ArrayAccess
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -551,7 +548,7 @@ class CadResponse implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -563,7 +560,7 @@ class CadResponse implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -580,7 +577,7 @@ class CadResponse implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -592,7 +589,7 @@ class CadResponse implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PenOptions.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,13 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * PenOptions
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * PenOptions
  *
  */
@@ -42,14 +39,14 @@ class PenOptions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "PenOptions";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -59,7 +56,7 @@ class PenOptions implements ArrayAccess
         'end_cap' => 'string'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -69,7 +66,7 @@ class PenOptions implements ArrayAccess
         'end_cap' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -79,7 +76,7 @@ class PenOptions implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -89,7 +86,7 @@ class PenOptions implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -100,7 +97,7 @@ class PenOptions implements ArrayAccess
         'end_cap' => 'EndCap'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -110,7 +107,7 @@ class PenOptions implements ArrayAccess
         'end_cap' => 'setEndCap'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -120,7 +117,7 @@ class PenOptions implements ArrayAccess
         'end_cap' => 'getEndCap'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -131,7 +128,7 @@ class PenOptions implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -141,7 +138,7 @@ class PenOptions implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -151,7 +148,7 @@ class PenOptions implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -186,7 +183,7 @@ class PenOptions implements ArrayAccess
     
 
     
-    /*
+    /**
      * Gets allowable values of the enum
      *
      * @return string[]
@@ -208,7 +205,7 @@ class PenOptions implements ArrayAccess
         ];
     }
     
-    /*
+    /**
      * Gets allowable values of the enum
      *
      * @return string[]
@@ -231,14 +228,14 @@ class PenOptions implements ArrayAccess
     }
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -250,7 +247,7 @@ class PenOptions implements ArrayAccess
         $this->container['end_cap'] = isset($data['end_cap']) ? $data['end_cap'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -284,7 +281,7 @@ class PenOptions implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -311,7 +308,7 @@ class PenOptions implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets start_cap
      *
      * @return string
@@ -321,7 +318,7 @@ class PenOptions implements ArrayAccess
         return $this->container['start_cap'];
     }
 
-    /*
+    /**
      * Sets start_cap
      *
      * @param string $start_cap start_cap
@@ -334,13 +331,13 @@ class PenOptions implements ArrayAccess
         if ((!is_numeric($start_cap) && !in_array($start_cap, $allowedValues)) || (is_numeric($start_cap) && !in_array($allowedValues[$start_cap], $allowedValues))) {
             throw new \InvalidArgumentException(sprintf("Invalid value for 'start_cap', must be one of '%s'", implode("', '", $allowedValues)));
         }
-			
+            
         $this->container['start_cap'] = $start_cap;
 
         return $this;
     }
 
-    /*
+    /**
      * Gets end_cap
      *
      * @return string
@@ -350,7 +347,7 @@ class PenOptions implements ArrayAccess
         return $this->container['end_cap'];
     }
 
-    /*
+    /**
      * Sets end_cap
      *
      * @param string $end_cap end_cap
@@ -363,12 +360,12 @@ class PenOptions implements ArrayAccess
         if ((!is_numeric($end_cap) && !in_array($end_cap, $allowedValues)) || (is_numeric($end_cap) && !in_array($allowedValues[$end_cap], $allowedValues))) {
             throw new \InvalidArgumentException(sprintf("Invalid value for 'end_cap', must be one of '%s'", implode("', '", $allowedValues)));
         }
-			
+            
         $this->container['end_cap'] = $end_cap;
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -380,7 +377,7 @@ class PenOptions implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -392,7 +389,7 @@ class PenOptions implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -409,7 +406,7 @@ class PenOptions implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -421,7 +418,7 @@ class PenOptions implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

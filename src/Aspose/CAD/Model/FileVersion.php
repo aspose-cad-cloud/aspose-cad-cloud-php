@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FileVersion.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * FileVersion
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * FileVersion
  *
  * @description File Version
@@ -41,14 +38,14 @@ class FileVersion extends StorageFile
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "FileVersion";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -58,7 +55,7 @@ class FileVersion extends StorageFile
         'is_latest' => 'bool'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -68,7 +65,7 @@ class FileVersion extends StorageFile
         'is_latest' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -78,7 +75,7 @@ class FileVersion extends StorageFile
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class FileVersion extends StorageFile
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -99,7 +96,7 @@ class FileVersion extends StorageFile
         'is_latest' => 'IsLatest'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -109,7 +106,7 @@ class FileVersion extends StorageFile
         'is_latest' => 'setIsLatest'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -119,7 +116,7 @@ class FileVersion extends StorageFile
         'is_latest' => 'getIsLatest'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -130,7 +127,7 @@ class FileVersion extends StorageFile
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -140,7 +137,7 @@ class FileVersion extends StorageFile
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -150,7 +147,7 @@ class FileVersion extends StorageFile
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -165,7 +162,7 @@ class FileVersion extends StorageFile
     
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -179,7 +176,7 @@ class FileVersion extends StorageFile
         $this->container['is_latest'] = isset($data['is_latest']) ? $data['is_latest'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -194,7 +191,7 @@ class FileVersion extends StorageFile
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -213,7 +210,7 @@ class FileVersion extends StorageFile
     }
 
 
-    /*
+    /**
      * Gets version_id
      *
      * @return string
@@ -223,7 +220,7 @@ class FileVersion extends StorageFile
         return $this->container['version_id'];
     }
 
-    /*
+    /**
      * Sets version_id
      *
      * @param string $version_id File Version ID.
@@ -237,7 +234,7 @@ class FileVersion extends StorageFile
         return $this;
     }
 
-    /*
+    /**
      * Gets is_latest
      *
      * @return bool
@@ -247,7 +244,7 @@ class FileVersion extends StorageFile
         return $this->container['is_latest'];
     }
 
-    /*
+    /**
      * Sets is_latest
      *
      * @param bool $is_latest Specifies whether the file is (true) or is not (false) the latest version of an file.
@@ -260,7 +257,7 @@ class FileVersion extends StorageFile
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -272,7 +269,7 @@ class FileVersion extends StorageFile
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -284,7 +281,7 @@ class FileVersion extends StorageFile
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -301,7 +298,7 @@ class FileVersion extends StorageFile
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -313,7 +310,7 @@ class FileVersion extends StorageFile
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

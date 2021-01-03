@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ErrorDetails.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,13 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * ErrorDetails
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * ErrorDetails
  *
  * @description The error details
@@ -43,14 +40,14 @@ class ErrorDetails implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "ErrorDetails";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -60,7 +57,7 @@ class ErrorDetails implements ArrayAccess
         'date' => '\DateTime'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -70,7 +67,7 @@ class ErrorDetails implements ArrayAccess
         'date' => 'date-time'
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -80,7 +77,7 @@ class ErrorDetails implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -90,7 +87,7 @@ class ErrorDetails implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -101,7 +98,7 @@ class ErrorDetails implements ArrayAccess
         'date' => 'Date'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -111,7 +108,7 @@ class ErrorDetails implements ArrayAccess
         'date' => 'setDate'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -121,7 +118,7 @@ class ErrorDetails implements ArrayAccess
         'date' => 'getDate'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -132,7 +129,7 @@ class ErrorDetails implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -142,7 +139,7 @@ class ErrorDetails implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -152,7 +149,7 @@ class ErrorDetails implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -166,14 +163,14 @@ class ErrorDetails implements ArrayAccess
 
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -185,7 +182,7 @@ class ErrorDetails implements ArrayAccess
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -200,7 +197,7 @@ class ErrorDetails implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -216,7 +213,7 @@ class ErrorDetails implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets request_id
      *
      * @return string
@@ -226,7 +223,7 @@ class ErrorDetails implements ArrayAccess
         return $this->container['request_id'];
     }
 
-    /*
+    /**
      * Sets request_id
      *
      * @param string $request_id The request id
@@ -240,7 +237,7 @@ class ErrorDetails implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets date
      *
      * @return \DateTime
@@ -250,7 +247,7 @@ class ErrorDetails implements ArrayAccess
         return $this->container['date'];
     }
 
-    /*
+    /**
      * Sets date
      *
      * @param \DateTime $date Date
@@ -263,7 +260,7 @@ class ErrorDetails implements ArrayAccess
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -275,7 +272,7 @@ class ErrorDetails implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -287,7 +284,7 @@ class ErrorDetails implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -304,7 +301,7 @@ class ErrorDetails implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -316,7 +313,7 @@ class ErrorDetails implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

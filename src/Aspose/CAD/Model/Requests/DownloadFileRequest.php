@@ -1,9 +1,8 @@
 <?php
-
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DownloadFileRequest.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,28 +28,38 @@
 
 namespace Aspose\CAD\Model\Requests;
 
-/*
+use \InvalidArgumentException;
+use \Aspose\CAD\Configuration;
+use \Aspose\CAD\ObjectSerializer;
+use \Aspose\CAD\CadRequest as CadRequest;
+
+/**
  * Request model for downloadFile operation.
  */
-class DownloadFileRequest
+class DownloadFileRequest extends CadRequest
 {
-    /*
+    /**
      * File path e.g. '/folder/file.ext'
+     *
+     * @var string
      */
     public $path;
-	
-    /*
+    
+    /**
      * Storage name
+     *
+     * @var string
      */
     public $storage_name;
-	
-    /*
+    
+    /**
      * File version ID to download
+     *
+     * @var string
      */
     public $version_id;
     
-	
-    /*
+    /**
      * Initializes a new instance of the DownloadFileRequest class.
      *  
      * @param string $path File path e.g. '/folder/file.ext'
@@ -64,54 +73,134 @@ class DownloadFileRequest
         $this->version_id = $version_id;
     }
 
-    /*
+    /**
      * File path e.g. '/folder/file.ext'
+     *
+     * @return string
      */
     public function get_path()
     {
         return $this->path;
     }
 
-    /*
+    /**
      * File path e.g. '/folder/file.ext'
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_path($value)
     {
         $this->path = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Storage name
+     *
+     * @return string
      */
     public function get_storage_name()
     {
         return $this->storage_name;
     }
 
-    /*
+    /**
      * Storage name
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_storage_name($value)
     {
         $this->storage_name = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * File version ID to download
+     *
+     * @return string
      */
     public function get_version_id()
     {
         return $this->version_id;
     }
 
-    /*
+    /**
      * File version ID to download
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_version_id($value)
     {
         $this->version_id = $value;
         return $this;
     }
-}
+
+    /**
+     * Prepares initial info for HTTP request
+     *
+     * @param \Aspose\CAD\Configuration $config CAD API configuration.
+     */
+    public function getHttpRequestInfo($config)
+    {
+        // verify the required parameter 'path' is set
+        if ($this->path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling downloadFile');
+        }
+
+        $resourcePath = '/cad/storage/file/{path}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $headers = [];
+    
+        // path params
+        if ($this->path !== null) {
+            $localName = lcfirst('path');
+            $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($this->path), $resourcePath);
+        }
+
+        // query params
+        if ($this->storage_name !== null) {
+            $localName = lcfirst('storageName');
+            $localValue = is_bool($this->storage_name) ? ($this->storage_name ? 'true' : 'false') : $this->storage_name;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($this->version_id !== null) {
+            $localName = lcfirst('versionId');
+            $localValue = is_bool($this->version_id) ? ($this->version_id ? 'true' : 'false') : $this->version_id;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
+
+        // body params
+        $httpBody = null;
+
+        $headers = $this->selectHeaders(
+            ['multipart/form-data'],
+            ['application/json']
+        );
+        
+        $httpInfo = array(
+            "resourcePath" => $resourcePath,
+            "queryParams" => $queryParams,
+            "headerParams" => $headerParams,
+            "headers" => $headers,
+            "httpBody" => $httpBody,
+            "formParams" => $formParams,
+        );
+        
+        return $httpInfo;        
+    }
+}

@@ -1,8 +1,8 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="HeaderSelector.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ * <copyright company="Aspose" file="CadRequest.php">
+ *   Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,54 +28,46 @@
 
 namespace Aspose\CAD;
 
-use \Exception;
+use \Aspose\CAD\Configuration;
 
-/*
- * ApiException Class Doc Comment
+/**
+ * Request model base class for Aspose.CAD SDK
  */
-class HeaderSelector
+abstract class CadRequest
 {
-
-    /*
-     * Selects headers for request
-     * @param string[] $accept type of header
-     * @param string[] $contentTypes types of content
-     * @return array 
+    /**
+     * Prepares initial info for HTTP request
+     *
+     * @param \Aspose\CAD\Configuration $config CAD API configuration.
      */
-    public function selectHeaders($accept, $contentTypes)
+    public abstract function getHttpRequestInfo($config);
+
+    /**
+     * @param string[] $accept
+     * @param string[] $contentTypes
+     * @return array
+     */
+    protected function selectHeaders($accept, $contentTypes)
     {
         $headers = [];
 
-        $accept = $this->_selectAcceptHeader($accept);
+        $accept = $this->selectAcceptHeader($accept);
         if ($accept !== null) {
             $headers['Accept'] = $accept;
         }
 
-        $headers['Content-Type'] = $this->_selectContentTypeHeader($contentTypes);
+        $headers['Content-Type'] = $this->selectContentTypeHeader($contentTypes);
         return $headers;
     }
 
-    /*
-     * Selects headers for multipart form
-     * @param string[] $accept type of header
-     * @return array
-     */
-    public function selectHeadersForMultipart($accept)
-    {
-        $headers = $this->selectHeaders($accept, []);
-
-        unset($headers['Content-Type']);
-        return $headers;
-    }
-
-    /*
+    /**
      * Return the header 'Accept' based on an array of Accept provided
      *
      * @param string[] $accept Array of header
      *
      * @return string Accept (e.g. application/json)
      */
-    private function _selectAcceptHeader($accept)
+    private function selectAcceptHeader($accept)
     {
         if (count($accept) === 0 || (count($accept) === 1 && $accept[0] === '')) {
             return null;
@@ -86,14 +78,14 @@ class HeaderSelector
         }
     }
 
-    /*
+    /**
      * Return the content type based on an array of content-type provided
      *
      * @param string[] $contentType Array fo content-type
      *
      * @return string Content-Type (e.g. application/json)
      */
-    private function _selectContentTypeHeader($contentType)
+    private function selectContentTypeHeader($contentType)
     {
         if (count($contentType) === 0 || (count($contentType) === 1 && $contentType[0] === '')) {
             return 'application/json';
@@ -104,4 +96,3 @@ class HeaderSelector
         }
     }
 }
-

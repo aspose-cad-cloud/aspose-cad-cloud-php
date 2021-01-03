@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="WmfOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * WmfOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * WmfOptionsDTO
  *
  * @description Export options for WMF format
@@ -41,14 +38,14 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "WmfOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -57,7 +54,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         'bits_per_pixel' => 'int'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -66,7 +63,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         'bits_per_pixel' => 'int32'
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -76,7 +73,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -86,7 +83,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -96,7 +93,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         'bits_per_pixel' => 'BitsPerPixel'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -105,7 +102,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         'bits_per_pixel' => 'setBitsPerPixel'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -114,7 +111,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         'bits_per_pixel' => 'getBitsPerPixel'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -125,7 +122,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -135,7 +132,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -145,7 +142,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -160,7 +157,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
     
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -173,7 +170,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         $this->container['bits_per_pixel'] = isset($data['bits_per_pixel']) ? $data['bits_per_pixel'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -188,7 +185,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -207,7 +204,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
     }
 
 
-    /*
+    /**
      * Gets bits_per_pixel
      *
      * @return int
@@ -217,7 +214,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['bits_per_pixel'];
     }
 
-    /*
+    /**
      * Sets bits_per_pixel
      *
      * @param int $bits_per_pixel Bits per pixel for Resulting file
@@ -230,7 +227,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -242,7 +239,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -254,7 +251,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -271,7 +268,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -283,7 +280,7 @@ class WmfOptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

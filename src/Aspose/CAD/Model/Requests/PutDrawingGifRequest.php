@@ -1,9 +1,8 @@
 <?php
-
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutDrawingGifRequest.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,36 +28,48 @@
 
 namespace Aspose\CAD\Model\Requests;
 
-/*
+use \InvalidArgumentException;
+use \Aspose\CAD\Configuration;
+use \Aspose\CAD\ObjectSerializer;
+use \Aspose\CAD\CadRequest as CadRequest;
+
+/**
  * Request model for putDrawingGif operation.
  */
-class PutDrawingGifRequest
+class PutDrawingGifRequest extends CadRequest
 {
-    /*
+    /**
      * Input drawing
+     *
+     * @var string
      */
     public $drawing_data;
-	
-    /*
+    
+    /**
      * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
+     *
+     * @var string
      */
     public $export_options;
-	
-    /*
+    
+    /**
      * Path to updated file (if this is empty, response contains streamed file).
+     *
+     * @var string
      */
     public $out_path;
-	
-    /*
+    
+    /**
      * Your Aspose Cloud Storage name.
+     *
+     * @var string
      */
     public $storage;
     
-	
-    /*
+    /**
      * Initializes a new instance of the PutDrawingGifRequest class.
      *  
-     * @param \SplFileObject $drawing_data Input drawing
+     * @param string $drawing_data Input drawing
      * @param string $export_options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
      * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
      * @param string $storage Your Aspose Cloud Storage name.
@@ -71,71 +82,158 @@ class PutDrawingGifRequest
         $this->storage = $storage;
     }
 
-    /*
+    /**
      * Input drawing
+     *
+     * @return string
      */
     public function get_drawing_data()
     {
         return $this->drawing_data;
     }
 
-    /*
+    /**
      * Input drawing
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_drawing_data($value)
     {
         $this->drawing_data = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
+     *
+     * @return string
      */
     public function get_export_options()
     {
         return $this->export_options;
     }
 
-    /*
+    /**
      * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition.
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_export_options($value)
     {
         $this->export_options = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Path to updated file (if this is empty, response contains streamed file).
+     *
+     * @return string
      */
     public function get_out_path()
     {
         return $this->out_path;
     }
 
-    /*
+    /**
      * Path to updated file (if this is empty, response contains streamed file).
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_out_path($value)
     {
         $this->out_path = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Your Aspose Cloud Storage name.
+     *
+     * @return string
      */
     public function get_storage()
     {
         return $this->storage;
     }
 
-    /*
+    /**
      * Your Aspose Cloud Storage name.
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_storage($value)
     {
         $this->storage = $value;
         return $this;
     }
-}
+
+    /**
+     * Prepares initial info for HTTP request
+     *
+     * @param \Aspose\CAD\Configuration $config CAD API configuration.
+     */
+    public function getHttpRequestInfo($config)
+    {
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putDrawingGif');
+        }
+
+        $resourcePath = '/cad/gif';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $headers = [];
+    
+
+        // query params
+        if ($this->out_path !== null) {
+            $localName = lcfirst('outPath');
+            $localValue = is_bool($this->out_path) ? ($this->out_path ? 'true' : 'false') : $this->out_path;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($this->storage !== null) {
+            $localName = lcfirst('storage');
+            $localValue = is_bool($this->storage) ? ($this->storage ? 'true' : 'false') : $this->storage;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
+
+        // form params
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
+        }
+        // form params
+        if ($this->export_options !== null) {
+            $formParams[ObjectSerializer::toStandardName('export_options')] = ObjectSerializer::toFormValue($this->export_options);
+        }
+        // body params
+        $httpBody = null;
+
+        $headers = $this->selectHeaders(
+            ['application/json'],
+            ['multipart/form-data', 'application/octet-stream']
+        );
+        
+        $httpInfo = array(
+            "resourcePath" => $resourcePath,
+            "queryParams" => $queryParams,
+            "headerParams" => $headerParams,
+            "headers" => $headers,
+            "httpBody" => $httpBody,
+            "formParams" => $formParams,
+        );
+        
+        return $httpInfo;        
+    }
+}

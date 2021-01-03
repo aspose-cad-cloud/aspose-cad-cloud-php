@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfDocumentInfo.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,13 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * PdfDocumentInfo
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * PdfDocumentInfo
  *
  */
@@ -42,14 +39,14 @@ class PdfDocumentInfo implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "PdfDocumentInfo";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -61,7 +58,7 @@ class PdfDocumentInfo implements ArrayAccess
         'subject' => 'string'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -73,7 +70,7 @@ class PdfDocumentInfo implements ArrayAccess
         'subject' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -83,7 +80,7 @@ class PdfDocumentInfo implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -93,7 +90,7 @@ class PdfDocumentInfo implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -106,7 +103,7 @@ class PdfDocumentInfo implements ArrayAccess
         'subject' => 'Subject'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -118,7 +115,7 @@ class PdfDocumentInfo implements ArrayAccess
         'subject' => 'setSubject'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -130,7 +127,7 @@ class PdfDocumentInfo implements ArrayAccess
         'subject' => 'getSubject'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -141,7 +138,7 @@ class PdfDocumentInfo implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -151,7 +148,7 @@ class PdfDocumentInfo implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -161,7 +158,7 @@ class PdfDocumentInfo implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -175,14 +172,14 @@ class PdfDocumentInfo implements ArrayAccess
 
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -196,7 +193,7 @@ class PdfDocumentInfo implements ArrayAccess
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -208,7 +205,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -221,7 +218,7 @@ class PdfDocumentInfo implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets keywords
      *
      * @return string
@@ -231,7 +228,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this->container['keywords'];
     }
 
-    /*
+    /**
      * Sets keywords
      *
      * @param string $keywords keywords
@@ -245,7 +242,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets title
      *
      * @return string
@@ -255,7 +252,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this->container['title'];
     }
 
-    /*
+    /**
      * Sets title
      *
      * @param string $title title
@@ -269,7 +266,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets author
      *
      * @return string
@@ -279,7 +276,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this->container['author'];
     }
 
-    /*
+    /**
      * Sets author
      *
      * @param string $author author
@@ -293,7 +290,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets subject
      *
      * @return string
@@ -303,7 +300,7 @@ class PdfDocumentInfo implements ArrayAccess
         return $this->container['subject'];
     }
 
-    /*
+    /**
      * Sets subject
      *
      * @param string $subject subject
@@ -316,7 +313,7 @@ class PdfDocumentInfo implements ArrayAccess
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -328,7 +325,7 @@ class PdfDocumentInfo implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -340,7 +337,7 @@ class PdfDocumentInfo implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -357,7 +354,7 @@ class PdfDocumentInfo implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -369,7 +366,7 @@ class PdfDocumentInfo implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BmpOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * BmpOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * BmpOptionsDTO
  *
  * @description Export options for BMP format
@@ -41,24 +38,24 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "BmpOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
      */
     protected static $swaggerTypes = [
         'bits_per_pixel' => 'int',
-        'compression' => 'string'
+        'compression' => 'object'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -68,7 +65,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         'compression' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -78,7 +75,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -99,7 +96,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         'compression' => 'Compression'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -109,7 +106,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         'compression' => 'setCompression'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -119,7 +116,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         'compression' => 'getCompression'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -130,7 +127,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -140,7 +137,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -150,7 +147,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -160,37 +157,12 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const COMPRESSION_RGB = 'Rgb';
-    const COMPRESSION_RLE8 = 'Rle8';
-    const COMPRESSION_RLE4 = 'Rle4';
-    const COMPRESSION_BITFIELDS = 'Bitfields';
-    const COMPRESSION_JPEG = 'Jpeg';
-    const COMPRESSION_PNG = 'Png';
-    const COMPRESSION_ALPHA_BITFIELDS = 'AlphaBitfields';
     
 
     
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCompressionAllowableValues()
-    {
-        return [
-            self::COMPRESSION_RGB,
-            self::COMPRESSION_RLE8,
-            self::COMPRESSION_RLE4,
-            self::COMPRESSION_BITFIELDS,
-            self::COMPRESSION_JPEG,
-            self::COMPRESSION_PNG,
-            self::COMPRESSION_ALPHA_BITFIELDS,
-        ];
-    }
-    
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -204,7 +176,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -219,18 +191,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression'] === null) {
             $invalidProperties[] = "'compression' can't be null";
         }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'compression', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -248,15 +212,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression'] === null) {
             return false;
         }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
 
-    /*
+    /**
      * Gets bits_per_pixel
      *
      * @return int
@@ -266,7 +226,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['bits_per_pixel'];
     }
 
-    /*
+    /**
      * Sets bits_per_pixel
      *
      * @param int $bits_per_pixel Bits per pixel
@@ -280,35 +240,30 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets compression
      *
-     * @return string
+     * @return object
      */
     public function getCompression()
     {
         return $this->container['compression'];
     }
 
-    /*
+    /**
      * Sets compression
      *
-     * @param string $compression Compression type
+     * @param object $compression Compression type
      *
      * @return $this
      */
     public function setCompression($compression)
     {
-        $allowedValues = $this->getCompressionAllowableValues();
-        if ((!is_numeric($compression) && !in_array($compression, $allowedValues)) || (is_numeric($compression) && !in_array($allowedValues[$compression], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
         $this->container['compression'] = $compression;
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -320,7 +275,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -332,7 +287,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -349,7 +304,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -361,7 +316,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

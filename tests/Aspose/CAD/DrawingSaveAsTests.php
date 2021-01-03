@@ -59,7 +59,7 @@ class DrawingSaveAsTests extends BaseTestContext
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
         $putRequest = new Requests\UploadFileRequest($fullName, $file);
-        $this->storage->PutCreate($putRequest);
+        $this->CAD->uploadFile($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
@@ -78,13 +78,13 @@ class DrawingSaveAsTests extends BaseTestContext
         $localName = "galeon.stl";
         $outputFormat = "jpg";
         $remoteName = $localName;
-        $subfolder = "";
-        $fullName = self::$baseRemoteFolder . $subfolder . $remoteName;
+        $subfolder = "saveAs";
+        $fullName = self::$baseRemoteFolder . $subfolder . "/" . $remoteName;
         $destName = self::$baseTestOut . $remoteName ."." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
         $putRequest = new Requests\UploadFileRequest($fullName, $file);
-        $this->storage->PutCreate($putRequest);
+        $this->CAD->uploadFile($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\GetDrawingSaveAsRequest($remoteName, $outputFormat, $folder=trim(self::$baseRemoteFolder . $subfolder), null, null);
 

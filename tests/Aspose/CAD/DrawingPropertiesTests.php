@@ -55,10 +55,10 @@ class DrawingPropertiesTests extends BaseTestContext
         $fullName = self::$baseRemoteFolder . $subfolder . $remoteName;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new Requests\UploadFileRequest($fullName, $file);
-        $this->storage->PutCreate($putRequest);
+        $putRequest = new Requests\UploadFileRequest($fullName, $file, self::$defaultStorageName);
+        $this->CAD->uploadFile($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName, self::$baseRemoteFolder);
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName, self::$baseRemoteFolder, self::$defaultStorageName);
 
         list($response, $code, $headers) = $this->CAD->getDrawingPropertiesWithHttpInfo($request);
         Assert::assertEquals(200, $code);

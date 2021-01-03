@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="Jpeg2000OptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * Jpeg2000OptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * Jpeg2000OptionsDTO
  *
  * @description Export options for JPEG2000 format
@@ -41,14 +38,14 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "Jpeg2000OptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -58,7 +55,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         'codec' => 'string'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -68,7 +65,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         'codec' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -78,7 +75,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -99,7 +96,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         'codec' => 'Codec'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -109,7 +106,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         'codec' => 'setCodec'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -119,7 +116,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         'codec' => 'getCodec'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -130,7 +127,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -140,7 +137,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -150,7 +147,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -166,7 +163,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
     
 
     
-    /*
+    /**
      * Gets allowable values of the enum
      *
      * @return string[]
@@ -182,7 +179,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
     
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -196,7 +193,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         $this->container['codec'] = isset($data['codec']) ? $data['codec'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -219,7 +216,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -242,7 +239,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
     }
 
 
-    /*
+    /**
      * Gets comments
      *
      * @return string[]
@@ -252,7 +249,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['comments'];
     }
 
-    /*
+    /**
      * Sets comments
      *
      * @param string[] $comments comments
@@ -266,7 +263,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets codec
      *
      * @return string
@@ -276,7 +273,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['codec'];
     }
 
-    /*
+    /**
      * Sets codec
      *
      * @param string $codec codec
@@ -289,12 +286,12 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         if ((!is_numeric($codec) && !in_array($codec, $allowedValues)) || (is_numeric($codec) && !in_array($allowedValues[$codec], $allowedValues))) {
             throw new \InvalidArgumentException(sprintf("Invalid value for 'codec', must be one of '%s'", implode("', '", $allowedValues)));
         }
-			
+            
         $this->container['codec'] = $codec;
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -306,7 +303,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -318,7 +315,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -335,7 +332,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -347,7 +344,7 @@ class Jpeg2000OptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

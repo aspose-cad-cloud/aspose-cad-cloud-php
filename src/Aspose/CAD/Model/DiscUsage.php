@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DiscUsage.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,13 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * DiscUsage
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * DiscUsage
  *
  * @description Class for disc space information.
@@ -43,14 +40,14 @@ class DiscUsage implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "DiscUsage";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -60,7 +57,7 @@ class DiscUsage implements ArrayAccess
         'total_size' => 'int'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -70,7 +67,7 @@ class DiscUsage implements ArrayAccess
         'total_size' => 'int64'
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -80,7 +77,7 @@ class DiscUsage implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -90,7 +87,7 @@ class DiscUsage implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -101,7 +98,7 @@ class DiscUsage implements ArrayAccess
         'total_size' => 'TotalSize'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -111,7 +108,7 @@ class DiscUsage implements ArrayAccess
         'total_size' => 'setTotalSize'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -121,7 +118,7 @@ class DiscUsage implements ArrayAccess
         'total_size' => 'getTotalSize'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -132,7 +129,7 @@ class DiscUsage implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -142,7 +139,7 @@ class DiscUsage implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -152,7 +149,7 @@ class DiscUsage implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -166,14 +163,14 @@ class DiscUsage implements ArrayAccess
 
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -185,7 +182,7 @@ class DiscUsage implements ArrayAccess
         $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -203,7 +200,7 @@ class DiscUsage implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -222,7 +219,7 @@ class DiscUsage implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets used_size
      *
      * @return int
@@ -232,7 +229,7 @@ class DiscUsage implements ArrayAccess
         return $this->container['used_size'];
     }
 
-    /*
+    /**
      * Sets used_size
      *
      * @param int $used_size Application used disc space.
@@ -246,7 +243,7 @@ class DiscUsage implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets total_size
      *
      * @return int
@@ -256,7 +253,7 @@ class DiscUsage implements ArrayAccess
         return $this->container['total_size'];
     }
 
-    /*
+    /**
      * Sets total_size
      *
      * @param int $total_size Total disc space.
@@ -269,7 +266,7 @@ class DiscUsage implements ArrayAccess
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -281,7 +278,7 @@ class DiscUsage implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -293,7 +290,7 @@ class DiscUsage implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -310,7 +307,7 @@ class DiscUsage implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -322,7 +319,7 @@ class DiscUsage implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

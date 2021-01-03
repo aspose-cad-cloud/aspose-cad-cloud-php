@@ -1,9 +1,8 @@
 <?php
-
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDiscUsageRequest.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,18 +28,24 @@
 
 namespace Aspose\CAD\Model\Requests;
 
-/*
+use \InvalidArgumentException;
+use \Aspose\CAD\Configuration;
+use \Aspose\CAD\ObjectSerializer;
+use \Aspose\CAD\CadRequest as CadRequest;
+
+/**
  * Request model for getDiscUsage operation.
  */
-class GetDiscUsageRequest
+class GetDiscUsageRequest extends CadRequest
 {
-    /*
+    /**
      * Storage name
+     *
+     * @var string
      */
     public $storage_name;
     
-	
-    /*
+    /**
      * Initializes a new instance of the GetDiscUsageRequest class.
      *  
      * @param string $storage_name Storage name
@@ -50,20 +55,73 @@ class GetDiscUsageRequest
         $this->storage_name = $storage_name;
     }
 
-    /*
+    /**
      * Storage name
+     *
+     * @return string
      */
     public function get_storage_name()
     {
         return $this->storage_name;
     }
 
-    /*
+    /**
      * Storage name
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_storage_name($value)
     {
         $this->storage_name = $value;
         return $this;
     }
-}
+
+    /**
+     * Prepares initial info for HTTP request
+     *
+     * @param \Aspose\CAD\Configuration $config CAD API configuration.
+     */
+    public function getHttpRequestInfo($config)
+    {
+
+        $resourcePath = '/cad/storage/disc';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $headers = [];
+    
+
+        // query params
+        if ($this->storage_name !== null) {
+            $localName = lcfirst('storageName');
+            $localValue = is_bool($this->storage_name) ? ($this->storage_name ? 'true' : 'false') : $this->storage_name;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
+
+        // body params
+        $httpBody = null;
+
+        $headers = $this->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+        
+        $httpInfo = array(
+            "resourcePath" => $resourcePath,
+            "queryParams" => $queryParams,
+            "headerParams" => $headerParams,
+            "headers" => $headers,
+            "httpBody" => $httpBody,
+            "formParams" => $formParams,
+        );
+        
+        return $httpInfo;        
+    }
+}

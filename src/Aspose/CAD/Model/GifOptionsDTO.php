@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GifOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * GifOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * GifOptionsDTO
  *
  * @description Export options for GIF format
@@ -41,14 +38,14 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "GifOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -63,7 +60,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         'interlaced' => 'bool'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -78,7 +75,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         'interlaced' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -98,7 +95,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -114,7 +111,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         'interlaced' => 'Interlaced'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -129,7 +126,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         'interlaced' => 'setInterlaced'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -144,7 +141,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         'interlaced' => 'getInterlaced'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -155,7 +152,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -165,7 +162,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -175,7 +172,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -190,7 +187,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
     
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -209,7 +206,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         $this->container['interlaced'] = isset($data['interlaced']) ? $data['interlaced'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -242,7 +239,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -279,7 +276,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
     }
 
 
-    /*
+    /**
      * Gets do_palette_correction
      *
      * @return bool
@@ -289,7 +286,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['do_palette_correction'];
     }
 
-    /*
+    /**
      * Sets do_palette_correction
      *
      * @param bool $do_palette_correction Determines whether to do auto-correction of a palette
@@ -303,7 +300,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets color_resolution
      *
      * @return int
@@ -313,7 +310,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['color_resolution'];
     }
 
-    /*
+    /**
      * Sets color_resolution
      *
      * @param int $color_resolution Color resolution
@@ -327,7 +324,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets is_palette_sorted
      *
      * @return bool
@@ -337,7 +334,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['is_palette_sorted'];
     }
 
-    /*
+    /**
      * Sets is_palette_sorted
      *
      * @param bool $is_palette_sorted Determines whether a palette is sorted
@@ -351,7 +348,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets pixel_aspect_ratio
      *
      * @return int
@@ -361,7 +358,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['pixel_aspect_ratio'];
     }
 
-    /*
+    /**
      * Sets pixel_aspect_ratio
      *
      * @param int $pixel_aspect_ratio Pixel aspect ration
@@ -375,7 +372,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets background_color_index
      *
      * @return int
@@ -385,7 +382,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['background_color_index'];
     }
 
-    /*
+    /**
      * Sets background_color_index
      *
      * @param int $background_color_index Background color index
@@ -399,7 +396,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets has_trailer
      *
      * @return bool
@@ -409,7 +406,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['has_trailer'];
     }
 
-    /*
+    /**
      * Sets has_trailer
      *
      * @param bool $has_trailer Determines whether image has to have a trailer
@@ -423,7 +420,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets interlaced
      *
      * @return bool
@@ -433,7 +430,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['interlaced'];
     }
 
-    /*
+    /**
      * Sets interlaced
      *
      * @param bool $interlaced Determines whether an image has to be interlaced
@@ -446,7 +443,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -458,7 +455,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -470,7 +467,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -487,7 +484,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -499,7 +496,7 @@ class GifOptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * PdfOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * PdfOptionsDTO
  *
  * @description Export options for PDF format
@@ -41,14 +38,14 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "PdfOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -58,7 +55,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         'core_pdf_options' => '\Aspose\CAD\Model\PdfDocumentOptions'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -68,7 +65,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         'core_pdf_options' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -78,7 +75,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -99,7 +96,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         'core_pdf_options' => 'CorePdfOptions'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -109,7 +106,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         'core_pdf_options' => 'setCorePdfOptions'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -119,7 +116,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         'core_pdf_options' => 'getCorePdfOptions'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -130,7 +127,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -140,7 +137,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -150,7 +147,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -165,7 +162,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
     
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -179,7 +176,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         $this->container['core_pdf_options'] = isset($data['core_pdf_options']) ? $data['core_pdf_options'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -191,7 +188,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -207,7 +204,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
     }
 
 
-    /*
+    /**
      * Gets pdf_document_info
      *
      * @return \Aspose\CAD\Model\PdfDocumentInfo
@@ -217,7 +214,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['pdf_document_info'];
     }
 
-    /*
+    /**
      * Sets pdf_document_info
      *
      * @param \Aspose\CAD\Model\PdfDocumentInfo $pdf_document_info Document metadata
@@ -231,7 +228,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return $this;
     }
 
-    /*
+    /**
      * Gets core_pdf_options
      *
      * @return \Aspose\CAD\Model\PdfDocumentOptions
@@ -241,7 +238,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['core_pdf_options'];
     }
 
-    /*
+    /**
      * Sets core_pdf_options
      *
      * @param \Aspose\CAD\Model\PdfDocumentOptions $core_pdf_options Core PDF rendering options
@@ -254,7 +251,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -266,7 +263,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -278,7 +275,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -295,7 +292,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -307,7 +304,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

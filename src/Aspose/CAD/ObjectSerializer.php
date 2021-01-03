@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ObjectSerializer.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -11,10 +11,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,12 +28,12 @@
 
 namespace Aspose\CAD;
 
-/*
- * ObjectSerializer
+/**
+ * Object serializer
  */
 class ObjectSerializer
 {
-    /*
+    /**
      * Serialize data
      *
      * @param mixed  $data   the data to serialize
@@ -64,8 +64,8 @@ class ObjectSerializer
                     && method_exists($swaggerType, 'getAllowableEnumValues')
                     && !in_array($value, $swaggerType::getAllowableEnumValues())
                 ) {
-                        $imploded = implode("', '", $swaggerType::getAllowableEnumValues());
-                        throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
+                    $imploded = implode("', '", $swaggerType::getAllowableEnumValues());
+                    throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
                 }
                 if ($value !== null) {
                     $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $swaggerType, $formats[$property]);
@@ -77,7 +77,7 @@ class ObjectSerializer
         }
     }
 
-    /*
+    /**
      * Sanitize filename by removing path.
      * e.g. ../../sun.gif becomes sun.gif
      *
@@ -94,7 +94,7 @@ class ObjectSerializer
         }
     }
 
-    /*
+    /**
      * Take value and turn it into a string suitable for inclusion in
      * the path, by url-encoding.
      *
@@ -107,7 +107,26 @@ class ObjectSerializer
         return rawurlencode(self::toString($value));
     }
 
-    /*
+    /**
+     * Transforms parameter to camelCase or PascalCase
+     *
+     * @param $string String to transform.
+     * @param bool $pascalCase Transorm to PascalCase instead of camelCase.
+     * @return $string Transformed string.
+     */
+    public static function toStandardName($string, $pascalCase = false) 
+    {
+        $str = str_replace('-', '', ucwords($string, '-'));
+        $str = str_replace('_', '', ucwords($str, '-'));
+
+        if (!$pascalCase) {
+            $str = lcfirst($str);
+        }
+
+        return $str;
+    }
+
+    /**
      * Take value and turn it into a string suitable for inclusion in
      * the query, by imploding comma-separated if it's an object.
      * If it's a string, pass through unchanged. It will be url-encoded
@@ -126,7 +145,7 @@ class ObjectSerializer
         }
     }
 
-    /*
+    /**
      * Take value and turn it into a string suitable for inclusion in
      * the header. If it's a string, pass through unchanged
      * If it's a datetime object, format it in ISO8601
@@ -140,7 +159,7 @@ class ObjectSerializer
         return self::toString($value);
     }
 
-    /*
+    /**
      * Take value and turn it into a string suitable for inclusion in
      * the http body (form parameter). If it's a string, pass through unchanged
      * If it's a datetime object, format it in ISO8601
@@ -158,7 +177,7 @@ class ObjectSerializer
         }
     }
 
-    /*
+    /**
      * Take value and turn it into a string suitable for inclusion in
      * the parameter. If it's a string, pass through unchanged
      * If it's a datetime object, format it in ISO8601
@@ -178,7 +197,7 @@ class ObjectSerializer
         }
     }
 
-    /*
+    /**
      * Serialize an array to a string.
      *
      * @param array  $collection                 collection to serialize to a string
@@ -209,7 +228,7 @@ class ObjectSerializer
         }
     }
 
-    /*
+    /**
      * Deserialize a JSON string into an object
      *
      * @param mixed    $data        object or primitive to be deserialized
@@ -259,15 +278,15 @@ class ObjectSerializer
             settype($data, $class);
             return $data;
         } elseif ($class === '\SplFileObject') {
-            // \Psr\Http\Message\StreamInterface $data 
+            // \Psr\Http\Message\StreamInterface $data
 
             // determine file name
             if (array_key_exists('Content-Disposition', $httpHeaders)
                 && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)
             ) {
-                $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . self::sanitizeFilename($match[1]);
+                $filename = sys_get_temp_dir() . self::sanitizeFilename($match[1]);
             } else {
-                $filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');
+                $filename = tempnam(sys_get_temp_dir(), '');
             }
 
             $file = fopen($filename, 'w');
@@ -296,15 +315,17 @@ class ObjectSerializer
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
 
-                if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
+                if (!isset($propertySetter) || !isset($data->{lcfirst($instance::attributeMap()[$property])})) {
                     continue;
                 }
 
-                $propertyValue = $data->{$instance::attributeMap()[$property]};
+                $propertyValue = $data->{lcfirst($instance::attributeMap()[$property])};
                 if (isset($propertyValue)) {
+
                     $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
                 }
             }
+
             return $instance;
         }
     }

@@ -1,9 +1,8 @@
 <?php
-
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CopyFolderRequest.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,33 +28,45 @@
 
 namespace Aspose\CAD\Model\Requests;
 
-/*
+use \InvalidArgumentException;
+use \Aspose\CAD\Configuration;
+use \Aspose\CAD\ObjectSerializer;
+use \Aspose\CAD\CadRequest as CadRequest;
+
+/**
  * Request model for copyFolder operation.
  */
-class CopyFolderRequest
+class CopyFolderRequest extends CadRequest
 {
-    /*
+    /**
      * Source folder path e.g. '/src'
+     *
+     * @var string
      */
     public $src_path;
-	
-    /*
+    
+    /**
      * Destination folder path e.g. '/dst'
+     *
+     * @var string
      */
     public $dest_path;
-	
-    /*
+    
+    /**
      * Source storage name
+     *
+     * @var string
      */
     public $src_storage_name;
-	
-    /*
+    
+    /**
      * Destination storage name
+     *
+     * @var string
      */
     public $dest_storage_name;
     
-	
-    /*
+    /**
      * Initializes a new instance of the CopyFolderRequest class.
      *  
      * @param string $src_path Source folder path e.g. '/src'
@@ -71,71 +82,169 @@ class CopyFolderRequest
         $this->dest_storage_name = $dest_storage_name;
     }
 
-    /*
+    /**
      * Source folder path e.g. '/src'
+     *
+     * @return string
      */
     public function get_src_path()
     {
         return $this->src_path;
     }
 
-    /*
+    /**
      * Source folder path e.g. '/src'
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_src_path($value)
     {
         $this->src_path = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Destination folder path e.g. '/dst'
+     *
+     * @return string
      */
     public function get_dest_path()
     {
         return $this->dest_path;
     }
 
-    /*
+    /**
      * Destination folder path e.g. '/dst'
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_dest_path($value)
     {
         $this->dest_path = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Source storage name
+     *
+     * @return string
      */
     public function get_src_storage_name()
     {
         return $this->src_storage_name;
     }
 
-    /*
+    /**
      * Source storage name
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_src_storage_name($value)
     {
         $this->src_storage_name = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Destination storage name
+     *
+     * @return string
      */
     public function get_dest_storage_name()
     {
         return $this->dest_storage_name;
     }
 
-    /*
+    /**
      * Destination storage name
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_dest_storage_name($value)
     {
         $this->dest_storage_name = $value;
         return $this;
     }
-}
+
+    /**
+     * Prepares initial info for HTTP request
+     *
+     * @param \Aspose\CAD\Configuration $config CAD API configuration.
+     */
+    public function getHttpRequestInfo($config)
+    {
+        // verify the required parameter 'src_path' is set
+        if ($this->src_path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $src_path when calling copyFolder');
+        }
+        // verify the required parameter 'dest_path' is set
+        if ($this->dest_path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dest_path when calling copyFolder');
+        }
+
+        $resourcePath = '/cad/storage/folder/copy/{srcPath}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $headers = [];
+    
+        // path params
+        if ($this->src_path !== null) {
+            $localName = lcfirst('srcPath');
+            $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($this->src_path), $resourcePath);
+        }
+
+        // query params
+        if ($this->dest_path !== null) {
+            $localName = lcfirst('destPath');
+            $localValue = is_bool($this->dest_path) ? ($this->dest_path ? 'true' : 'false') : $this->dest_path;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($this->src_storage_name !== null) {
+            $localName = lcfirst('srcStorageName');
+            $localValue = is_bool($this->src_storage_name) ? ($this->src_storage_name ? 'true' : 'false') : $this->src_storage_name;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($this->dest_storage_name !== null) {
+            $localName = lcfirst('destStorageName');
+            $localValue = is_bool($this->dest_storage_name) ? ($this->dest_storage_name ? 'true' : 'false') : $this->dest_storage_name;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
+
+        // body params
+        $httpBody = null;
+
+        $headers = $this->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+        
+        $httpInfo = array(
+            "resourcePath" => $resourcePath,
+            "queryParams" => $queryParams,
+            "headerParams" => $headerParams,
+            "headers" => $headers,
+            "httpBody" => $httpBody,
+            "formParams" => $formParams,
+        );
+        
+        return $httpInfo;        
+    }
+}

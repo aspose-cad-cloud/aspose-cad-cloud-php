@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="Configuration.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -11,10 +11,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,125 +28,82 @@
 
 namespace Aspose\CAD;
 
-/*
+/**
  * Represents a set of configuration settings
  */
 class Configuration
 {
-    private static $_defaultConfiguration;
-
-    /*
-     * Associate array to store API key(s)
-     *
-     * @var string[]
-     */
-    protected $apiKeys = [];
-    
-    /*
+    /**
      * AppKey for API
      *
+     * @var string
      */
-    protected $appKey = '';
+    public $appKey = '';
     
-    /*
+    /**
      * AppSid for API
-     * @var string
-     */
-    protected $appSid = '';
-
-    /*
-     * Associate array to store API prefix (e.g. Bearer)
-     *
-     * @var string[]
-     */
-    protected $apiKeyPrefixes = [];
-
-    /*
-     * Access token for OAuth
      *
      * @var string
      */
-    protected $accessToken = '';
+    public $appSid = '';
+
+    /**
+     * The base url
+     *
+     * @var string
+     */
+    public $baseUrl = 'https://api.aspose.cloud';
     
-    /*
-     * Refresh token for OAuth
+    /**
+     * Version of API to use
      *
      * @var string
      */
-    protected $refreshToken = '';
+    public $apiVersion = "v3.0";
 
-    /*
-     * Username for HTTP basic authentication
+    /**
+     * User agent of the HTTP request
      *
      * @var string
      */
-    protected $username = '';
+    public $userAgent = "php sdk";
 
-    /*
-     * Password for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $password = '';
-
-    /*
-     * The host
-     *
-     * @var string
-     */
-    protected $host = 'https://api.aspose.cloud';
-	
-    /*
-     * Version of API to use, possible values are v1, v1.1, v2.0, v3.0
-     * default value is v1
-     * @var string
-     */
-    protected $base_path = "v3.0";
-
-    /*
-     * User agent of the HTTP request, set to "PHP-Swagger" by default
-     *
-     * @var string
-     */
-    protected $userAgent = "php sdk";
-
-    /*
-     * Debug switch (default set to false)
+    /**
+     * Debug mode switch (default set to false)
      *
      * @var bool
      */
-    protected $debug = false;
+    public $debug = false;
 
-    /*
+    /**
+     * If you're using on-premise deployment with metered license
+     *
+     * @var bool
+     */
+    public $onPremise = false;
+
+    /**
      * Debug file location (log to STDOUT by default)
      *
      * @var string
      */
-    protected $debugFile = 'php://output';
-
-    /*
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
-    protected $tempFolderPath;
+    public $debugFile = 'php://output';
     
     /*
-     * Version of Aspose.Cad Cloud API
+     * Version of Aspose.CAD Cloud API
      *
      */
-    protected $clientVersion = '19.9';
+    private $clientVersion = '20.11';
 
-    /*
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->tempFolderPath = sys_get_temp_dir();
         date_default_timezone_set('UTC');
     }
     
-    /*
+    /**
      * Gets client version
      *
      */
@@ -155,21 +112,7 @@ class Configuration
         return $this->clientVersion;
     }
 
-    /*
-     * Sets API key
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $key              API key or token
-     *
-     * @return $this
-     */
-    public function setApiKey($apiKeyIdentifier, $key)
-    {
-        $this->apiKeys[$apiKeyIdentifier] = $key;
-        return $this;
-    }
-    
-    /*
+    /**
      * Sets AppSid
      *
      * @param string $appSid
@@ -182,7 +125,7 @@ class Configuration
         return $this;
     }
     
-    /*
+    /**
      * Gets AppSid
      * @return $appSid
      */
@@ -191,7 +134,7 @@ class Configuration
         return $this->appSid;
     }
     
-    /*
+    /**
      * Sets AppKey
      *
      * @param string $appKey
@@ -204,7 +147,7 @@ class Configuration
         return $this;
     }
     
-    /*
+    /**
      * Gets AppKey
      * @return $appKey
      */
@@ -213,48 +156,10 @@ class Configuration
         return $this->appKey;
     }
 
-    /*
-     * Gets API key
+    /**
+     * Sets the JWT access token
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string API key or token
-     */
-    public function getApiKey($apiKeyIdentifier)
-    {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
-    }
-
-    /*
-     * Sets the prefix for API key (e.g. Bearer)
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $prefix           API key prefix, e.g. Bearer
-     *
-     * @return $this
-     */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
-    {
-        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
-        return $this;
-    }
-
-    /*
-     * Gets API key prefix
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string
-     */
-    public function getApiKeyPrefix($apiKeyIdentifier)
-    {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
-    }
-
-    /*
-     * Sets the access token for OAuth
-     *
-     * @param string $accessToken Token for OAuth
+     * @param string $accessToken JWT token
      *
      * @return $this
      */
@@ -264,132 +169,68 @@ class Configuration
         return $this;
     }
 
-    /*
-     * Gets the access token for OAuth
+    /**
+     * Gets the JWT access token
      *
-     * @return string Access token for OAuth
+     * @return string JWT token
      */
     public function getAccessToken()
     {
         return $this->accessToken;
     }
-    
-    /*
-     * Sets the refresh token for OAuth
+
+    /**
+     * Sets the baseUrl
      *
-     * @param string $refreshToken Token for OAuth
+     * @param string $baseUrl Base url
      *
      * @return $this
      */
-    public function setRefreshToken($refreshToken)
+    public function setBaseUrl($baseUrl)
     {
-        $this->refreshToken = $refreshToken;
+        if ($baseUrl[strlen($baseUrl) - 1] !== "/")
+        {
+            $baseUrl = $baseUrl . "/";
+        }
+
+        $this->baseUrl = $baseUrl;
         return $this;
     }
 
-    /*
-     * Gets the refresh token for OAuth
+    /**
+     * Gets the baseUrl
      *
-     * @return string refresh token for OAuth
+     * @return string baseUrl
      */
-    public function getRefreshToken()
+    public function getBaseUrl()
     {
-        return $this->refreshToken;
+        return $this->baseUrl;
     }
 
-    /*
-     * Sets the username for HTTP basic authentication
+    /**
+     * Sets the apiVersion
      *
-     * @param string $username Username for HTTP basic authentication
+     * @param string $apiVersion API version
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setApiVersion($apiVersion)
     {
-        $this->username = $username;
+        $this->apiVersion = $apiVersion;
         return $this;
     }
 
-    /*
-     * Gets the username for HTTP basic authentication
+    /**
+     * Gets the apiVersion
      *
-     * @return string Username for HTTP basic authentication
+     * @return string apiVersion
      */
-    public function getUsername()
+    public function getApiVersion()
     {
-        return $this->username;
+        return $this->apiVersion;
     }
 
-    /*
-     * Sets the password for HTTP basic authentication
-     *
-     * @param string $password Password for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /*
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /*
-     * Sets the host
-     *
-     * @param string $host Host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->host = $host;
-        return $this;
-    }
-
-    /*
-     * Gets the host
-     *
-     * @return string Host
-     */
-    public function getHost()
-    {
-        return $this->host;
-    }
-	
-    /*
-     * Sets the base_path
-     *
-     * @param string $base_path api version
-     *
-     * @return $this
-     */
-    public function setBasePath($base_path)
-    {
-        $this->base_path = $base_path;
-        return $this;
-    }
-
-    /*
-     * Gets the base_path
-     *
-     * @return string base_path
-     */
-    public function getBasePath()
-    {
-        return $this->base_path;
-    }
-
-    /*
+    /**
      * Sets the user agent of the api client
      *
      * @param string $userAgent the user agent of the api client
@@ -407,7 +248,7 @@ class Configuration
         return $this;
     }
 
-    /*
+    /**
      * Gets the user agent of the api client
      *
      * @return string user agent
@@ -417,7 +258,7 @@ class Configuration
         return $this->userAgent;
     }
 
-    /*
+    /**
      * Sets debug flag
      *
      * @param bool $debug Debug flag
@@ -430,7 +271,7 @@ class Configuration
         return $this;
     }
 
-    /*
+    /**
      * Gets the debug flag
      *
      * @return bool
@@ -440,7 +281,30 @@ class Configuration
         return $this->debug;
     }
 
-    /*
+    /**
+     * Sets the metered usage with on-premise deployment
+     *
+     * @param bool $onPremise If on-premise deployment with metered license is used
+     *
+     * @return $this
+     */
+    public function setOnPremise($onPremise)
+    {
+        $this->onPremise = $onPremise;
+        return $this;
+    }
+
+     /**
+     * Determines if on-premise deployment with metered license is used
+     *
+     * @return bool
+     */
+    public function getOnPremise()
+    {
+        return $this->onPremise;
+    }
+
+    /**
      * Sets the debug file
      *
      * @param string $debugFile Debug file
@@ -453,7 +317,7 @@ class Configuration
         return $this;
     }
 
-    /*
+    /**
      * Gets the debug file
      *
      * @return string
@@ -463,56 +327,17 @@ class Configuration
         return $this->debugFile;
     }
 
-    /*
-     * Sets the temp folder path
+    /**
+     * Returns full API base url with version
      *
-     * @param string $tempFolderPath Temp folder path
-     *
-     * @return $this
+     * @return string
      */
-    public function setTempFolderPath($tempFolderPath)
+    public function getApiBaseUrl()
     {
-        $this->tempFolderPath = $tempFolderPath;
-        return $this;
+        return $this->baseUrl . $this->apiVersion;
     }
 
-    /*
-     * Gets the temp folder path
-     *
-     * @return string Temp folder path
-     */
-    public function getTempFolderPath()
-    {
-        return $this->tempFolderPath;
-    }
-
-    /*
-     * Gets the default configuration instance
-     *
-     * @return Configuration
-     */
-    public static function getDefaultConfiguration()
-    {
-        if (self::$_defaultConfiguration === null) {
-            self::$_defaultConfiguration = new Configuration();
-        }
-
-        return self::$_defaultConfiguration;
-    }
-
-    /*
-     * Sets the detault configuration instance
-     *
-     * @param Configuration $config An instance of the Configuration Object
-     *
-     * @return void
-     */
-    public static function setDefaultConfiguration(Configuration $config)
-    {
-        self::$_defaultConfiguration = $config;
-    }
-
-    /*
+    /**
      * Gets the essential information for debugging
      *
      * @return string The report for debugging
@@ -522,34 +347,8 @@ class Configuration
         $report  = 'PHP SDK (Aspose\CAD) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 3.0' . PHP_EOL;
-        $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 2' . PHP_EOL;
 
         return $report;
-    }
-
-    /*
-     * Get API key (with prefix if set)
-     *
-     * @param  string $apiKeyIdentifier name of apikey
-     *
-     * @return string API key with the prefix
-     */
-    public function getApiKeyWithPrefix($apiKeyIdentifier)
-    {
-        $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
-        $apiKey = $this->getApiKey($apiKeyIdentifier);
-
-        if ($apiKey === null) {
-            return null;
-        }
-
-        if ($prefix === null) {
-            $keyWithPrefix = $apiKey;
-        } else {
-            $keyWithPrefix = $prefix . ' ' . $apiKey;
-        }
-
-        return $keyWithPrefix;
     }
 }

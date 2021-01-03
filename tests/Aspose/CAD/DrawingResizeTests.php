@@ -59,7 +59,7 @@ class DrawingScaleTests extends BaseTestContext
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
         $putRequest = new Requests\UploadFileRequest($fullName, $file);
-        $this->storage->PutCreate($putRequest);
+        $this->CAD->uploadFile($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\PostDrawingResizeRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
 
@@ -78,13 +78,13 @@ class DrawingScaleTests extends BaseTestContext
         $localName = "galeon.stl";
         $outputFormat = "jpg";
         $remoteName = $localName;
-        $subfolder = "";
-        $fullName = self::$baseRemoteFolder . $subfolder . $remoteName;
+        $subfolder = "resize";
+        $fullName = self::$baseRemoteFolder . $subfolder . "/" . $remoteName;
         $destName = self::$baseTestOut . $remoteName ."." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
         $putRequest = new Requests\UploadFileRequest($fullName, $file);
-        $this->storage->PutCreate($putRequest);
+        $this->CAD->uploadFile($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\GetDrawingResizeRequest($remoteName, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder));
 

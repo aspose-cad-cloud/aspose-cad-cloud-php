@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SvgOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,11 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * SvgOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * SvgOptionsDTO
  *
  * @description Export options for SVG format
@@ -41,24 +38,24 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
 {
     const DISCRIMINATOR = null;
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "SvgOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'color_type' => 'string',
+        'color_type' => 'object',
         'text_as_shapes' => 'bool'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -68,7 +65,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         'text_as_shapes' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -78,7 +75,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerTypes + parent::swaggerTypes();
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -88,7 +85,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerFormats + parent::swaggerFormats();
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -99,7 +96,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         'text_as_shapes' => 'TextAsShapes'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -109,7 +106,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         'text_as_shapes' => 'setTextAsShapes'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -119,7 +116,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         'text_as_shapes' => 'getTextAsShapes'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -130,7 +127,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return parent::attributeMap() + self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -140,7 +137,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return parent::setters() + self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -150,7 +147,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return parent::getters() + self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -160,33 +157,12 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const COLOR_TYPE_GRAYSCALE = 'Grayscale';
-    const COLOR_TYPE_Y_CB_CR = 'YCbCr';
-    const COLOR_TYPE_CMYK = 'Cmyk';
-    const COLOR_TYPE_YCCK = 'Ycck';
-    const COLOR_TYPE_RGB = 'Rgb';
     
 
     
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getColorTypeAllowableValues()
-    {
-        return [
-            self::COLOR_TYPE_GRAYSCALE,
-            self::COLOR_TYPE_Y_CB_CR,
-            self::COLOR_TYPE_CMYK,
-            self::COLOR_TYPE_YCCK,
-            self::COLOR_TYPE_RGB,
-        ];
-    }
-    
 
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -200,7 +176,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         $this->container['text_as_shapes'] = isset($data['text_as_shapes']) ? $data['text_as_shapes'] : null;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -212,21 +188,13 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['color_type'] === null) {
             $invalidProperties[] = "'color_type' can't be null";
         }
-        $allowedValues = $this->getColorTypeAllowableValues();
-        if (!in_array($this->container['color_type'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'color_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['text_as_shapes'] === null) {
             $invalidProperties[] = "'text_as_shapes' can't be null";
         }
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -241,10 +209,6 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['color_type'] === null) {
             return false;
         }
-        $allowedValues = $this->getColorTypeAllowableValues();
-        if (!in_array($this->container['color_type'], $allowedValues)) {
-            return false;
-        }
         if ($this->container['text_as_shapes'] === null) {
             return false;
         }
@@ -252,36 +216,31 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
     }
 
 
-    /*
+    /**
      * Gets color_type
      *
-     * @return string
+     * @return object
      */
     public function getColorType()
     {
         return $this->container['color_type'];
     }
 
-    /*
+    /**
      * Sets color_type
      *
-     * @param string $color_type Color type
+     * @param object $color_type Color type
      *
      * @return $this
      */
     public function setColorType($color_type)
     {
-        $allowedValues = $this->getColorTypeAllowableValues();
-        if ((!is_numeric($color_type) && !in_array($color_type, $allowedValues)) || (is_numeric($color_type) && !in_array($allowedValues[$color_type], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'color_type', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
         $this->container['color_type'] = $color_type;
 
         return $this;
     }
 
-    /*
+    /**
      * Gets text_as_shapes
      *
      * @return bool
@@ -291,7 +250,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return $this->container['text_as_shapes'];
     }
 
-    /*
+    /**
      * Sets text_as_shapes
      *
      * @param bool $text_as_shapes Render text as shapes
@@ -304,7 +263,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -316,7 +275,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -328,7 +287,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -345,7 +304,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -357,7 +316,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

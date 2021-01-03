@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="VectorRasterizationOptionsDTO.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,13 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
-/*
- * VectorRasterizationOptionsDTO
- */
 
 namespace Aspose\CAD\Model;
 
 use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
-/*
+/**
  * VectorRasterizationOptionsDTO
  *
  * @description Base raster export options class
@@ -43,14 +40,14 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
 {
     const DISCRIMINATOR = 'Type';
 
-    /*
+    /**
      * The original name of the model.
      *
      * @var string
      */
     protected static $swaggerModelName = "VectorRasterizationOptionsDTO";
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @var string[]
@@ -67,7 +64,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         'graphics_options' => '\Aspose\CAD\Model\GraphicsOptions'
     ];
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @var string[]
@@ -84,7 +81,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         'graphics_options' => null
     ];
 
-    /*
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -94,7 +91,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return self::$swaggerTypes;
     }
 
-    /*
+    /**
      * Array of property to format mappings. Used for (de)serialization
      *
      * @return array
@@ -104,7 +101,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return self::$swaggerFormats;
     }
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -122,7 +119,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         'graphics_options' => 'GraphicsOptions'
     ];
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
@@ -139,7 +136,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         'graphics_options' => 'setGraphicsOptions'
     ];
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @var string[]
@@ -156,7 +153,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         'graphics_options' => 'getGraphicsOptions'
     ];
 
-    /*
+    /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
      *
@@ -167,7 +164,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return self::$attributeMap;
     }
 
-    /*
+    /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
      * @return array
@@ -177,7 +174,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return self::$setters;
     }
 
-    /*
+    /**
      * Array of attributes to getter functions (for serialization of requests)
      *
      * @return array
@@ -187,7 +184,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return self::$getters;
     }
 
-    /*
+    /**
      * The original name of the model.
      *
      * @return string
@@ -222,7 +219,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     
 
     
-    /*
+    /**
      * Gets allowable values of the enum
      *
      * @return string[]
@@ -256,14 +253,14 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     }
     
 
-    /*
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
      */
     protected $container = [];
 
-    /*
+    /**
      * Constructor
      *
      * @param mixed[] $data Associated array of property values
@@ -286,7 +283,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         $this->container[$discriminator] = static::$swaggerModelName;
     }
 
-    /*
+    /**
      * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
@@ -330,7 +327,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $invalidProperties;
     }
 
-    /*
+    /**
      * Validate all the properties in the model
      * return true if all passed
      *
@@ -371,7 +368,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     }
 
 
-    /*
+    /**
      * Gets border_x
      *
      * @return double
@@ -381,7 +378,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['border_x'];
     }
 
-    /*
+    /**
      * Sets border_x
      *
      * @param double $border_x Gets or sets the border X.
@@ -395,7 +392,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets border_y
      *
      * @return double
@@ -405,7 +402,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['border_y'];
     }
 
-    /*
+    /**
      * Sets border_y
      *
      * @param double $border_y Gets or sets the border Y.
@@ -419,7 +416,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets page_height
      *
      * @return double
@@ -429,7 +426,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['page_height'];
     }
 
-    /*
+    /**
      * Sets page_height
      *
      * @param double $page_height Gets or sets the page height.
@@ -443,7 +440,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets page_width
      *
      * @return double
@@ -453,7 +450,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['page_width'];
     }
 
-    /*
+    /**
      * Sets page_width
      *
      * @param double $page_width Gets or sets the page width.
@@ -467,7 +464,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets background_color
      *
      * @return \Aspose\CAD\Model\Color
@@ -477,7 +474,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['background_color'];
     }
 
-    /*
+    /**
      * Sets background_color
      *
      * @param \Aspose\CAD\Model\Color $background_color Gets or sets a background color.
@@ -491,7 +488,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets draw_color
      *
      * @return \Aspose\CAD\Model\Color
@@ -501,7 +498,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['draw_color'];
     }
 
-    /*
+    /**
      * Sets draw_color
      *
      * @param \Aspose\CAD\Model\Color $draw_color Gets or sets a foreground color.
@@ -515,7 +512,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets unit_type
      *
      * @return string
@@ -525,7 +522,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['unit_type'];
     }
 
-    /*
+    /**
      * Sets unit_type
      *
      * @param string $unit_type unit_type
@@ -538,13 +535,13 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         if ((!is_numeric($unit_type) && !in_array($unit_type, $allowedValues)) || (is_numeric($unit_type) && !in_array($allowedValues[$unit_type], $allowedValues))) {
             throw new \InvalidArgumentException(sprintf("Invalid value for 'unit_type', must be one of '%s'", implode("', '", $allowedValues)));
         }
-			
+            
         $this->container['unit_type'] = $unit_type;
 
         return $this;
     }
 
-    /*
+    /**
      * Gets content_as_bitmap
      *
      * @return bool
@@ -554,7 +551,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['content_as_bitmap'];
     }
 
-    /*
+    /**
      * Sets content_as_bitmap
      *
      * @param bool $content_as_bitmap Gets or sets a value indicating whether content of a drawing is represented as image inside Pdf. Applicable only for CAD to Pdf export. Default is false.
@@ -568,7 +565,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this;
     }
 
-    /*
+    /**
      * Gets graphics_options
      *
      * @return \Aspose\CAD\Model\GraphicsOptions
@@ -578,7 +575,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return $this->container['graphics_options'];
     }
 
-    /*
+    /**
      * Sets graphics_options
      *
      * @param \Aspose\CAD\Model\GraphicsOptions $graphics_options Gets or sets options to render bitmap inside pdf (if ContentAsBitmap is set to true).
@@ -591,7 +588,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
 
         return $this;
     }
-    /*
+    /**
      * Returns true if offset exists. False otherwise.
      *
      * @param integer $offset Offset
@@ -603,7 +600,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return isset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets offset.
      *
      * @param integer $offset Offset
@@ -615,7 +612,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
-    /*
+    /**
      * Sets value based on offset.
      *
      * @param integer $offset Offset
@@ -632,7 +629,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         }
     }
 
-    /*
+    /**
      * Unsets offset.
      *
      * @param integer $offset Offset
@@ -644,7 +641,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         unset($this->container[$offset]);
     }
 
-    /*
+    /**
      * Gets the string presentation of the object
      *
      * @return string

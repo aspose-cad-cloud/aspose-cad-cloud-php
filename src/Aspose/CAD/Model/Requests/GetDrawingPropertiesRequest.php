@@ -1,9 +1,8 @@
 <?php
-
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDrawingPropertiesRequest.php">
- *   Copyright (c) 2018 Aspose.CAD Cloud
+ *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,28 +28,38 @@
 
 namespace Aspose\CAD\Model\Requests;
 
-/*
+use \InvalidArgumentException;
+use \Aspose\CAD\Configuration;
+use \Aspose\CAD\ObjectSerializer;
+use \Aspose\CAD\CadRequest as CadRequest;
+
+/**
  * Request model for getDrawingProperties operation.
  */
-class GetDrawingPropertiesRequest
+class GetDrawingPropertiesRequest extends CadRequest
 {
-    /*
+    /**
      * Filename of an input drawing on a storage.
+     *
+     * @var string
      */
     public $name;
-	
-    /*
+    
+    /**
      * Folder with a drawing to get properties for.
+     *
+     * @var string
      */
     public $folder;
-	
-    /*
+    
+    /**
      * Your Aspose Cloud Storage name.
+     *
+     * @var string
      */
     public $storage;
     
-	
-    /*
+    /**
      * Initializes a new instance of the GetDrawingPropertiesRequest class.
      *  
      * @param string $name Filename of an input drawing on a storage.
@@ -64,54 +73,134 @@ class GetDrawingPropertiesRequest
         $this->storage = $storage;
     }
 
-    /*
+    /**
      * Filename of an input drawing on a storage.
+     *
+     * @return string
      */
     public function get_name()
     {
         return $this->name;
     }
 
-    /*
+    /**
      * Filename of an input drawing on a storage.
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_name($value)
     {
         $this->name = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Folder with a drawing to get properties for.
+     *
+     * @return string
      */
     public function get_folder()
     {
         return $this->folder;
     }
 
-    /*
+    /**
      * Folder with a drawing to get properties for.
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_folder($value)
     {
         $this->folder = $value;
         return $this;
     }
-	
-    /*
+    
+    /**
      * Your Aspose Cloud Storage name.
+     *
+     * @return string
      */
     public function get_storage()
     {
         return $this->storage;
     }
 
-    /*
+    /**
      * Your Aspose Cloud Storage name.
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
      */
     public function set_storage($value)
     {
         $this->storage = $value;
         return $this;
     }
-}
+
+    /**
+     * Prepares initial info for HTTP request
+     *
+     * @param \Aspose\CAD\Configuration $config CAD API configuration.
+     */
+    public function getHttpRequestInfo($config)
+    {
+        // verify the required parameter 'name' is set
+        if ($this->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getDrawingProperties');
+        }
+
+        $resourcePath = '/cad/{name}/properties';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $headers = [];
+    
+        // path params
+        if ($this->name !== null) {
+            $localName = lcfirst('name');
+            $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($this->name), $resourcePath);
+        }
+
+        // query params
+        if ($this->folder !== null) {
+            $localName = lcfirst('folder');
+            $localValue = is_bool($this->folder) ? ($this->folder ? 'true' : 'false') : $this->folder;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+        // query params
+        if ($this->storage !== null) {
+            $localName = lcfirst('storage');
+            $localValue = is_bool($this->storage) ? ($this->storage ? 'true' : 'false') : $this->storage;
+            if (strpos($resourcePath, '{' . $localName . '}') !== false) {
+                $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
+            } else {
+                $queryParams[$localName] = ObjectSerializer::toQueryValue($localValue);
+            }
+        }
+    
+    
+        $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
+
+        // body params
+        $httpBody = null;
+
+        $headers = $this->selectHeaders(
+            ['application/json'],
+            ['application/json']
+        );
+        
+        $httpInfo = array(
+            "resourcePath" => $resourcePath,
+            "queryParams" => $queryParams,
+            "headerParams" => $headerParams,
+            "headers" => $headers,
+            "httpBody" => $httpBody,
+            "formParams" => $formParams,
+        );
+        
+        return $httpInfo;        
+    }
+}
