@@ -61,10 +61,10 @@ class DrawingRotateFlipTests extends BaseTestContext
         $putRequest = new Requests\UploadFileRequest($fullName, $file, $this->defaultStorageName);
         $this->CAD->uploadFile($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostDrawingRotateFlipRequest($file, $outputFormat, 'Rotate180FlipXY', $destName, $this->defaultStorageName);
+        $request = new \Aspose\CAD\Model\Requests\PostDrawingRotateFlipRequest(file_get_contents($file), $outputFormat, 'Rotate180FlipXY', $destName, $this->defaultStorageName);
 
-        list($response, $code, $headers) = $this->CAD->postDrawingRotateFlipWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $stream = $this->CAD->postDrawingRotateFlip($request);
+        Assert::assertEquals($stream->getSize(), 0);
     }
 
     /**
@@ -86,15 +86,15 @@ class DrawingRotateFlipTests extends BaseTestContext
         $this->CAD->createFolder($putFolderRequest);
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        //$putRequest = new Requests\UploadFileRequest("/" . $fullName, $file, $this->defaultStorageName);
-        //$this->CAD->uploadFile($putRequest);
-
-        $putRequest = new Requests\UploadFileRequest($remoteName, $file, $this->defaultStorageName);
+        $putRequest = new Requests\UploadFileRequest($fullName, file_get_contents($file), $this->defaultStorageName);
         $this->CAD->uploadFile($putRequest);
 
+        //$putRequest = new Requests\UploadFileRequest($remoteName, $file, $this->defaultStorageName);
+        //$this->CAD->uploadFile($putRequest);
+
         $request = new \Aspose\CAD\Model\Requests\GetDrawingRotateFlipRequest($remoteName, $outputFormat, 'RotateNoneFlipX', trim(self::$baseRemoteFolder . $subfolder), null, $this->defaultStorageName);
-        list($response, $code, $headers) = $this->CAD->getDrawingRotateFlipWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $stream = $this->CAD->getDrawingRotateFlip($request);
+        Assert::assertGreaterThan(0, $stream->getSize());
     }
 }
 

@@ -58,13 +58,13 @@ class DrawingSaveAsTests extends BaseTestContext
         $destName = self::$baseTestOut . $remoteName . "." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new Requests\UploadFileRequest($fullName, $file);
+        $putRequest = new Requests\UploadFileRequest($fullName, file_get_contents($file));
         $this->CAD->uploadFile($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest($file, $outputFormat, null, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest(file_get_contents($file), $outputFormat, $destName, $this->defaultStorageName);
 
-        list($response, $code, $headers) = $this->CAD->postDrawingSaveAsWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $stream = $this->CAD->postDrawingSaveAs($request);
+        Assert::assertEquals(0, $stream->getSize());
     }
 
     /**
@@ -83,13 +83,13 @@ class DrawingSaveAsTests extends BaseTestContext
         $destName = self::$baseTestOut . $remoteName ."." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new Requests\UploadFileRequest($fullName, $file);
+        $putRequest = new Requests\UploadFileRequest($fullName, file_get_contents($file));
         $this->CAD->uploadFile($putRequest);
 
         $request = new \Aspose\CAD\Model\Requests\GetDrawingSaveAsRequest($remoteName, $outputFormat, $folder=trim(self::$baseRemoteFolder . $subfolder), null, null);
 
-        list($response, $code, $headers) = $this->CAD->getDrawingSaveAsWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $stream = $this->CAD->getDrawingSaveAs($request);
+        Assert::greaterThan(0, $stream->getSize());
     }
 }
 

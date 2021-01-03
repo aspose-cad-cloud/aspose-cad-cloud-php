@@ -58,13 +58,13 @@ class DrawingScaleTests extends BaseTestContext
         $destName = self::$baseTestOut . $remoteName . "." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new Requests\UploadFileRequest($fullName, $file);
+        $putRequest = new Requests\UploadFileRequest($fullName, file_get_contents($file));
         $this->CAD->uploadFile($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\PostDrawingResizeRequest($file, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder, ""));
+        $request = new \Aspose\CAD\Model\Requests\PostDrawingResizeRequest(file_get_contents($file), $outputFormat, 320, 240, $destName, $this->defaultStorageName);
 
-        list($response, $code, $headers) = $this->CAD->postDrawingResizeWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $stream = $this->CAD->postDrawingResize($request);
+        Assert::assertEquals(0, $stream->getSize());
     }
 
     /**
@@ -83,13 +83,13 @@ class DrawingScaleTests extends BaseTestContext
         $destName = self::$baseTestOut . $remoteName ."." . $outputFormat;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new Requests\UploadFileRequest($fullName, $file);
+        $putRequest = new Requests\UploadFileRequest($fullName, file_get_contents($file));
         $this->CAD->uploadFile($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetDrawingResizeRequest($remoteName, $outputFormat, 320, 240, $folder=trim(self::$baseRemoteFolder . $subfolder));
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingResizeRequest($remoteName, $outputFormat, 320, 240, self::$baseRemoteFolder . $subfolder);
 
-        list($response, $code, $headers) = $this->CAD->getDrawingResizeWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $stream = $this->CAD->getDrawingResize($request);
+        Assert::assertGreaterThan(0, $stream->getSize());
     }
 }
 

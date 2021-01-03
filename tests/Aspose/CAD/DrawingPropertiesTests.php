@@ -51,17 +51,19 @@ class DrawingPropertiesTests extends BaseTestContext
     {
         $localName = "01.026.385.01.0.I SOPORTE ENFRIADOR.dwg";
         $remoteName = $localName;
-        $subfolder = "";
-        $fullName = self::$baseRemoteFolder . $subfolder . $remoteName;
+        $subfolder = "properties";
+        $fullName = self::$baseRemoteFolder . $subfolder . "/" . $remoteName;
 
         $file = realpath(__DIR__ . self::$relativeRootPath) . '/TestData/' . $localName;
-        $putRequest = new Requests\UploadFileRequest($fullName, $file, self::$defaultStorageName);
+        $putRequest = new Requests\UploadFileRequest($fullName, file_get_contents($file), $this->defaultStorageName);
         $this->CAD->uploadFile($putRequest);
 
-        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName, self::$baseRemoteFolder, self::$defaultStorageName);
+        $request = new \Aspose\CAD\Model\Requests\GetDrawingPropertiesRequest($remoteName, self::$baseRemoteFolder . $subfolder, $this->defaultStorageName);
 
-        list($response, $code, $headers) = $this->CAD->getDrawingPropertiesWithHttpInfo($request);
-        Assert::assertEquals(200, $code);
+        $props = $this->CAD->getDrawingProperties($request);
+        Assert::greaterThan(0, $props->getHeight());
+
+        var_dump($props);
     }
 }
 

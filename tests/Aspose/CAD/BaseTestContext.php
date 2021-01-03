@@ -41,6 +41,11 @@ use DirectoryIterator;
 
 class BaseTestContext extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * CAD API instance
+     *
+     * @var CadApi
+     */
     protected $CAD;
 
     protected $defaultStorageName = "CAD-QA";
@@ -49,8 +54,8 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
 
     protected $config;
     protected static $baseTestPath = "TestData/";
-    public static $baseTestOut = "TestOut2/";
-    public static $baseRemoteFolder = "CloudTestPhp2/";
+    public static $baseTestOut = "TestOut/";
+    public static $baseRemoteFolder = "CloudTestPhp/";
 
     /**
      * Setup before running each test case
@@ -103,14 +108,14 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $dir = new DirectoryIterator(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath));
         foreach ($dir as $fileinfo) {
             if (!$fileinfo->isDot() && $fileinfo->getFilename() != "serverAccess.json") {
-                $fileName = "/" . self::$baseRemoteFolder . $fileinfo->getFilename();
+                $fileName = self::$baseRemoteFolder . $fileinfo->getFilename();
                 $existsRequest = new Requests\ObjectExistsRequest($fileName, $this->defaultStorageName);
                 $isExistResponse = $this->CAD->objectExists($existsRequest);
 
                 var_dump($isExistResponse);
 
                 if (!$isExistResponse->getexists()) {
-                    $createFileRequest = new Requests\UploadFileRequest($fileName, $fileinfo->getPathname(), $this->defaultStorageName);
+                    $createFileRequest = new Requests\UploadFileRequest($fileName, file_get_contents($fileinfo->getPathname()), $this->defaultStorageName);
                     $this->CAD->uploadFile($createFileRequest);
                 }
             }
