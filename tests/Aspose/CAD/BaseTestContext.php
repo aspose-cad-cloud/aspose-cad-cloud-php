@@ -92,7 +92,7 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         $existsRequest = new Requests\ObjectExistsRequest(self::$baseRemoteFolder, $this->defaultStorageName);
         $isExistResponse = $this->CAD->objectExists($existsRequest);
 
-        if (!$isExistResponse->exists) {
+        if (!$isExistResponse->getexists()) {
             $createDirRequest = new Requests\CreateFolderRequest(self::$baseRemoteFolder, $this->defaultStorageName);
             $this->CAD->createFolder($createDirRequest);
         }
@@ -105,7 +105,7 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
                 $existsRequest = new Requests\ObjectExistsRequest($fileName, $this->defaultStorageName);
                 $isExistResponse = $this->CAD->objectExists($existsRequest);
 
-                if (!$isExistResponse->exists) {
+                if (!$isExistResponse->getexists()) {
                     $createFileRequest = new Requests\UploadFileRequest($fileName, $fileinfo->getPathname(), $this->defaultStorageName);
                     $this->CAD->uploadFile($createFileRequest);
                 }
