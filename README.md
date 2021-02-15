@@ -65,18 +65,18 @@ To use Aspose CAD for Cloud Java SDK you need to register an account with [Aspos
 
 The solution is updated using [code generator](https://github.com/aspose-CAD-cloud/aspose-CAD-cloud-codegen).
 
-## Sample Usage
+## Convert DWG to PNG in PHP
 
 ```php
-$config = new Configuration();
-$config->setAppKey('AppKey')->setAppSid('AppSid');
-$cad = new CadApi($config, null);
-$request = new \Aspose\CAD\Model\Requests\PostDrawingSaveAsRequest(file_get_contents("c:\path to file.dwg"), "png", null, null);
-$stream = $cad->postDrawingSaveAs($request);
-```
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
 
-[Tests](tests/Aspose/cad) contain various examples of using the SDK.
-Please put your credentials into [Configuration](src/Aspose/cad/Configuration.php).
+	$config = new Configuration();
+	$config->setAppKey('MY_CLIENT_SECRET')->setAppSid('MY_CLIENT_ID');
+	$api = new CadApi($config, null);
+	
+	$request = new Requests\PostDrawingSaveAsRequest(file_get_contents("d:\sample.dwg"), "png", null, null);
+	$stream = $api->postDrawingSaveAs($request);
+```
 
 ## Dependencies
 * [PHP 5.6 or later](https://www.php.net/releases/).
@@ -88,7 +88,7 @@ All Aspose.CAD Cloud SDKs, helper scripts and templates are licensed under [MIT 
 
 | .NET | Java | PHP | Python | Ruby | Node.js |
 |---|---|---|---|---|---|
-| [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-dotnet) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-java) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-php) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-python) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-ruby)  | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-node) |
-| [NuGet](https://www.nuget.org/packages/Aspose.cad-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-cad-cloud) | [Composer](https://packagist.org/packages/aspose/aspose-cad-cloud) | [PIP](https://pypi.org/project/aspose.cad-cloud/) | [GEM](https://rubygems.org/gems/aspose_cad_cloud)  | [NPM](https://www.npmjs.com/package/aspose-cad-cloud) |
+| [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-dotnet) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-java) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-php) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-python) | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-ruby)  | [GitHub](https://github.com/aspose-cad-cloud/aspose-cad-cloud-nodejs) |
+| [NuGet](https://www.nuget.org/packages/Aspose.cad-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-cad-cloud) | [Composer](https://packagist.org/packages/aspose/aspose-cad-cloud) | [PIP](https://pypi.org/project/aspose.cad-cloud/) | [GEM](https://rubygems.org/gems/aspose_cad_cloud)  | [NPM](https://www.npmjs.com/package/@asposecloud/aspose-cad-cloud) |
 
 [Product Page](https://products.aspose.cloud/cad/php) | [Documentation](https://docs.aspose.cloud/display/cadcloud/Home) | [API Reference](https://apireference.aspose.cloud/cad/) | [Code Samples](https://github.com/aspose-cad-cloud/aspose-cad-cloud-php) | [Blog](https://blog.aspose.cloud/category/cad/) | [Free Support](https://forum.aspose.cloud/c/cad) | [Free Trial](https://dashboard.aspose.cloud/#/apps)|
