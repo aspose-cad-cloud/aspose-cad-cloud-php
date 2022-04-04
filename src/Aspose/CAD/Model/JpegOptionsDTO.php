@@ -52,8 +52,8 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
      */
     protected static $swaggerTypes = [
         'comment' => 'string',
-        'compression_type' => 'object',
-        'color_type' => 'object',
+        'compression_type' => 'string',
+        'color_type' => 'string',
         'quality' => 'int',
         'rd_opt_settings' => '\Aspose\CAD\Model\RdOptimizerSettings'
     ];
@@ -172,8 +172,48 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
+    const COMPRESSION_TYPE_BASELINE = 'Baseline';
+    const COMPRESSION_TYPE_PROGRESSIVE = 'Progressive';
+    const COMPRESSION_TYPE_LOSSLESS = 'Lossless';
+    const COMPRESSION_TYPE_JPEG_LS = 'JpegLs';
+    const COLOR_TYPE_GRAYSCALE = 'Grayscale';
+    const COLOR_TYPE_Y_CB_CR = 'YCbCr';
+    const COLOR_TYPE_CMYK = 'Cmyk';
+    const COLOR_TYPE_YCCK = 'Ycck';
+    const COLOR_TYPE_RGB = 'Rgb';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCompressionTypeAllowableValues()
+    {
+        return [
+            self::COMPRESSION_TYPE_BASELINE,
+            self::COMPRESSION_TYPE_PROGRESSIVE,
+            self::COMPRESSION_TYPE_LOSSLESS,
+            self::COMPRESSION_TYPE_JPEG_LS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getColorTypeAllowableValues()
+    {
+        return [
+            self::COLOR_TYPE_GRAYSCALE,
+            self::COLOR_TYPE_Y_CB_CR,
+            self::COLOR_TYPE_CMYK,
+            self::COLOR_TYPE_YCCK,
+            self::COLOR_TYPE_RGB,
+        ];
+    }
     
 
 
@@ -206,9 +246,25 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression_type'] === null) {
             $invalidProperties[] = "'compression_type' can't be null";
         }
+        $allowedValues = $this->getCompressionTypeAllowableValues();
+        if (!in_array($this->container['compression_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'compression_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['color_type'] === null) {
             $invalidProperties[] = "'color_type' can't be null";
         }
+        $allowedValues = $this->getColorTypeAllowableValues();
+        if (!in_array($this->container['color_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'color_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['quality'] === null) {
             $invalidProperties[] = "'quality' can't be null";
         }
@@ -230,7 +286,15 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression_type'] === null) {
             return false;
         }
+        $allowedValues = $this->getCompressionTypeAllowableValues();
+        if (!in_array($this->container['compression_type'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['color_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getColorTypeAllowableValues();
+        if (!in_array($this->container['color_type'], $allowedValues)) {
             return false;
         }
         if ($this->container['quality'] === null) {
@@ -267,7 +331,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Gets compression_type
      *
-     * @return object
+     * @return string
      */
     public function getCompressionType()
     {
@@ -277,12 +341,17 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Sets compression_type
      *
-     * @param object $compression_type Compression type
+     * @param string $compression_type Compression type
      *
      * @return $this
      */
     public function setCompressionType($compression_type)
     {
+        $allowedValues = $this->getCompressionTypeAllowableValues();
+        if ((!is_numeric($compression_type) && !in_array($compression_type, $allowedValues)) || (is_numeric($compression_type) && !in_array($allowedValues[$compression_type], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression_type', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['compression_type'] = $compression_type;
 
         return $this;
@@ -291,7 +360,7 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Gets color_type
      *
-     * @return object
+     * @return string
      */
     public function getColorType()
     {
@@ -301,12 +370,17 @@ class JpegOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Sets color_type
      *
-     * @param object $color_type Color type
+     * @param string $color_type Color type
      *
      * @return $this
      */
     public function setColorType($color_type)
     {
+        $allowedValues = $this->getColorTypeAllowableValues();
+        if ((!is_numeric($color_type) && !in_array($color_type, $allowedValues)) || (is_numeric($color_type) && !in_array($allowedValues[$color_type], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'color_type', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['color_type'] = $color_type;
 
         return $this;

@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BmpOptionsDTO.php">
+ * <copyright company="Aspose" file="PdfDigitalSignatureDetailsCore.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -27,14 +27,15 @@
  */
 
 namespace Aspose\CAD\Model;
+
+use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * BmpOptionsDTO
+ * PdfDigitalSignatureDetailsCore
  *
- * @description Export options for BMP format
  */
-class BmpOptionsDTO extends DrawingOptionsBaseDTO 
+class PdfDigitalSignatureDetailsCore implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +44,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      *
      * @var string
      */
-    protected static $swaggerModelName = "BmpOptionsDTO";
+    protected static $swaggerModelName = "PdfDigitalSignatureDetailsCore";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -51,8 +52,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'bits_per_pixel' => 'int',
-        'compression' => 'string'
+        'certificate' => '\Aspose\CAD\Model\X509Certificate2',
+        'reason' => 'string',
+        'location' => 'string',
+        'signature_date' => '\DateTime',
+        'hash_algorithm' => 'string'
     ];
 
     /**
@@ -61,8 +65,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'bits_per_pixel' => 'int32',
-        'compression' => null
+        'certificate' => null,
+        'reason' => null,
+        'location' => null,
+        'signature_date' => 'date-time',
+        'hash_algorithm' => null
     ];
 
     /**
@@ -72,7 +79,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -82,7 +89,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -92,8 +99,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $attributeMap = [
-        'bits_per_pixel' => 'BitsPerPixel',
-        'compression' => 'Compression'
+        'certificate' => 'Certificate',
+        'reason' => 'Reason',
+        'location' => 'Location',
+        'signature_date' => 'SignatureDate',
+        'hash_algorithm' => 'HashAlgorithm'
     ];
 
     /**
@@ -102,8 +112,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $setters = [
-        'bits_per_pixel' => 'setBitsPerPixel',
-        'compression' => 'setCompression'
+        'certificate' => 'setCertificate',
+        'reason' => 'setReason',
+        'location' => 'setLocation',
+        'signature_date' => 'setSignatureDate',
+        'hash_algorithm' => 'setHashAlgorithm'
     ];
 
     /**
@@ -112,8 +125,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $getters = [
-        'bits_per_pixel' => 'getBitsPerPixel',
-        'compression' => 'getCompression'
+        'certificate' => 'getCertificate',
+        'reason' => 'getReason',
+        'location' => 'getLocation',
+        'signature_date' => 'getSignatureDate',
+        'hash_algorithm' => 'getHashAlgorithm'
     ];
 
     /**
@@ -124,7 +140,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -134,7 +150,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -144,7 +160,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -157,14 +173,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const COMPRESSION_RGB = 'Rgb';
-    const COMPRESSION_RLE8 = 'Rle8';
-    const COMPRESSION_RLE4 = 'Rle4';
-    const COMPRESSION_BITFIELDS = 'Bitfields';
-    const COMPRESSION_JPEG = 'Jpeg';
-    const COMPRESSION_PNG = 'Png';
-    const COMPRESSION_ALPHA_BITFIELDS = 'AlphaBitfields';
-    const COMPRESSION_DXT1 = 'Dxt1';
+    const HASH_ALGORITHM_SHA1 = 'Sha1';
+    const HASH_ALGORITHM_SHA256 = 'Sha256';
+    const HASH_ALGORITHM_SHA384 = 'Sha384';
+    const HASH_ALGORITHM_SHA512 = 'Sha512';
+    const HASH_ALGORITHM_MD5 = 'Md5';
     
 
     
@@ -173,21 +186,24 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      *
      * @return string[]
      */
-    public function getCompressionAllowableValues()
+    public function getHashAlgorithmAllowableValues()
     {
         return [
-            self::COMPRESSION_RGB,
-            self::COMPRESSION_RLE8,
-            self::COMPRESSION_RLE4,
-            self::COMPRESSION_BITFIELDS,
-            self::COMPRESSION_JPEG,
-            self::COMPRESSION_PNG,
-            self::COMPRESSION_ALPHA_BITFIELDS,
-            self::COMPRESSION_DXT1,
+            self::HASH_ALGORITHM_SHA1,
+            self::HASH_ALGORITHM_SHA256,
+            self::HASH_ALGORITHM_SHA384,
+            self::HASH_ALGORITHM_SHA512,
+            self::HASH_ALGORITHM_MD5,
         ];
     }
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -197,10 +213,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['bits_per_pixel'] = isset($data['bits_per_pixel']) ? $data['bits_per_pixel'] : null;
-        $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
+        $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['signature_date'] = isset($data['signature_date']) ? $data['signature_date'] : null;
+        $this->container['hash_algorithm'] = isset($data['hash_algorithm']) ? $data['hash_algorithm'] : null;
     }
 
     /**
@@ -210,18 +227,18 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        if ($this->container['bits_per_pixel'] === null) {
-            $invalidProperties[] = "'bits_per_pixel' can't be null";
+        if ($this->container['signature_date'] === null) {
+            $invalidProperties[] = "'signature_date' can't be null";
         }
-        if ($this->container['compression'] === null) {
-            $invalidProperties[] = "'compression' can't be null";
+        if ($this->container['hash_algorithm'] === null) {
+            $invalidProperties[] = "'hash_algorithm' can't be null";
         }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
+        $allowedValues = $this->getHashAlgorithmAllowableValues();
+        if (!in_array($this->container['hash_algorithm'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'compression', must be one of '%s'",
+                "invalid value for 'hash_algorithm', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -237,18 +254,15 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['bits_per_pixel'] === null) {
+        if ($this->container['signature_date'] === null) {
             return false;
         }
-        if ($this->container['compression'] === null) {
+        if ($this->container['hash_algorithm'] === null) {
             return false;
         }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
+        $allowedValues = $this->getHashAlgorithmAllowableValues();
+        if (!in_array($this->container['hash_algorithm'], $allowedValues)) {
             return false;
         }
         return true;
@@ -256,54 +270,126 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
 
 
     /**
-     * Gets bits_per_pixel
+     * Gets certificate
      *
-     * @return int
+     * @return \Aspose\CAD\Model\X509Certificate2
      */
-    public function getBitsPerPixel()
+    public function getCertificate()
     {
-        return $this->container['bits_per_pixel'];
+        return $this->container['certificate'];
     }
 
     /**
-     * Sets bits_per_pixel
+     * Sets certificate
      *
-     * @param int $bits_per_pixel Bits per pixel
+     * @param \Aspose\CAD\Model\X509Certificate2 $certificate certificate
      *
      * @return $this
      */
-    public function setBitsPerPixel($bits_per_pixel)
+    public function setCertificate($certificate)
     {
-        $this->container['bits_per_pixel'] = $bits_per_pixel;
+        $this->container['certificate'] = $certificate;
 
         return $this;
     }
 
     /**
-     * Gets compression
+     * Gets reason
      *
      * @return string
      */
-    public function getCompression()
+    public function getReason()
     {
-        return $this->container['compression'];
+        return $this->container['reason'];
     }
 
     /**
-     * Sets compression
+     * Sets reason
      *
-     * @param string $compression Compression type
+     * @param string $reason reason
      *
      * @return $this
      */
-    public function setCompression($compression)
+    public function setReason($reason)
     {
-        $allowedValues = $this->getCompressionAllowableValues();
-        if ((!is_numeric($compression) && !in_array($compression, $allowedValues)) || (is_numeric($compression) && !in_array($allowedValues[$compression], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression', must be one of '%s'", implode("', '", $allowedValues)));
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param string $location location
+     *
+     * @return $this
+     */
+    public function setLocation($location)
+    {
+        $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature_date
+     *
+     * @return \DateTime
+     */
+    public function getSignatureDate()
+    {
+        return $this->container['signature_date'];
+    }
+
+    /**
+     * Sets signature_date
+     *
+     * @param \DateTime $signature_date signature_date
+     *
+     * @return $this
+     */
+    public function setSignatureDate($signature_date)
+    {
+        $this->container['signature_date'] = $signature_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_algorithm
+     *
+     * @return string
+     */
+    public function getHashAlgorithm()
+    {
+        return $this->container['hash_algorithm'];
+    }
+
+    /**
+     * Sets hash_algorithm
+     *
+     * @param string $hash_algorithm hash_algorithm
+     *
+     * @return $this
+     */
+    public function setHashAlgorithm($hash_algorithm)
+    {
+        $allowedValues = $this->getHashAlgorithmAllowableValues();
+        if ((!is_numeric($hash_algorithm) && !in_array($hash_algorithm, $allowedValues)) || (is_numeric($hash_algorithm) && !in_array($allowedValues[$hash_algorithm], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'hash_algorithm', must be one of '%s'", implode("', '", $allowedValues)));
         }
             
-        $this->container['compression'] = $compression;
+        $this->container['hash_algorithm'] = $hash_algorithm;
 
         return $this;
     }

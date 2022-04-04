@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BmpOptionsDTO.php">
+ * <copyright company="Aspose" file="AsymmetricAlgorithm.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -27,14 +27,15 @@
  */
 
 namespace Aspose\CAD\Model;
+
+use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * BmpOptionsDTO
+ * AsymmetricAlgorithm
  *
- * @description Export options for BMP format
  */
-class BmpOptionsDTO extends DrawingOptionsBaseDTO 
+class AsymmetricAlgorithm implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +44,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      *
      * @var string
      */
-    protected static $swaggerModelName = "BmpOptionsDTO";
+    protected static $swaggerModelName = "AsymmetricAlgorithm";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -51,8 +52,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'bits_per_pixel' => 'int',
-        'compression' => 'string'
+        'key_size' => 'int',
+        'legal_key_sizes' => '\Aspose\CAD\Model\KeySizes[]',
+        'signature_algorithm' => 'string',
+        'key_exchange_algorithm' => 'string'
     ];
 
     /**
@@ -61,8 +64,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'bits_per_pixel' => 'int32',
-        'compression' => null
+        'key_size' => 'int32',
+        'legal_key_sizes' => null,
+        'signature_algorithm' => null,
+        'key_exchange_algorithm' => null
     ];
 
     /**
@@ -72,7 +77,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -82,7 +87,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -92,8 +97,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $attributeMap = [
-        'bits_per_pixel' => 'BitsPerPixel',
-        'compression' => 'Compression'
+        'key_size' => 'KeySize',
+        'legal_key_sizes' => 'LegalKeySizes',
+        'signature_algorithm' => 'SignatureAlgorithm',
+        'key_exchange_algorithm' => 'KeyExchangeAlgorithm'
     ];
 
     /**
@@ -102,8 +109,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $setters = [
-        'bits_per_pixel' => 'setBitsPerPixel',
-        'compression' => 'setCompression'
+        'key_size' => 'setKeySize',
+        'legal_key_sizes' => 'setLegalKeySizes',
+        'signature_algorithm' => 'setSignatureAlgorithm',
+        'key_exchange_algorithm' => 'setKeyExchangeAlgorithm'
     ];
 
     /**
@@ -112,8 +121,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $getters = [
-        'bits_per_pixel' => 'getBitsPerPixel',
-        'compression' => 'getCompression'
+        'key_size' => 'getKeySize',
+        'legal_key_sizes' => 'getLegalKeySizes',
+        'signature_algorithm' => 'getSignatureAlgorithm',
+        'key_exchange_algorithm' => 'getKeyExchangeAlgorithm'
     ];
 
     /**
@@ -124,7 +135,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -134,7 +145,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -144,7 +155,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -157,37 +168,16 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const COMPRESSION_RGB = 'Rgb';
-    const COMPRESSION_RLE8 = 'Rle8';
-    const COMPRESSION_RLE4 = 'Rle4';
-    const COMPRESSION_BITFIELDS = 'Bitfields';
-    const COMPRESSION_JPEG = 'Jpeg';
-    const COMPRESSION_PNG = 'Png';
-    const COMPRESSION_ALPHA_BITFIELDS = 'AlphaBitfields';
-    const COMPRESSION_DXT1 = 'Dxt1';
     
 
     
+
     /**
-     * Gets allowable values of the enum
+     * Associative array for storing property values
      *
-     * @return string[]
+     * @var mixed[]
      */
-    public function getCompressionAllowableValues()
-    {
-        return [
-            self::COMPRESSION_RGB,
-            self::COMPRESSION_RLE8,
-            self::COMPRESSION_RLE4,
-            self::COMPRESSION_BITFIELDS,
-            self::COMPRESSION_JPEG,
-            self::COMPRESSION_PNG,
-            self::COMPRESSION_ALPHA_BITFIELDS,
-            self::COMPRESSION_DXT1,
-        ];
-    }
-    
-
+    protected $container = [];
 
     /**
      * Constructor
@@ -197,10 +187,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['bits_per_pixel'] = isset($data['bits_per_pixel']) ? $data['bits_per_pixel'] : null;
-        $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
+        $this->container['key_size'] = isset($data['key_size']) ? $data['key_size'] : null;
+        $this->container['legal_key_sizes'] = isset($data['legal_key_sizes']) ? $data['legal_key_sizes'] : null;
+        $this->container['signature_algorithm'] = isset($data['signature_algorithm']) ? $data['signature_algorithm'] : null;
+        $this->container['key_exchange_algorithm'] = isset($data['key_exchange_algorithm']) ? $data['key_exchange_algorithm'] : null;
     }
 
     /**
@@ -210,22 +200,11 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        if ($this->container['bits_per_pixel'] === null) {
-            $invalidProperties[] = "'bits_per_pixel' can't be null";
+        if ($this->container['key_size'] === null) {
+            $invalidProperties[] = "'key_size' can't be null";
         }
-        if ($this->container['compression'] === null) {
-            $invalidProperties[] = "'compression' can't be null";
-        }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'compression', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -237,18 +216,8 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['bits_per_pixel'] === null) {
-            return false;
-        }
-        if ($this->container['compression'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
+        if ($this->container['key_size'] === null) {
             return false;
         }
         return true;
@@ -256,54 +225,97 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
 
 
     /**
-     * Gets bits_per_pixel
+     * Gets key_size
      *
      * @return int
      */
-    public function getBitsPerPixel()
+    public function getKeySize()
     {
-        return $this->container['bits_per_pixel'];
+        return $this->container['key_size'];
     }
 
     /**
-     * Sets bits_per_pixel
+     * Sets key_size
      *
-     * @param int $bits_per_pixel Bits per pixel
+     * @param int $key_size key_size
      *
      * @return $this
      */
-    public function setBitsPerPixel($bits_per_pixel)
+    public function setKeySize($key_size)
     {
-        $this->container['bits_per_pixel'] = $bits_per_pixel;
+        $this->container['key_size'] = $key_size;
 
         return $this;
     }
 
     /**
-     * Gets compression
+     * Gets legal_key_sizes
      *
-     * @return string
+     * @return \Aspose\CAD\Model\KeySizes[]
      */
-    public function getCompression()
+    public function getLegalKeySizes()
     {
-        return $this->container['compression'];
+        return $this->container['legal_key_sizes'];
     }
 
     /**
-     * Sets compression
+     * Sets legal_key_sizes
      *
-     * @param string $compression Compression type
+     * @param \Aspose\CAD\Model\KeySizes[] $legal_key_sizes legal_key_sizes
      *
      * @return $this
      */
-    public function setCompression($compression)
+    public function setLegalKeySizes($legal_key_sizes)
     {
-        $allowedValues = $this->getCompressionAllowableValues();
-        if ((!is_numeric($compression) && !in_array($compression, $allowedValues)) || (is_numeric($compression) && !in_array($allowedValues[$compression], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-            
-        $this->container['compression'] = $compression;
+        $this->container['legal_key_sizes'] = $legal_key_sizes;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature_algorithm
+     *
+     * @return string
+     */
+    public function getSignatureAlgorithm()
+    {
+        return $this->container['signature_algorithm'];
+    }
+
+    /**
+     * Sets signature_algorithm
+     *
+     * @param string $signature_algorithm signature_algorithm
+     *
+     * @return $this
+     */
+    public function setSignatureAlgorithm($signature_algorithm)
+    {
+        $this->container['signature_algorithm'] = $signature_algorithm;
+
+        return $this;
+    }
+
+    /**
+     * Gets key_exchange_algorithm
+     *
+     * @return string
+     */
+    public function getKeyExchangeAlgorithm()
+    {
+        return $this->container['key_exchange_algorithm'];
+    }
+
+    /**
+     * Sets key_exchange_algorithm
+     *
+     * @param string $key_exchange_algorithm key_exchange_algorithm
+     *
+     * @return $this
+     */
+    public function setKeyExchangeAlgorithm($key_exchange_algorithm)
+    {
+        $this->container['key_exchange_algorithm'] = $key_exchange_algorithm;
 
         return $this;
     }

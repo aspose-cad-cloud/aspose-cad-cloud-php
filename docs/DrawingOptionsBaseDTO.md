@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rotation** | **object** | Resulting rotation operation | 
+**rotation** | **string** | Resulting rotation operation | 
 **layers** | **string[]** | Layers to export | [optional] 
 **resolution_settings** | [**\Aspose\CAD\Model\ResolutionSetting**](ResolutionSetting.md) | DPI resolution settings | [optional] 
 **vector_rasterization_options** | [**\Aspose\CAD\Model\CadRasterizationOptionsDTO**](CadRasterizationOptionsDTO.md) | Raster options | [optional] 

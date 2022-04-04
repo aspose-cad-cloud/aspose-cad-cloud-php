@@ -56,7 +56,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         'automatic_layouts_scaling' => 'bool',
         'layers' => 'string[]',
         'layouts' => 'string[]',
-        'draw_type' => 'object',
+        'draw_type' => 'string',
         'no_scaling' => 'bool'
     ];
 
@@ -182,8 +182,23 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         return self::$swaggerModelName;
     }
 
+    const DRAW_TYPE_USE_DRAW_COLOR = 'UseDrawColor';
+    const DRAW_TYPE_USE_OBJECT_COLOR = 'UseObjectColor';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDrawTypeAllowableValues()
+    {
+        return [
+            self::DRAW_TYPE_USE_DRAW_COLOR,
+            self::DRAW_TYPE_USE_OBJECT_COLOR,
+        ];
+    }
     
 
 
@@ -224,6 +239,14 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
         if ($this->container['draw_type'] === null) {
             $invalidProperties[] = "'draw_type' can't be null";
         }
+        $allowedValues = $this->getDrawTypeAllowableValues();
+        if (!in_array($this->container['draw_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'draw_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['no_scaling'] === null) {
             $invalidProperties[] = "'no_scaling' can't be null";
         }
@@ -249,6 +272,10 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
             return false;
         }
         if ($this->container['draw_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getDrawTypeAllowableValues();
+        if (!in_array($this->container['draw_type'], $allowedValues)) {
             return false;
         }
         if ($this->container['no_scaling'] === null) {
@@ -381,7 +408,7 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
     /**
      * Gets draw_type
      *
-     * @return object
+     * @return string
      */
     public function getDrawType()
     {
@@ -391,12 +418,17 @@ class CadRasterizationOptionsDTO extends VectorRasterizationOptionsDTO
     /**
      * Sets draw_type
      *
-     * @param object $draw_type Drawing mode
+     * @param string $draw_type Drawing mode
      *
      * @return $this
      */
     public function setDrawType($draw_type)
     {
+        $allowedValues = $this->getDrawTypeAllowableValues();
+        if ((!is_numeric($draw_type) && !in_array($draw_type, $allowedValues)) || (is_numeric($draw_type) && !in_array($allowedValues[$draw_type], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'draw_type', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['draw_type'] = $draw_type;
 
         return $this;

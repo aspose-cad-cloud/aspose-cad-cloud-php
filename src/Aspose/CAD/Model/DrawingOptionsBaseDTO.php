@@ -53,7 +53,7 @@ class DrawingOptionsBaseDTO implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'rotation' => 'object',
+        'rotation' => 'string',
         'layers' => 'string[]',
         'resolution_settings' => '\Aspose\CAD\Model\ResolutionSetting',
         'vector_rasterization_options' => '\Aspose\CAD\Model\CadRasterizationOptionsDTO'
@@ -169,8 +169,51 @@ class DrawingOptionsBaseDTO implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ROTATION_ROTATE_NONE_FLIP_NONE = 'RotateNoneFlipNone';
+    const ROTATION_ROTATE90_FLIP_NONE = 'Rotate90FlipNone';
+    const ROTATION_ROTATE180_FLIP_NONE = 'Rotate180FlipNone';
+    const ROTATION_ROTATE270_FLIP_NONE = 'Rotate270FlipNone';
+    const ROTATION_ROTATE_NONE_FLIP_X = 'RotateNoneFlipX';
+    const ROTATION_ROTATE90_FLIP_X = 'Rotate90FlipX';
+    const ROTATION_ROTATE180_FLIP_X = 'Rotate180FlipX';
+    const ROTATION_ROTATE270_FLIP_X = 'Rotate270FlipX';
+    const ROTATION_ROTATE_NONE_FLIP_Y = 'RotateNoneFlipY';
+    const ROTATION_ROTATE90_FLIP_Y = 'Rotate90FlipY';
+    const ROTATION_ROTATE180_FLIP_Y = 'Rotate180FlipY';
+    const ROTATION_ROTATE270_FLIP_Y = 'Rotate270FlipY';
+    const ROTATION_ROTATE_NONE_FLIP_XY = 'RotateNoneFlipXY';
+    const ROTATION_ROTATE90_FLIP_XY = 'Rotate90FlipXY';
+    const ROTATION_ROTATE180_FLIP_XY = 'Rotate180FlipXY';
+    const ROTATION_ROTATE270_FLIP_XY = 'Rotate270FlipXY';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRotationAllowableValues()
+    {
+        return [
+            self::ROTATION_ROTATE_NONE_FLIP_NONE,
+            self::ROTATION_ROTATE90_FLIP_NONE,
+            self::ROTATION_ROTATE180_FLIP_NONE,
+            self::ROTATION_ROTATE270_FLIP_NONE,
+            self::ROTATION_ROTATE_NONE_FLIP_X,
+            self::ROTATION_ROTATE90_FLIP_X,
+            self::ROTATION_ROTATE180_FLIP_X,
+            self::ROTATION_ROTATE270_FLIP_X,
+            self::ROTATION_ROTATE_NONE_FLIP_Y,
+            self::ROTATION_ROTATE90_FLIP_Y,
+            self::ROTATION_ROTATE180_FLIP_Y,
+            self::ROTATION_ROTATE270_FLIP_Y,
+            self::ROTATION_ROTATE_NONE_FLIP_XY,
+            self::ROTATION_ROTATE90_FLIP_XY,
+            self::ROTATION_ROTATE180_FLIP_XY,
+            self::ROTATION_ROTATE270_FLIP_XY,
+        ];
+    }
     
 
     /**
@@ -210,6 +253,14 @@ class DrawingOptionsBaseDTO implements ArrayAccess
         if ($this->container['rotation'] === null) {
             $invalidProperties[] = "'rotation' can't be null";
         }
+        $allowedValues = $this->getRotationAllowableValues();
+        if (!in_array($this->container['rotation'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'rotation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -225,6 +276,10 @@ class DrawingOptionsBaseDTO implements ArrayAccess
         if ($this->container['rotation'] === null) {
             return false;
         }
+        $allowedValues = $this->getRotationAllowableValues();
+        if (!in_array($this->container['rotation'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -232,7 +287,7 @@ class DrawingOptionsBaseDTO implements ArrayAccess
     /**
      * Gets rotation
      *
-     * @return object
+     * @return string
      */
     public function getRotation()
     {
@@ -242,12 +297,17 @@ class DrawingOptionsBaseDTO implements ArrayAccess
     /**
      * Sets rotation
      *
-     * @param object $rotation Resulting rotation operation
+     * @param string $rotation Resulting rotation operation
      *
      * @return $this
      */
     public function setRotation($rotation)
     {
+        $allowedValues = $this->getRotationAllowableValues();
+        if ((!is_numeric($rotation) && !in_array($rotation, $allowedValues)) || (is_numeric($rotation) && !in_array($allowedValues[$rotation], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'rotation', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['rotation'] = $rotation;
 
         return $this;

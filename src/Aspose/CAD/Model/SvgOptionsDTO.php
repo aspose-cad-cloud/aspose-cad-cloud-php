@@ -51,7 +51,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'color_type' => 'object',
+        'color_type' => 'string',
         'text_as_shapes' => 'bool'
     ];
 
@@ -157,8 +157,29 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
+    const COLOR_TYPE_GRAYSCALE = 'Grayscale';
+    const COLOR_TYPE_Y_CB_CR = 'YCbCr';
+    const COLOR_TYPE_CMYK = 'Cmyk';
+    const COLOR_TYPE_YCCK = 'Ycck';
+    const COLOR_TYPE_RGB = 'Rgb';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getColorTypeAllowableValues()
+    {
+        return [
+            self::COLOR_TYPE_GRAYSCALE,
+            self::COLOR_TYPE_Y_CB_CR,
+            self::COLOR_TYPE_CMYK,
+            self::COLOR_TYPE_YCCK,
+            self::COLOR_TYPE_RGB,
+        ];
+    }
     
 
 
@@ -188,6 +209,14 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['color_type'] === null) {
             $invalidProperties[] = "'color_type' can't be null";
         }
+        $allowedValues = $this->getColorTypeAllowableValues();
+        if (!in_array($this->container['color_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'color_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['text_as_shapes'] === null) {
             $invalidProperties[] = "'text_as_shapes' can't be null";
         }
@@ -209,6 +238,10 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['color_type'] === null) {
             return false;
         }
+        $allowedValues = $this->getColorTypeAllowableValues();
+        if (!in_array($this->container['color_type'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['text_as_shapes'] === null) {
             return false;
         }
@@ -219,7 +252,7 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Gets color_type
      *
-     * @return object
+     * @return string
      */
     public function getColorType()
     {
@@ -229,12 +262,17 @@ class SvgOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Sets color_type
      *
-     * @param object $color_type Color type
+     * @param string $color_type Color type
      *
      * @return $this
      */
     public function setColorType($color_type)
     {
+        $allowedValues = $this->getColorTypeAllowableValues();
+        if ((!is_numeric($color_type) && !in_array($color_type, $allowedValues)) || (is_numeric($color_type) && !in_array($allowedValues[$color_type], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'color_type', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['color_type'] = $color_type;
 
         return $this;

@@ -52,8 +52,8 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
      */
     protected static $swaggerTypes = [
         'version' => 'int',
-        'compression_method' => 'object',
-        'color_mode' => 'object',
+        'compression_method' => 'string',
+        'color_mode' => 'string',
         'channel_bits_count' => 'int',
         'channels_count' => 'int'
     ];
@@ -172,8 +172,54 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
+    const COMPRESSION_METHOD_RAW = 'Raw';
+    const COMPRESSION_METHOD_RLE = 'RLE';
+    const COMPRESSION_METHOD_ZIP_WITHOUT_PREDICTION = 'ZipWithoutPrediction';
+    const COMPRESSION_METHOD_ZIP_WITH_PREDICTION = 'ZipWithPrediction';
+    const COLOR_MODE_BITMAP = 'Bitmap';
+    const COLOR_MODE_GRAYSCALE = 'Grayscale';
+    const COLOR_MODE_INDEXED = 'Indexed';
+    const COLOR_MODE_RGB = 'Rgb';
+    const COLOR_MODE_CMYK = 'Cmyk';
+    const COLOR_MODE_MULTICHANNEL = 'Multichannel';
+    const COLOR_MODE_DUOTONE = 'Duotone';
+    const COLOR_MODE_LAB = 'Lab';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCompressionMethodAllowableValues()
+    {
+        return [
+            self::COMPRESSION_METHOD_RAW,
+            self::COMPRESSION_METHOD_RLE,
+            self::COMPRESSION_METHOD_ZIP_WITHOUT_PREDICTION,
+            self::COMPRESSION_METHOD_ZIP_WITH_PREDICTION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getColorModeAllowableValues()
+    {
+        return [
+            self::COLOR_MODE_BITMAP,
+            self::COLOR_MODE_GRAYSCALE,
+            self::COLOR_MODE_INDEXED,
+            self::COLOR_MODE_RGB,
+            self::COLOR_MODE_CMYK,
+            self::COLOR_MODE_MULTICHANNEL,
+            self::COLOR_MODE_DUOTONE,
+            self::COLOR_MODE_LAB,
+        ];
+    }
     
 
 
@@ -209,9 +255,25 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression_method'] === null) {
             $invalidProperties[] = "'compression_method' can't be null";
         }
+        $allowedValues = $this->getCompressionMethodAllowableValues();
+        if (!in_array($this->container['compression_method'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'compression_method', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['color_mode'] === null) {
             $invalidProperties[] = "'color_mode' can't be null";
         }
+        $allowedValues = $this->getColorModeAllowableValues();
+        if (!in_array($this->container['color_mode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'color_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['channel_bits_count'] === null) {
             $invalidProperties[] = "'channel_bits_count' can't be null";
         }
@@ -239,7 +301,15 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
         if ($this->container['compression_method'] === null) {
             return false;
         }
+        $allowedValues = $this->getCompressionMethodAllowableValues();
+        if (!in_array($this->container['compression_method'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['color_mode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getColorModeAllowableValues();
+        if (!in_array($this->container['color_mode'], $allowedValues)) {
             return false;
         }
         if ($this->container['channel_bits_count'] === null) {
@@ -279,7 +349,7 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Gets compression_method
      *
-     * @return object
+     * @return string
      */
     public function getCompressionMethod()
     {
@@ -289,12 +359,17 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Sets compression_method
      *
-     * @param object $compression_method Compression method
+     * @param string $compression_method Compression method
      *
      * @return $this
      */
     public function setCompressionMethod($compression_method)
     {
+        $allowedValues = $this->getCompressionMethodAllowableValues();
+        if ((!is_numeric($compression_method) && !in_array($compression_method, $allowedValues)) || (is_numeric($compression_method) && !in_array($allowedValues[$compression_method], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression_method', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['compression_method'] = $compression_method;
 
         return $this;
@@ -303,7 +378,7 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Gets color_mode
      *
-     * @return object
+     * @return string
      */
     public function getColorMode()
     {
@@ -313,12 +388,17 @@ class PsdOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Sets color_mode
      *
-     * @param object $color_mode Color mode
+     * @param string $color_mode Color mode
      *
      * @return $this
      */
     public function setColorMode($color_mode)
     {
+        $allowedValues = $this->getColorModeAllowableValues();
+        if ((!is_numeric($color_mode) && !in_array($color_mode, $allowedValues)) || (is_numeric($color_mode) && !in_array($allowedValues[$color_mode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'color_mode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+            
         $this->container['color_mode'] = $color_mode;
 
         return $this;

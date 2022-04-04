@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **string** | Comment to Resulting file | [optional] 
-**compression_type** | **object** | Compression type | 
-**color_type** | **object** | Color type | 
+**compression_type** | **string** | Compression type | 
+**color_type** | **string** | Color type | 
 **quality** | **int** | Quality level | 
 **rd_opt_settings** | [**\Aspose\CAD\Model\RdOptimizerSettings**](RdOptimizerSettings.md) | Optimizer settings | [optional] 
 

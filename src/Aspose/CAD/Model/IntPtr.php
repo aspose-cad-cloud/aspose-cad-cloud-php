@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BmpOptionsDTO.php">
+ * <copyright company="Aspose" file="IntPtr.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -27,14 +27,15 @@
  */
 
 namespace Aspose\CAD\Model;
+
+use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * BmpOptionsDTO
+ * IntPtr
  *
- * @description Export options for BMP format
  */
-class BmpOptionsDTO extends DrawingOptionsBaseDTO 
+class IntPtr implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -43,7 +44,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      *
      * @var string
      */
-    protected static $swaggerModelName = "BmpOptionsDTO";
+    protected static $swaggerModelName = "IntPtr";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -51,8 +52,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'bits_per_pixel' => 'int',
-        'compression' => 'string'
+        
     ];
 
     /**
@@ -61,8 +61,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'bits_per_pixel' => 'int32',
-        'compression' => null
+        
     ];
 
     /**
@@ -72,7 +71,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -82,7 +81,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -92,8 +91,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $attributeMap = [
-        'bits_per_pixel' => 'BitsPerPixel',
-        'compression' => 'Compression'
+        
     ];
 
     /**
@@ -102,8 +100,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $setters = [
-        'bits_per_pixel' => 'setBitsPerPixel',
-        'compression' => 'setCompression'
+        
     ];
 
     /**
@@ -112,8 +109,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      * @var string[]
      */
     protected static $getters = [
-        'bits_per_pixel' => 'getBitsPerPixel',
-        'compression' => 'getCompression'
+        
     ];
 
     /**
@@ -124,7 +120,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -134,7 +130,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -144,7 +140,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -157,37 +153,16 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
         return self::$swaggerModelName;
     }
 
-    const COMPRESSION_RGB = 'Rgb';
-    const COMPRESSION_RLE8 = 'Rle8';
-    const COMPRESSION_RLE4 = 'Rle4';
-    const COMPRESSION_BITFIELDS = 'Bitfields';
-    const COMPRESSION_JPEG = 'Jpeg';
-    const COMPRESSION_PNG = 'Png';
-    const COMPRESSION_ALPHA_BITFIELDS = 'AlphaBitfields';
-    const COMPRESSION_DXT1 = 'Dxt1';
     
 
     
+
     /**
-     * Gets allowable values of the enum
+     * Associative array for storing property values
      *
-     * @return string[]
+     * @var mixed[]
      */
-    public function getCompressionAllowableValues()
-    {
-        return [
-            self::COMPRESSION_RGB,
-            self::COMPRESSION_RLE8,
-            self::COMPRESSION_RLE4,
-            self::COMPRESSION_BITFIELDS,
-            self::COMPRESSION_JPEG,
-            self::COMPRESSION_PNG,
-            self::COMPRESSION_ALPHA_BITFIELDS,
-            self::COMPRESSION_DXT1,
-        ];
-    }
-    
-
+    protected $container = [];
 
     /**
      * Constructor
@@ -197,10 +172,6 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['bits_per_pixel'] = isset($data['bits_per_pixel']) ? $data['bits_per_pixel'] : null;
-        $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
     }
 
     /**
@@ -210,21 +181,7 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['bits_per_pixel'] === null) {
-            $invalidProperties[] = "'bits_per_pixel' can't be null";
-        }
-        if ($this->container['compression'] === null) {
-            $invalidProperties[] = "'compression' can't be null";
-        }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'compression', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -237,76 +194,10 @@ class BmpOptionsDTO extends DrawingOptionsBaseDTO
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['bits_per_pixel'] === null) {
-            return false;
-        }
-        if ($this->container['compression'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($this->container['compression'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
-
-    /**
-     * Gets bits_per_pixel
-     *
-     * @return int
-     */
-    public function getBitsPerPixel()
-    {
-        return $this->container['bits_per_pixel'];
-    }
-
-    /**
-     * Sets bits_per_pixel
-     *
-     * @param int $bits_per_pixel Bits per pixel
-     *
-     * @return $this
-     */
-    public function setBitsPerPixel($bits_per_pixel)
-    {
-        $this->container['bits_per_pixel'] = $bits_per_pixel;
-
-        return $this;
-    }
-
-    /**
-     * Gets compression
-     *
-     * @return string
-     */
-    public function getCompression()
-    {
-        return $this->container['compression'];
-    }
-
-    /**
-     * Sets compression
-     *
-     * @param string $compression Compression type
-     *
-     * @return $this
-     */
-    public function setCompression($compression)
-    {
-        $allowedValues = $this->getCompressionAllowableValues();
-        if ((!is_numeric($compression) && !in_array($compression, $allowedValues)) || (is_numeric($compression) && !in_array($allowedValues[$compression], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'compression', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-            
-        $this->container['compression'] = $compression;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

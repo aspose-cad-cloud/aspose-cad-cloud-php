@@ -1,10 +1,10 @@
-# Aspose\CAD\Model\PdfDocumentOptions
+# Aspose\CAD\Model\AsnEncodedData
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**compliance** | **string** |  | 
-**digital_signature_details** | [**\Aspose\CAD\Model\PdfDigitalSignatureDetailsCore**](PdfDigitalSignatureDetailsCore.md) |  | [optional] 
+**oid** | [**\Aspose\CAD\Model\Oid**](Oid.md) |  | [optional] 
+**raw_data** | **string** |  | [optional] 
 
 [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to API_README]](API_README.md)
 

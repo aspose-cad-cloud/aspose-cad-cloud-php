@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="Cff2Properties.php">
+ * <copyright company="Aspose" file="KeySizes.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -32,11 +32,10 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * Cff2Properties
+ * KeySizes
  *
- * @description Represents information about CFF2 drawing.
  */
-class Cff2Properties implements ArrayAccess
+class KeySizes implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +44,7 @@ class Cff2Properties implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "Cff2Properties";
+    protected static $swaggerModelName = "KeySizes";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -53,7 +52,9 @@ class Cff2Properties implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        
+        'min_size' => 'int',
+        'max_size' => 'int',
+        'skip_size' => 'int'
     ];
 
     /**
@@ -62,7 +63,9 @@ class Cff2Properties implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        
+        'min_size' => 'int32',
+        'max_size' => 'int32',
+        'skip_size' => 'int32'
     ];
 
     /**
@@ -92,7 +95,9 @@ class Cff2Properties implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'min_size' => 'MinSize',
+        'max_size' => 'MaxSize',
+        'skip_size' => 'SkipSize'
     ];
 
     /**
@@ -101,7 +106,9 @@ class Cff2Properties implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'min_size' => 'setMinSize',
+        'max_size' => 'setMaxSize',
+        'skip_size' => 'setSkipSize'
     ];
 
     /**
@@ -110,7 +117,9 @@ class Cff2Properties implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'min_size' => 'getMinSize',
+        'max_size' => 'getMaxSize',
+        'skip_size' => 'getSkipSize'
     ];
 
     /**
@@ -173,6 +182,9 @@ class Cff2Properties implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['min_size'] = isset($data['min_size']) ? $data['min_size'] : null;
+        $this->container['max_size'] = isset($data['max_size']) ? $data['max_size'] : null;
+        $this->container['skip_size'] = isset($data['skip_size']) ? $data['skip_size'] : null;
     }
 
     /**
@@ -184,6 +196,15 @@ class Cff2Properties implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['min_size'] === null) {
+            $invalidProperties[] = "'min_size' can't be null";
+        }
+        if ($this->container['max_size'] === null) {
+            $invalidProperties[] = "'max_size' can't be null";
+        }
+        if ($this->container['skip_size'] === null) {
+            $invalidProperties[] = "'skip_size' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -196,9 +217,90 @@ class Cff2Properties implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['min_size'] === null) {
+            return false;
+        }
+        if ($this->container['max_size'] === null) {
+            return false;
+        }
+        if ($this->container['skip_size'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets min_size
+     *
+     * @return int
+     */
+    public function getMinSize()
+    {
+        return $this->container['min_size'];
+    }
+
+    /**
+     * Sets min_size
+     *
+     * @param int $min_size min_size
+     *
+     * @return $this
+     */
+    public function setMinSize($min_size)
+    {
+        $this->container['min_size'] = $min_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_size
+     *
+     * @return int
+     */
+    public function getMaxSize()
+    {
+        return $this->container['max_size'];
+    }
+
+    /**
+     * Sets max_size
+     *
+     * @param int $max_size max_size
+     *
+     * @return $this
+     */
+    public function setMaxSize($max_size)
+    {
+        $this->container['max_size'] = $max_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_size
+     *
+     * @return int
+     */
+    public function getSkipSize()
+    {
+        return $this->container['skip_size'];
+    }
+
+    /**
+     * Sets skip_size
+     *
+     * @param int $skip_size skip_size
+     *
+     * @return $this
+     */
+    public function setSkipSize($skip_size)
+    {
+        $this->container['skip_size'] = $skip_size;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

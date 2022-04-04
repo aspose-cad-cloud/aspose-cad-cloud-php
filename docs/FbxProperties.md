@@ -1,4 +1,4 @@
-# Aspose\CAD\Model\Cff2Properties
+# Aspose\CAD\Model\FbxProperties
 
 ## Properties
 Name | Type | Description | Notes

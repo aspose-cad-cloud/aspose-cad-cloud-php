@@ -63,7 +63,10 @@ class CadResponse implements ArrayAccess
         'igs_properties' => '\Aspose\CAD\Model\IgsProperties',
         'stl_properties' => '\Aspose\CAD\Model\StlProperties',
         'dwf_properties' => '\Aspose\CAD\Model\DwfProperties',
-        'cff2_properties' => '\Aspose\CAD\Model\Cff2Properties'
+        'cf2_properties' => '\Aspose\CAD\Model\Cf2Properties',
+        'fbx_properties' => '\Aspose\CAD\Model\FbxProperties',
+        'obj_properties' => '\Aspose\CAD\Model\ObjProperties',
+        'plt_properties' => '\Aspose\CAD\Model\PltProperties'
     ];
 
     /**
@@ -82,7 +85,10 @@ class CadResponse implements ArrayAccess
         'igs_properties' => null,
         'stl_properties' => null,
         'dwf_properties' => null,
-        'cff2_properties' => null
+        'cf2_properties' => null,
+        'fbx_properties' => null,
+        'obj_properties' => null,
+        'plt_properties' => null
     ];
 
     /**
@@ -122,7 +128,10 @@ class CadResponse implements ArrayAccess
         'igs_properties' => 'IgsProperties',
         'stl_properties' => 'StlProperties',
         'dwf_properties' => 'DwfProperties',
-        'cff2_properties' => 'Cff2Properties'
+        'cf2_properties' => 'Cf2Properties',
+        'fbx_properties' => 'FbxProperties',
+        'obj_properties' => 'ObjProperties',
+        'plt_properties' => 'PltProperties'
     ];
 
     /**
@@ -141,7 +150,10 @@ class CadResponse implements ArrayAccess
         'igs_properties' => 'setIgsProperties',
         'stl_properties' => 'setStlProperties',
         'dwf_properties' => 'setDwfProperties',
-        'cff2_properties' => 'setCff2Properties'
+        'cf2_properties' => 'setCf2Properties',
+        'fbx_properties' => 'setFbxProperties',
+        'obj_properties' => 'setObjProperties',
+        'plt_properties' => 'setPltProperties'
     ];
 
     /**
@@ -160,7 +172,10 @@ class CadResponse implements ArrayAccess
         'igs_properties' => 'getIgsProperties',
         'stl_properties' => 'getStlProperties',
         'dwf_properties' => 'getDwfProperties',
-        'cff2_properties' => 'getCff2Properties'
+        'cf2_properties' => 'getCf2Properties',
+        'fbx_properties' => 'getFbxProperties',
+        'obj_properties' => 'getObjProperties',
+        'plt_properties' => 'getPltProperties'
     ];
 
     /**
@@ -233,7 +248,10 @@ class CadResponse implements ArrayAccess
         $this->container['igs_properties'] = isset($data['igs_properties']) ? $data['igs_properties'] : null;
         $this->container['stl_properties'] = isset($data['stl_properties']) ? $data['stl_properties'] : null;
         $this->container['dwf_properties'] = isset($data['dwf_properties']) ? $data['dwf_properties'] : null;
-        $this->container['cff2_properties'] = isset($data['cff2_properties']) ? $data['cff2_properties'] : null;
+        $this->container['cf2_properties'] = isset($data['cf2_properties']) ? $data['cf2_properties'] : null;
+        $this->container['fbx_properties'] = isset($data['fbx_properties']) ? $data['fbx_properties'] : null;
+        $this->container['obj_properties'] = isset($data['obj_properties']) ? $data['obj_properties'] : null;
+        $this->container['plt_properties'] = isset($data['plt_properties']) ? $data['plt_properties'] : null;
     }
 
     /**
@@ -514,25 +532,97 @@ class CadResponse implements ArrayAccess
     }
 
     /**
-     * Gets cff2_properties
+     * Gets cf2_properties
      *
-     * @return \Aspose\CAD\Model\Cff2Properties
+     * @return \Aspose\CAD\Model\Cf2Properties
      */
-    public function getCff2Properties()
+    public function getCf2Properties()
     {
-        return $this->container['cff2_properties'];
+        return $this->container['cf2_properties'];
     }
 
     /**
-     * Sets cff2_properties
+     * Sets cf2_properties
      *
-     * @param \Aspose\CAD\Model\Cff2Properties $cff2_properties Gets or sets the CFF2 properties.
+     * @param \Aspose\CAD\Model\Cf2Properties $cf2_properties Gets or sets the Cf2 properties.
      *
      * @return $this
      */
-    public function setCff2Properties($cff2_properties)
+    public function setCf2Properties($cf2_properties)
     {
-        $this->container['cff2_properties'] = $cff2_properties;
+        $this->container['cf2_properties'] = $cf2_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets fbx_properties
+     *
+     * @return \Aspose\CAD\Model\FbxProperties
+     */
+    public function getFbxProperties()
+    {
+        return $this->container['fbx_properties'];
+    }
+
+    /**
+     * Sets fbx_properties
+     *
+     * @param \Aspose\CAD\Model\FbxProperties $fbx_properties Gets or sets the Cf2 properties.
+     *
+     * @return $this
+     */
+    public function setFbxProperties($fbx_properties)
+    {
+        $this->container['fbx_properties'] = $fbx_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets obj_properties
+     *
+     * @return \Aspose\CAD\Model\ObjProperties
+     */
+    public function getObjProperties()
+    {
+        return $this->container['obj_properties'];
+    }
+
+    /**
+     * Sets obj_properties
+     *
+     * @param \Aspose\CAD\Model\ObjProperties $obj_properties Gets or sets the FBX properties.
+     *
+     * @return $this
+     */
+    public function setObjProperties($obj_properties)
+    {
+        $this->container['obj_properties'] = $obj_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets plt_properties
+     *
+     * @return \Aspose\CAD\Model\PltProperties
+     */
+    public function getPltProperties()
+    {
+        return $this->container['plt_properties'];
+    }
+
+    /**
+     * Sets plt_properties
+     *
+     * @param \Aspose\CAD\Model\PltProperties $plt_properties Gets or sets the Cf2 properties.
+     *
+     * @return $this
+     */
+    public function setPltProperties($plt_properties)
+    {
+        $this->container['plt_properties'] = $plt_properties;
 
         return $this;
     }

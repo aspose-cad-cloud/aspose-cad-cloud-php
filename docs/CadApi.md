@@ -670,6 +670,132 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="postdrawingdxf"></a>
+# **postDrawingDXF**
+> postDrawingDXF($postDrawingDXFRequest)
+
+Export an existing drawing to DXF format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingdxfasync"></a>
+# **postDrawingDXFAsync**
+> postDrawingDXFAsync($postDrawingDXFRequest)
+
+Export an existing drawing to DXF format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingDXFRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\DxfOptionsDTO**](DxfOptionsDTO.md)| Export DXF options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingdwf"></a>
+# **postDrawingDwf**
+> postDrawingDwf($postDrawingDwfRequest)
+
+Export an existing drawing to Dwf format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingdwfasync"></a>
+# **postDrawingDwfAsync**
+> postDrawingDwfAsync($postDrawingDwfRequest)
+
+Export an existing drawing to Dwf format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingDwfRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\DwfOptionsDTO**](DwfOptionsDTO.md)| Export Dwf options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingfbx"></a>
+# **postDrawingFbx**
+> postDrawingFbx($postDrawingFbxRequest)
+
+Export an existing drawing to Fbx format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingfbxasync"></a>
+# **postDrawingFbxAsync**
+> postDrawingFbxAsync($postDrawingFbxRequest)
+
+Export an existing drawing to Fbx format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingFbxRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\FbxOptionsDTO**](FbxOptionsDTO.md)| Export Fbx options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="postdrawinggif"></a>
 # **postDrawingGif**
 > postDrawingGif($postDrawingGifRequest)
@@ -790,6 +916,48 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| Filename of an input drawing on a storage. |
  **options** | [**\Aspose\CAD\Model\Jpeg2000OptionsDTO**](Jpeg2000OptionsDTO.md)| Export JPEG2000 options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingobj"></a>
+# **postDrawingObj**
+> postDrawingObj($postDrawingObjRequest)
+
+Export an existing drawing to Obj format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingobjasync"></a>
+# **postDrawingObjAsync**
+> postDrawingObjAsync($postDrawingObjRequest)
+
+Export an existing drawing to Obj format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingObjRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\ObjOptionsDTO**](ObjOptionsDTO.md)| Export Obj options passed as a JSON on a request body. |
  **folder** | **string**| Folder with a drawing to process. | [optional]
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
@@ -1248,6 +1416,126 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="putdrawingdxf"></a>
+# **putDrawingDXF**
+> putDrawingDXF($putDrawingDXFRequest)
+
+Export drawing to DXF format. Drawing data is passed as zero-indexed multipart/form-data as well as export DXF options serialized as JSON. Order of drawing data and DXF options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingdxfasync"></a>
+# **putDrawingDXFAsync**
+> putDrawingDXFAsync($putDrawingDXFRequest)
+
+Export drawing to DXF format. Drawing data is passed as zero-indexed multipart/form-data as well as export DXF options serialized as JSON. Order of drawing data and DXF options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingDXFRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DxfOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingdwf"></a>
+# **putDrawingDwf**
+> putDrawingDwf($putDrawingDwfRequest)
+
+Export drawing to Dwf format. Drawing data is passed as zero-indexed multipart/form-data as well as export Dwf options serialized as JSON. Order of drawing data and Dwf options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingdwfasync"></a>
+# **putDrawingDwfAsync**
+> putDrawingDwfAsync($putDrawingDwfRequest)
+
+Export drawing to Dwf format. Drawing data is passed as zero-indexed multipart/form-data as well as export Dwf options serialized as JSON. Order of drawing data and Dwf options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingDwfRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DwfOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingfbx"></a>
+# **putDrawingFbx**
+> putDrawingFbx($putDrawingFbxRequest)
+
+Export drawing to Fbx format. Drawing data is passed as zero-indexed multipart/form-data as well as export Fbx options serialized as JSON. Order of drawing data and Fbx options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingfbxasync"></a>
+# **putDrawingFbxAsync**
+> putDrawingFbxAsync($putDrawingFbxRequest)
+
+Export drawing to Fbx format. Drawing data is passed as zero-indexed multipart/form-data as well as export Fbx options serialized as JSON. Order of drawing data and Fbx options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingFbxRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/FbxOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="putdrawinggif"></a>
 # **putDrawingGif**
 > putDrawingGif($putDrawingGifRequest)
@@ -1364,6 +1652,46 @@ Name | Type | Description  | Notes
  **drawing_data** | **string**| Input drawing |
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/Jpeg2000OptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingobj"></a>
+# **putDrawingObj**
+> putDrawingObj($putDrawingObjRequest)
+
+Export drawing to Obj format. Drawing data is passed as zero-indexed multipart/form-data as well as export Obj options serialized as JSON. Order of drawing data and Obj options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingobjasync"></a>
+# **putDrawingObjAsync**
+> putDrawingObjAsync($putDrawingObjRequest)
+
+Export drawing to Obj format. Drawing data is passed as zero-indexed multipart/form-data as well as export Obj options serialized as JSON. Order of drawing data and Obj options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingObjRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/ObjOptionsDTO model definition. | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)

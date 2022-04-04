@@ -52,7 +52,8 @@ class PdfDocumentOptions implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'compliance' => 'string'
+        'compliance' => 'string',
+        'digital_signature_details' => '\Aspose\CAD\Model\PdfDigitalSignatureDetailsCore'
     ];
 
     /**
@@ -61,7 +62,8 @@ class PdfDocumentOptions implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'compliance' => null
+        'compliance' => null,
+        'digital_signature_details' => null
     ];
 
     /**
@@ -91,7 +93,8 @@ class PdfDocumentOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'compliance' => 'Compliance'
+        'compliance' => 'Compliance',
+        'digital_signature_details' => 'DigitalSignatureDetails'
     ];
 
     /**
@@ -100,7 +103,8 @@ class PdfDocumentOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'compliance' => 'setCompliance'
+        'compliance' => 'setCompliance',
+        'digital_signature_details' => 'setDigitalSignatureDetails'
     ];
 
     /**
@@ -109,7 +113,8 @@ class PdfDocumentOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'compliance' => 'getCompliance'
+        'compliance' => 'getCompliance',
+        'digital_signature_details' => 'getDigitalSignatureDetails'
     ];
 
     /**
@@ -190,6 +195,7 @@ class PdfDocumentOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['compliance'] = isset($data['compliance']) ? $data['compliance'] : null;
+        $this->container['digital_signature_details'] = isset($data['digital_signature_details']) ? $data['digital_signature_details'] : null;
     }
 
     /**
@@ -260,6 +266,30 @@ class PdfDocumentOptions implements ArrayAccess
         }
             
         $this->container['compliance'] = $compliance;
+
+        return $this;
+    }
+
+    /**
+     * Gets digital_signature_details
+     *
+     * @return \Aspose\CAD\Model\PdfDigitalSignatureDetailsCore
+     */
+    public function getDigitalSignatureDetails()
+    {
+        return $this->container['digital_signature_details'];
+    }
+
+    /**
+     * Sets digital_signature_details
+     *
+     * @param \Aspose\CAD\Model\PdfDigitalSignatureDetailsCore $digital_signature_details digital_signature_details
+     *
+     * @return $this
+     */
+    public function setDigitalSignatureDetails($digital_signature_details)
+    {
+        $this->container['digital_signature_details'] = $digital_signature_details;
 
         return $this;
     }
