@@ -2991,7 +2991,7 @@ class CadApi
      */
     private function requestToken() 
     {
-        $requestUrl = $this->configuration->getBaseUrl() . "connect/token";
+        $requestUrl = $this->configuration->getBaseUrl() . "/connect/token";
         $postData = "grant_type=client_credentials" . "&client_id=" . $this->configuration->getAppSid() . "&client_secret=" . $this->configuration->getAppKey();
         $headers = [];
         $headers['Content-Type'] = "application/x-www-form-urlencoded";
