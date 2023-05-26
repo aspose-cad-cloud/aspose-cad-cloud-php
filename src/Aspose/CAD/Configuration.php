@@ -88,6 +88,12 @@ class Configuration
      * @var string
      */
     public $debugFile = 'php://output';
+
+    /*
+     * Timeout.
+     *
+     */
+    public $timeout = 1200;
     
     /*
      * Version of Aspose.CAD Cloud API
