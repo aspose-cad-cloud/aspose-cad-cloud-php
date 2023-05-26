@@ -52,7 +52,7 @@ class Configuration
      *
      * @var string
      */
-    public $baseUrl = 'https://api.aspose.cloud';
+    public $baseUrl = 'https://api.aspose.cloud/';
     
     /**
      * Version of API to use
