@@ -2950,9 +2950,9 @@ class CadApi
             }
         }
         
-        $options[RequestOptions::TIMEOUT] = 1200;
-        $options[RequestOptions::READ_TIMEOUT] = 1200;
-        $options[RequestOptions::CONNECT_TIMEOUT] = 1200;
+        $options[RequestOptions::TIMEOUT] = $this->configuration->timeout;
+        $options[RequestOptions::READ_TIMEOUT] = $this->configuration->timeout;
+        $options[RequestOptions::CONNECT_TIMEOUT] = $this->configuration->timeout;
         return $options;
     }
     
