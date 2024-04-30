@@ -1,5 +1,43 @@
 # Aspose\CAD\CadApi
 
+<a name="convert"></a>
+# **convert**
+> convert($convertRequest)
+
+Convert CAD drawing to DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG format.
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="convertasync"></a>
+# **convertAsync**
+> convertAsync($convertRequest)
+
+Convert CAD drawing to DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG format.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **ConvertRequest** Parameters
+```php
+__construct(
+    $output_format, 
+    $drawing, 
+    $output_type_ext)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **output_format** | **string**| Output DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format. |
+ **drawing** | **string**| Form-data file | [optional]
+ **output_type_ext** | **string**| For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="copyfile"></a>
 # **copyFile**
 > copyFile($copyFileRequest)
@@ -229,6 +267,110 @@ Name | Type | Description  | Notes
  **path** | **string**| File path e.g. &#39;/folder/file.ext&#39; |
  **storage_name** | **string**| Storage name | [optional]
  **version_id** | **string**| File version ID to download | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="editmetadata"></a>
+# **editMetadata**
+> editMetadata($editMetadataRequest)
+
+Get Metadata info
+
+### Return type
+
+**string**
+
+<a name="editmetadataasync"></a>
+# **editMetadataAsync**
+> editMetadataAsync($editMetadataRequest)
+
+Get Metadata info
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **EditMetadataRequest** Parameters
+```php
+__construct(
+    $drawing)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing** | **string**|  | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="extractmetadata"></a>
+# **extractMetadata**
+> extractMetadata($extractMetadataRequest)
+
+Extract Metadata from CAD drawing to txt, xml or json file.
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="extractmetadataasync"></a>
+# **extractMetadataAsync**
+> extractMetadataAsync($extractMetadataRequest)
+
+Extract Metadata from CAD drawing to txt, xml or json file.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **ExtractMetadataRequest** Parameters
+```php
+__construct(
+    $output_format, 
+    $drawing)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **output_format** | **string**| Output TXT, XML or JSON file format. |
+ **drawing** | **string**| Form-data file | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="extracttext"></a>
+# **extractText**
+> extractText($extractTextRequest)
+
+Extract Text from CAD drawing to txt file
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="extracttextasync"></a>
+# **extractTextAsync**
+> extractTextAsync($extractTextRequest)
+
+Extract Text from CAD drawing to txt file
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **ExtractTextRequest** Parameters
+```php
+__construct(
+    $drawing)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing** | **string**|  | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
@@ -628,6 +770,42 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="papertocad"></a>
+# **paperToCad**
+> paperToCad($paperToCadRequest)
+
+Convert bitmap image to DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG format.
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="papertocadasync"></a>
+# **paperToCadAsync**
+> paperToCadAsync($paperToCadRequest)
+
+Convert bitmap image to DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG format.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PaperToCadRequest** Parameters
+```php
+__construct(
+    $output_format, 
+    $drawing)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **output_format** | **string**| Output DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format. |
+ **drawing** | **string**| Form-data file | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="postdrawingbmp"></a>
 # **postDrawingBmp**
 > postDrawingBmp($postDrawingBmpRequest)
@@ -670,6 +848,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="postdrawingcgm"></a>
+# **postDrawingCgm**
+> postDrawingCgm($postDrawingCgmRequest)
+
+Export an existing drawing to CGM format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingcgmasync"></a>
+# **postDrawingCgmAsync**
+> postDrawingCgmAsync($postDrawingCgmRequest)
+
+Export an existing drawing to CGM format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingCgmRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\CgmOptionsDTO**](CgmOptionsDTO.md)| Export CGM options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="postdrawingdxf"></a>
 # **postDrawingDXF**
 > postDrawingDXF($postDrawingDXFRequest)
@@ -706,6 +926,48 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| Filename of an input drawing on a storage. |
  **options** | [**\Aspose\CAD\Model\DxfOptionsDTO**](DxfOptionsDTO.md)| Export DXF options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingdicom"></a>
+# **postDrawingDicom**
+> postDrawingDicom($postDrawingDicomRequest)
+
+Export an existing drawing to Dicom format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingdicomasync"></a>
+# **postDrawingDicomAsync**
+> postDrawingDicomAsync($postDrawingDicomRequest)
+
+Export an existing drawing to Dicom format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingDicomRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\DicomOptionsDTO**](DicomOptionsDTO.md)| Export Dicom options passed as a JSON on a request body. |
  **folder** | **string**| Folder with a drawing to process. | [optional]
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
@@ -832,6 +1094,90 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| Filename of an input drawing on a storage. |
  **options** | [**\Aspose\CAD\Model\GifOptionsDTO**](GifOptionsDTO.md)| Export GIF options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingglb"></a>
+# **postDrawingGlb**
+> postDrawingGlb($postDrawingGlbRequest)
+
+Export an existing drawing to GLB format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingglbasync"></a>
+# **postDrawingGlbAsync**
+> postDrawingGlbAsync($postDrawingGlbRequest)
+
+Export an existing drawing to GLB format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingGlbRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\GlbOptionsDTO**](GlbOptionsDTO.md)| Export GLB options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawinggltf"></a>
+# **postDrawingGltf**
+> postDrawingGltf($postDrawingGltfRequest)
+
+Export an existing drawing to GLTF format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawinggltfasync"></a>
+# **postDrawingGltfAsync**
+> postDrawingGltfAsync($postDrawingGltfRequest)
+
+Export an existing drawing to GLTF format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingGltfRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\GltfOptionsDTO**](GltfOptionsDTO.md)| Export GLTF options passed as a JSON on a request body. |
  **folder** | **string**| Folder with a drawing to process. | [optional]
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
@@ -1210,6 +1556,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="postdrawingstp"></a>
+# **postDrawingSTP**
+> postDrawingSTP($postDrawingSTPRequest)
+
+Export an existing drawing to STP format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingstpasync"></a>
+# **postDrawingSTPAsync**
+> postDrawingSTPAsync($postDrawingSTPRequest)
+
+Export an existing drawing to STP format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingSTPRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\StpOptionsDTO**](StpOptionsDTO.md)| Export STP options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="postdrawingsaveas"></a>
 # **postDrawingSaveAs**
 > postDrawingSaveAs($postDrawingSaveAsRequest)
@@ -1292,6 +1680,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="postdrawingthreeds"></a>
+# **postDrawingThreeDS**
+> postDrawingThreeDS($postDrawingThreeDSRequest)
+
+Export an existing drawing to 3ds format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingthreedsasync"></a>
+# **postDrawingThreeDSAsync**
+> postDrawingThreeDSAsync($postDrawingThreeDSRequest)
+
+Export an existing drawing to 3ds format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingThreeDSRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\ThreeDSOptionsDTO**](ThreeDSOptionsDTO.md)| Export 3ds options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="postdrawingtiff"></a>
 # **postDrawingTiff**
 > postDrawingTiff($postDrawingTiffRequest)
@@ -1328,6 +1758,90 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| Filename of an input drawing on a storage. |
  **options** | [**\Aspose\CAD\Model\TiffOptionsDTO**](TiffOptionsDTO.md)| Export TIFF options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingu3d"></a>
+# **postDrawingU3d**
+> postDrawingU3d($postDrawingU3dRequest)
+
+Export an existing drawing to U3d format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingu3dasync"></a>
+# **postDrawingU3dAsync**
+> postDrawingU3dAsync($postDrawingU3dRequest)
+
+Export an existing drawing to U3d format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingU3dRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\U3dOptionsDTO**](U3dOptionsDTO.md)| Export U3d options passed as a JSON on a request body. |
+ **folder** | **string**| Folder with a drawing to process. | [optional]
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="postdrawingwebp"></a>
+# **postDrawingWebp**
+> postDrawingWebp($postDrawingWebpRequest)
+
+Export an existing drawing to Webp format with export settings specified.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="postdrawingwebpasync"></a>
+# **postDrawingWebpAsync**
+> postDrawingWebpAsync($postDrawingWebpRequest)
+
+Export an existing drawing to Webp format with export settings specified.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PostDrawingWebpRequest** Parameters
+```php
+__construct(
+    $name, 
+    $options, 
+    $folder, 
+    $out_path, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Filename of an input drawing on a storage. |
+ **options** | [**\Aspose\CAD\Model\WebpOptionsDTO**](WebpOptionsDTO.md)| Export Webp options passed as a JSON on a request body. |
  **folder** | **string**| Folder with a drawing to process. | [optional]
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
@@ -1416,6 +1930,46 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="putdrawingcgm"></a>
+# **putDrawingCgm**
+> putDrawingCgm($putDrawingCgmRequest)
+
+Export drawing to CGM format. Drawing data is passed as zero-indexed multipart/form-data as well as export CGM options serialized as JSON. Order of drawing data and CGM options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingcgmasync"></a>
+# **putDrawingCgmAsync**
+> putDrawingCgmAsync($putDrawingCgmRequest)
+
+Export drawing to CGM format. Drawing data is passed as zero-indexed multipart/form-data as well as export CGM options serialized as JSON. Order of drawing data and CGM options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingCgmRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/CgmOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="putdrawingdxf"></a>
 # **putDrawingDXF**
 > putDrawingDXF($putDrawingDXFRequest)
@@ -1452,6 +2006,46 @@ Name | Type | Description  | Notes
  **drawing_data** | **string**| Input drawing |
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DxfOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingdicom"></a>
+# **putDrawingDicom**
+> putDrawingDicom($putDrawingDicomRequest)
+
+Export drawing to Dicom format. Drawing data is passed as zero-indexed multipart/form-data as well as export Dicom options serialized as JSON. Order of drawing data and Dicom options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingdicomasync"></a>
+# **putDrawingDicomAsync**
+> putDrawingDicomAsync($putDrawingDicomRequest)
+
+Export drawing to Dicom format. Drawing data is passed as zero-indexed multipart/form-data as well as export Dicom options serialized as JSON. Order of drawing data and Dicom options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingDicomRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DicomOptionsDTO model definition. | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
@@ -1572,6 +2166,86 @@ Name | Type | Description  | Notes
  **drawing_data** | **string**| Input drawing |
  **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GifOptionsDTO model definition. | [optional]
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingglb"></a>
+# **putDrawingGlb**
+> putDrawingGlb($putDrawingGlbRequest)
+
+Export drawing to GLB format. Drawing data is passed as zero-indexed multipart/form-data as well as export GLB options serialized as JSON. Order of drawing data and GLB options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingglbasync"></a>
+# **putDrawingGlbAsync**
+> putDrawingGlbAsync($putDrawingGlbRequest)
+
+Export drawing to GLB format. Drawing data is passed as zero-indexed multipart/form-data as well as export GLB options serialized as JSON. Order of drawing data and GLB options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingGlbRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GlbOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawinggltf"></a>
+# **putDrawingGltf**
+> putDrawingGltf($putDrawingGltfRequest)
+
+Export drawing to GLTF format. Drawing data is passed as zero-indexed multipart/form-data as well as export GLTF options serialized as JSON. Order of drawing data and GLTF options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawinggltfasync"></a>
+# **putDrawingGltfAsync**
+> putDrawingGltfAsync($putDrawingGltfRequest)
+
+Export drawing to GLTF format. Drawing data is passed as zero-indexed multipart/form-data as well as export GLTF options serialized as JSON. Order of drawing data and GLTF options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingGltfRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/GltfOptionsDTO model definition. | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
@@ -1816,6 +2490,46 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="putdrawingstp"></a>
+# **putDrawingSTP**
+> putDrawingSTP($putDrawingSTPRequest)
+
+Export drawing to Stp format. Drawing data is passed as zero-indexed multipart/form-data as well as export Stp options serialized as JSON. Order of drawing data and Stp options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingstpasync"></a>
+# **putDrawingSTPAsync**
+> putDrawingSTPAsync($putDrawingSTPRequest)
+
+Export drawing to Stp format. Drawing data is passed as zero-indexed multipart/form-data as well as export Stp options serialized as JSON. Order of drawing data and Stp options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingSTPRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/StpOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="putdrawingsvg"></a>
 # **putDrawingSvg**
 > putDrawingSvg($putDrawingSvgRequest)
@@ -1852,6 +2566,46 @@ Name | Type | Description  | Notes
  **drawing_data** | **string**| Input drawing |
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/SvgOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingthreeds"></a>
+# **putDrawingThreeDS**
+> putDrawingThreeDS($putDrawingThreeDSRequest)
+
+Export drawing to 3ds format. Drawing data is passed as zero-indexed multipart/form-data as well as export 3ds options serialized as JSON. Order of drawing data and 3ds options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingthreedsasync"></a>
+# **putDrawingThreeDSAsync**
+> putDrawingThreeDSAsync($putDrawingThreeDSRequest)
+
+Export drawing to 3ds format. Drawing data is passed as zero-indexed multipart/form-data as well as export 3ds options serialized as JSON. Order of drawing data and 3ds options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingThreeDSRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/ThreeDSOptionsDTO model definition. | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
@@ -1896,6 +2650,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="putdrawingu3d"></a>
+# **putDrawingU3d**
+> putDrawingU3d($putDrawingU3dRequest)
+
+Export drawing to U3d format. Drawing data is passed as zero-indexed multipart/form-data as well as export U3d options serialized as JSON. Order of drawing data and U3d options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingu3dasync"></a>
+# **putDrawingU3dAsync**
+> putDrawingU3dAsync($putDrawingU3dRequest)
+
+Export drawing to U3d format. Drawing data is passed as zero-indexed multipart/form-data as well as export U3d options serialized as JSON. Order of drawing data and U3d options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingU3dRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/U3dOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="putdrawingwebp"></a>
+# **putDrawingWebp**
+> putDrawingWebp($putDrawingWebpRequest)
+
+Export drawing to Webp format. Drawing data is passed as zero-indexed multipart/form-data as well as export Webp options serialized as JSON. Order of drawing data and Webp options could vary.
+
+### Return type
+
+**\Psr\Http\Message\StreamInterface**
+
+<a name="putdrawingwebpasync"></a>
+# **putDrawingWebpAsync**
+> putDrawingWebpAsync($putDrawingWebpRequest)
+
+Export drawing to Webp format. Drawing data is passed as zero-indexed multipart/form-data as well as export Webp options serialized as JSON. Order of drawing data and Webp options could vary.
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutDrawingWebpRequest** Parameters
+```php
+__construct(
+    $drawing_data, 
+    $out_path, 
+    $export_options, 
+    $storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing_data** | **string**| Input drawing |
+ **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
+ **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WebpOptionsDTO model definition. | [optional]
+ **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="putdrawingwmf"></a>
 # **putDrawingWmf**
 > putDrawingWmf($putDrawingWmfRequest)
@@ -1933,6 +2767,42 @@ Name | Type | Description  | Notes
  **out_path** | **string**| Path to updated file (if this is empty, response contains streamed file). | [optional]
  **export_options** | **string**| JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WmfOptionsDTO model definition. | [optional]
  **storage** | **string**| Your Aspose Cloud Storage name. | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="puteditmetadata"></a>
+# **putEditMetadata**
+> putEditMetadata($putEditMetadataRequest)
+
+Save Metadata
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="puteditmetadataasync"></a>
+# **putEditMetadataAsync**
+> putEditMetadataAsync($putEditMetadataRequest)
+
+Save Metadata
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **PutEditMetadataRequest** Parameters
+```php
+__construct(
+    $drawing, 
+    $metadata_component)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **drawing** | **string**|  | [optional]
+ **metadata_component** | **string**|  | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
@@ -2005,6 +2875,82 @@ Name | Type | Description  | Notes
  **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header. |
  **file** | **string**| File to upload |
  **storage_name** | **string**| Storage name | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="viewer"></a>
+# **viewer**
+> viewer($viewerRequest)
+
+Return file for viewer
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="viewerasync"></a>
+# **viewerAsync**
+> viewerAsync($viewerRequest)
+
+Return file for viewer
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **ViewerRequest** Parameters
+```php
+__construct(
+    $output_format, 
+    $drawing)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **output_format** | **string**|  |
+ **drawing** | **string**|  | [optional]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="watermark"></a>
+# **watermark**
+> watermark($watermarkRequest)
+
+Add watermark to drawing
+
+### Return type
+
+[**\SplFileObject**](\SplFileObject.md)
+
+<a name="watermarkasync"></a>
+# **watermarkAsync**
+> watermarkAsync($watermarkRequest)
+
+Add watermark to drawing
+
+Performs operation asynchronously.
+
+### Return type
+
+**\GuzzleHttp\Promise\PromiseInterface**
+
+### **WatermarkRequest** Parameters
+```php
+__construct(
+    $output_format, 
+    $drawing, 
+    $watermark_rgb, 
+    $output_type_ext)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **output_format** | **string**|  |
+ **drawing** | **string**|  | [optional]
+ **watermark_rgb** | **string**|  | [optional]
+ **output_type_ext** | **string**|  | [optional]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 

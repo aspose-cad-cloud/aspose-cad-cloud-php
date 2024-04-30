@@ -52,7 +52,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
      */
     protected static $swaggerTypes = [
         'pdf_document_info' => '\Aspose\CAD\Model\PdfDocumentInfo',
-        'core_pdf_options' => '\Aspose\CAD\Model\PdfDocumentOptions'
+        'core_pdf_options' => '\Aspose\CAD\Model\PdfDocumentOptionsDTO'
     ];
 
     /**
@@ -231,7 +231,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Gets core_pdf_options
      *
-     * @return \Aspose\CAD\Model\PdfDocumentOptions
+     * @return \Aspose\CAD\Model\PdfDocumentOptionsDTO
      */
     public function getCorePdfOptions()
     {
@@ -241,7 +241,7 @@ class PdfOptionsDTO extends DrawingOptionsBaseDTO
     /**
      * Sets core_pdf_options
      *
-     * @param \Aspose\CAD\Model\PdfDocumentOptions $core_pdf_options Core PDF rendering options
+     * @param \Aspose\CAD\Model\PdfDocumentOptionsDTO $core_pdf_options Core PDF rendering options
      *
      * @return $this
      */

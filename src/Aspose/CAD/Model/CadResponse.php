@@ -66,7 +66,8 @@ class CadResponse implements ArrayAccess
         'cf2_properties' => '\Aspose\CAD\Model\Cf2Properties',
         'fbx_properties' => '\Aspose\CAD\Model\FbxProperties',
         'obj_properties' => '\Aspose\CAD\Model\ObjProperties',
-        'plt_properties' => '\Aspose\CAD\Model\PltProperties'
+        'plt_properties' => '\Aspose\CAD\Model\PltProperties',
+        'stp_properties' => '\Aspose\CAD\Model\StpProperties'
     ];
 
     /**
@@ -88,7 +89,8 @@ class CadResponse implements ArrayAccess
         'cf2_properties' => null,
         'fbx_properties' => null,
         'obj_properties' => null,
-        'plt_properties' => null
+        'plt_properties' => null,
+        'stp_properties' => null
     ];
 
     /**
@@ -131,7 +133,8 @@ class CadResponse implements ArrayAccess
         'cf2_properties' => 'Cf2Properties',
         'fbx_properties' => 'FbxProperties',
         'obj_properties' => 'ObjProperties',
-        'plt_properties' => 'PltProperties'
+        'plt_properties' => 'PltProperties',
+        'stp_properties' => 'StpProperties'
     ];
 
     /**
@@ -153,7 +156,8 @@ class CadResponse implements ArrayAccess
         'cf2_properties' => 'setCf2Properties',
         'fbx_properties' => 'setFbxProperties',
         'obj_properties' => 'setObjProperties',
-        'plt_properties' => 'setPltProperties'
+        'plt_properties' => 'setPltProperties',
+        'stp_properties' => 'setStpProperties'
     ];
 
     /**
@@ -175,7 +179,8 @@ class CadResponse implements ArrayAccess
         'cf2_properties' => 'getCf2Properties',
         'fbx_properties' => 'getFbxProperties',
         'obj_properties' => 'getObjProperties',
-        'plt_properties' => 'getPltProperties'
+        'plt_properties' => 'getPltProperties',
+        'stp_properties' => 'getStpProperties'
     ];
 
     /**
@@ -252,6 +257,7 @@ class CadResponse implements ArrayAccess
         $this->container['fbx_properties'] = isset($data['fbx_properties']) ? $data['fbx_properties'] : null;
         $this->container['obj_properties'] = isset($data['obj_properties']) ? $data['obj_properties'] : null;
         $this->container['plt_properties'] = isset($data['plt_properties']) ? $data['plt_properties'] : null;
+        $this->container['stp_properties'] = isset($data['stp_properties']) ? $data['stp_properties'] : null;
     }
 
     /**
@@ -623,6 +629,30 @@ class CadResponse implements ArrayAccess
     public function setPltProperties($plt_properties)
     {
         $this->container['plt_properties'] = $plt_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets stp_properties
+     *
+     * @return \Aspose\CAD\Model\StpProperties
+     */
+    public function getStpProperties()
+    {
+        return $this->container['stp_properties'];
+    }
+
+    /**
+     * Sets stp_properties
+     *
+     * @param \Aspose\CAD\Model\StpProperties $stp_properties Gets or sets the STP properties.
+     *
+     * @return $this
+     */
+    public function setStpProperties($stp_properties)
+    {
+        $this->container['stp_properties'] = $stp_properties;
 
         return $this;
     }
