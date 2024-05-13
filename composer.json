@@ -1,9 +1,9 @@
 {
     "description": 	"This repository contains Aspose Cloud SDK for PHP source code. Aspose Cloud SDK for PHP lets PHP developers convert and process a variety of CAD and BIM file formats in the cloud quickly and easily.",
-    "name": 		"aspose-cloud/php-sdk",
-    "type": 		"library",
-    "version":         "20.11",
-    "keywords" :     [
+    "name": "aspose-cloud/php-sdk",
+    "type": "library",
+    "version": "24.1",
+    "keywords" : [
         "Aspose",
         "CAD",
         "Cloud",
@@ -37,7 +37,7 @@
         "svg",
         "export",
         "conversion"],
-	"license": 		"MIT",
+	"license": "MIT",
     "homepage": "https://github.com/aspose-cad-cloud/aspose-cad-cloud-php",
     "authors": [
         {
@@ -55,7 +55,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.5.8"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*",

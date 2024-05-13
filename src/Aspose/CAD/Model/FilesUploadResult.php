@@ -54,7 +54,7 @@ class FilesUploadResult implements ArrayAccess
      */
     protected static $swaggerTypes = [
         'uploaded' => 'string[]',
-        'errors' => '\Aspose\CAD\Model\Error[]'
+        'errors' => '\Aspose\CAD\Model\ErrorModel[]'
     ];
 
     /**
@@ -234,7 +234,7 @@ class FilesUploadResult implements ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Aspose\CAD\Model\Error[]
+     * @return \Aspose\CAD\Model\ErrorModel[]
      */
     public function getErrors()
     {
@@ -244,7 +244,7 @@ class FilesUploadResult implements ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Aspose\CAD\Model\Error[] $errors List of errors.
+     * @param \Aspose\CAD\Model\ErrorModel[] $errors List of errors.
      *
      * @return $this
      */
