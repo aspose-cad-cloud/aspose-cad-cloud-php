@@ -474,7 +474,7 @@ class CadApi
      */
     public function editMetadata($request)
     {
-        $returnType = 'string';
+        $returnType = '\SplFileObject';
         $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
@@ -499,7 +499,7 @@ class CadApi
      */
     public function editMetadataAsync($request) 
     {
-        $returnType = 'string';
+        $returnType = '\SplFileObject';
         $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');

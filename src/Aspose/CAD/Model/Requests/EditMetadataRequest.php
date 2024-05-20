@@ -104,7 +104,7 @@ class EditMetadataRequest extends CadRequest
 
         $headers = $this->selectHeaders(
             ['application/json'],
-            ['multipart/form-data', 'application/octet-stream', 'multipart/form-data']
+            ['multipart/form-data', 'application/octet-stream']
         );
         
         $httpInfo = array(
