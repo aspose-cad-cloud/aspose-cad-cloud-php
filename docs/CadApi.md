@@ -8,7 +8,7 @@ Convert CAD drawing to DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, 
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="convertasync"></a>
 # **convertAsync**
@@ -278,7 +278,7 @@ Get Metadata info
 
 ### Return type
 
-**string**
+**\Psr\Http\Message\StreamInterface**
 
 <a name="editmetadataasync"></a>
 # **editMetadataAsync**
@@ -312,7 +312,7 @@ Extract Metadata from CAD drawing to txt, xml or json file.
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="extractmetadataasync"></a>
 # **extractMetadataAsync**
@@ -348,7 +348,7 @@ Extract Text from CAD drawing to txt file
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="extracttextasync"></a>
 # **extractTextAsync**
@@ -778,7 +778,7 @@ Convert bitmap image to DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB,
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="papertocadasync"></a>
 # **paperToCadAsync**
@@ -2778,7 +2778,7 @@ Save Metadata
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="puteditmetadataasync"></a>
 # **putEditMetadataAsync**
@@ -2886,7 +2886,7 @@ Return file for viewer
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="viewerasync"></a>
 # **viewerAsync**
@@ -2922,7 +2922,7 @@ Add watermark to drawing
 
 ### Return type
 
-[**\SplFileObject**](\SplFileObject.md)
+**\Psr\Http\Message\StreamInterface**
 
 <a name="watermarkasync"></a>
 # **watermarkAsync**

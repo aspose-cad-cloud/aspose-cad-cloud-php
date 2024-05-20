@@ -92,12 +92,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function convert($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -122,7 +122,7 @@ class CadApi
     public function convertAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -470,12 +470,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function editMetadata($request)
     {
         $returnType = 'string';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -500,7 +500,7 @@ class CadApi
     public function editMetadataAsync($request) 
     {
         $returnType = 'string';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -524,12 +524,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function extractMetadata($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -554,7 +554,7 @@ class CadApi
     public function extractMetadataAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -578,12 +578,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function extractText($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -608,7 +608,7 @@ class CadApi
     public function extractTextAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -1172,12 +1172,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function paperToCad($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -1202,7 +1202,7 @@ class CadApi
     public function paperToCadAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -3818,12 +3818,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function putEditMetadata($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'PUT');
         $options = $this->createHttpClientOptions();
@@ -3848,7 +3848,7 @@ class CadApi
     public function putEditMetadataAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'PUT');
         $options = $this->createHttpClientOptions();
@@ -3980,12 +3980,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function viewer($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -4010,7 +4010,7 @@ class CadApi
     public function viewerAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -4034,12 +4034,12 @@ class CadApi
      *
      * @throws \Aspose\CAD\ApiException Throws on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return \Psr\Http\Message\StreamInterface
      */
     public function watermark($request)
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
@@ -4064,7 +4064,7 @@ class CadApi
     public function watermarkAsync($request) 
     {
         $returnType = '\SplFileObject';
-        $isBinary = false;
+        $isBinary = true;
         $hasReturnType = true;
         $request = $this->getHttpRequest($request, 'POST');
         $options = $this->createHttpClientOptions();
