@@ -39,7 +39,7 @@ use \Aspose\CAD\CadRequest as CadRequest;
 class PaperToCadRequest extends CadRequest
 {
     /**
-     * Output DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
+     * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
      *
      * @var string
      */
@@ -55,7 +55,7 @@ class PaperToCadRequest extends CadRequest
     /**
      * Initializes a new instance of the PaperToCadRequest class.
      *  
-     * @param string $output_format Output DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
+     * @param string $output_format Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
      * @param string $drawing Form-data file
      */
     public function __construct($output_format, $drawing = null)             
@@ -65,7 +65,7 @@ class PaperToCadRequest extends CadRequest
     }
 
     /**
-     * Output DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
+     * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class PaperToCadRequest extends CadRequest
     }
 
     /**
-     * Output DXF, DWG, DGN, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
+     * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, SVG file format.
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */

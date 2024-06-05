@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ConvertRequest.php">
+ * <copyright company="Aspose" file="PutDrawingDracoRequest.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -34,105 +34,135 @@ use \Aspose\CAD\ObjectSerializer;
 use \Aspose\CAD\CadRequest as CadRequest;
 
 /**
- * Request model for convert operation.
+ * Request model for putDrawingDraco operation.
  */
-class ConvertRequest extends CadRequest
+class PutDrawingDracoRequest extends CadRequest
 {
     /**
-     * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
+     * Input drawing
      *
      * @var string
      */
-    public $output_format;
+    public $drawing_data;
     
     /**
-     * Form-data file
+     * Path to updated file (if this is empty, response contains streamed file).
      *
      * @var string
      */
-    public $drawing;
+    public $out_path;
     
     /**
-     * For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DracoOptionsDTO model definition.
      *
      * @var string
      */
-    public $output_type_ext;
+    public $export_options;
     
     /**
-     * Initializes a new instance of the ConvertRequest class.
+     * Your Aspose Cloud Storage name.
+     *
+     * @var string
+     */
+    public $storage;
+    
+    /**
+     * Initializes a new instance of the PutDrawingDracoRequest class.
      *  
-     * @param string $output_format Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
-     * @param string $drawing Form-data file
-     * @param string $output_type_ext For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format
+     * @param string $drawing_data Input drawing
+     * @param string $out_path Path to updated file (if this is empty, response contains streamed file).
+     * @param string $export_options JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DracoOptionsDTO model definition.
+     * @param string $storage Your Aspose Cloud Storage name.
      */
-    public function __construct($output_format, $drawing = null, $output_type_ext = null)             
+    public function __construct($drawing_data, $out_path = null, $export_options = null, $storage = null)             
     {
-        $this->output_format = $output_format;
-        $this->drawing = $drawing;
-        $this->output_type_ext = $output_type_ext;
+        $this->drawing_data = $drawing_data;
+        $this->out_path = $out_path;
+        $this->export_options = $export_options;
+        $this->storage = $storage;
     }
 
     /**
-     * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
+     * Input drawing
      *
      * @return string
      */
-    public function get_output_format()
+    public function get_drawing_data()
     {
-        return $this->output_format;
+        return $this->drawing_data;
     }
 
     /**
-     * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
+     * Input drawing
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
-    public function set_output_format($value)
+    public function set_drawing_data($value)
     {
-        $this->output_format = $value;
+        $this->drawing_data = $value;
         return $this;
     }
     
     /**
-     * Form-data file
+     * Path to updated file (if this is empty, response contains streamed file).
      *
      * @return string
      */
-    public function get_drawing()
+    public function get_out_path()
     {
-        return $this->drawing;
+        return $this->out_path;
     }
 
     /**
-     * Form-data file
+     * Path to updated file (if this is empty, response contains streamed file).
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
-    public function set_drawing($value)
+    public function set_out_path($value)
     {
-        $this->drawing = $value;
+        $this->out_path = $value;
         return $this;
     }
     
     /**
-     * For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DracoOptionsDTO model definition.
      *
      * @return string
      */
-    public function get_output_type_ext()
+    public function get_export_options()
     {
-        return $this->output_type_ext;
+        return $this->export_options;
     }
 
     /**
-     * For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/DracoOptionsDTO model definition.
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
-    public function set_output_type_ext($value)
+    public function set_export_options($value)
     {
-        $this->output_type_ext = $value;
+        $this->export_options = $value;
+        return $this;
+    }
+    
+    /**
+     * Your Aspose Cloud Storage name.
+     *
+     * @return string
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /**
+     * Your Aspose Cloud Storage name.
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
 
@@ -143,12 +173,12 @@ class ConvertRequest extends CadRequest
      */
     public function getHttpRequestInfo($config)
     {
-        // verify the required parameter 'output_format' is set
-        if ($this->output_format === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $output_format when calling convert');
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putDrawingDraco');
         }
 
-        $resourcePath = '/cad/Convert';
+        $resourcePath = '/cad/drc';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -156,9 +186,9 @@ class ConvertRequest extends CadRequest
     
 
         // query params
-        if ($this->output_format !== null) {
-            $localName = lcfirst('outputFormat');
-            $localValue = is_bool($this->output_format) ? ($this->output_format ? 'true' : 'false') : $this->output_format;
+        if ($this->out_path !== null) {
+            $localName = lcfirst('outPath');
+            $localValue = is_bool($this->out_path) ? ($this->out_path ? 'true' : 'false') : $this->out_path;
             if (strpos($resourcePath, '{' . $localName . '}') !== false) {
                 $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
             } else {
@@ -166,9 +196,9 @@ class ConvertRequest extends CadRequest
             }
         }
         // query params
-        if ($this->output_type_ext !== null) {
-            $localName = lcfirst('outputTypeExt');
-            $localValue = is_bool($this->output_type_ext) ? ($this->output_type_ext ? 'true' : 'false') : $this->output_type_ext;
+        if ($this->storage !== null) {
+            $localName = lcfirst('storage');
+            $localValue = is_bool($this->storage) ? ($this->storage ? 'true' : 'false') : $this->storage;
             if (strpos($resourcePath, '{' . $localName . '}') !== false) {
                 $resourcePath = str_replace('{' . $localName . '}', ObjectSerializer::toPathValue($localValue), $resourcePath);
             } else {
@@ -180,8 +210,12 @@ class ConvertRequest extends CadRequest
         $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
 
         // form params
-        if ($this->drawing !== null) {
-            $formParams[ObjectSerializer::toStandardName('drawing')] = ObjectSerializer::toFormValue($this->drawing);
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
+        }
+        // form params
+        if ($this->export_options !== null) {
+            $formParams[ObjectSerializer::toStandardName('export_options')] = ObjectSerializer::toFormValue($this->export_options);
         }
         // body params
         $httpBody = null;
