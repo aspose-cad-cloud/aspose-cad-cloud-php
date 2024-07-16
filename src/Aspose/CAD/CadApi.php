@@ -86,7 +86,7 @@ class CadApi
     }
     
     /**
-     * Convert CAD drawing to DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG format.
+     * Convert CAD drawing to DXF, DWG, DGN, DRC, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG format.
      *
      * @param \Aspose\CAD\Model\Requests\ConvertRequest $request Request object for operation
      *
@@ -111,7 +111,7 @@ class CadApi
     }
 
     /**
-     * Convert CAD drawing to DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG format.
+     * Convert CAD drawing to DXF, DWG, DGN, DRC, DWF, DWFX, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG format.
      * Performs operation asynchronously.
      *
      * @param \Aspose\CAD\Model\Requests\ConvertRequest $request Request object for operation
@@ -4218,16 +4218,25 @@ class CadApi
             }
         } elseif (count($formParams) > 0) {
             $multipartContents = [];
-            foreach ($formParams as $formParamName => $formParamValue) {
-                $multipartContents[] = [
-                    'name' => $formParamName,
-                    'contents' => $formParamValue,
-                    'filename' => $formParamName,
-                    'headers' => [
-                        'Content-Type' => 'application/octet-stream',
-                        'Content-Length' => strlen($formParamValue)
-                    ]
-                ];
+            foreach ($formParams as $formParamName => $formParamValue) {                
+                if(gettype($formParamValue) == "object"){
+                    echo $formParamName;
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                else{
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue,
+                        'filename' => $formParamName,
+                        'headers' => [
+                            'Content-Type' => 'multipart/form-data',
+                            'Content-Length' => strlen($formParamValue)
+                            ]
+                    ];
+                }
             }
             
             $boundary = sha1(uniqid('', true));

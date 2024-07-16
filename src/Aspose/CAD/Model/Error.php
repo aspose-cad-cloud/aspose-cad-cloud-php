@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="Color.php">
+ * <copyright company="Aspose" file="Error.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -32,10 +32,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * Color
+ * Error
  *
+ * @description Error
  */
-class Color implements ArrayAccess
+class Error implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -44,7 +45,7 @@ class Color implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "Color";
+    protected static $swaggerModelName = "Error";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -52,14 +53,10 @@ class Color implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'r' => 'int',
-        'g' => 'int',
-        'b' => 'int',
-        'a' => 'int',
-        'is_known_color' => 'bool',
-        'is_empty' => 'bool',
-        'is_named_color' => 'bool',
-        'name' => 'string'
+        'code' => 'string',
+        'message' => 'string',
+        'description' => 'string',
+        'inner_error' => '\Aspose\CAD\Model\ErrorDetails'
     ];
 
     /**
@@ -68,14 +65,10 @@ class Color implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'r' => 'byte',
-        'g' => 'byte',
-        'b' => 'byte',
-        'a' => 'byte',
-        'is_known_color' => null,
-        'is_empty' => null,
-        'is_named_color' => null,
-        'name' => null
+        'code' => null,
+        'message' => null,
+        'description' => null,
+        'inner_error' => null
     ];
 
     /**
@@ -105,14 +98,10 @@ class Color implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'r' => 'R',
-        'g' => 'G',
-        'b' => 'B',
-        'a' => 'A',
-        'is_known_color' => 'IsKnownColor',
-        'is_empty' => 'IsEmpty',
-        'is_named_color' => 'IsNamedColor',
-        'name' => 'Name'
+        'code' => 'Code',
+        'message' => 'Message',
+        'description' => 'Description',
+        'inner_error' => 'InnerError'
     ];
 
     /**
@@ -121,14 +110,10 @@ class Color implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'r' => 'setR',
-        'g' => 'setG',
-        'b' => 'setB',
-        'a' => 'setA',
-        'is_known_color' => 'setIsKnownColor',
-        'is_empty' => 'setIsEmpty',
-        'is_named_color' => 'setIsNamedColor',
-        'name' => 'setName'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'description' => 'setDescription',
+        'inner_error' => 'setInnerError'
     ];
 
     /**
@@ -137,14 +122,10 @@ class Color implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'r' => 'getR',
-        'g' => 'getG',
-        'b' => 'getB',
-        'a' => 'getA',
-        'is_known_color' => 'getIsKnownColor',
-        'is_empty' => 'getIsEmpty',
-        'is_named_color' => 'getIsNamedColor',
-        'name' => 'getName'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'description' => 'getDescription',
+        'inner_error' => 'getInnerError'
     ];
 
     /**
@@ -207,14 +188,10 @@ class Color implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['r'] = isset($data['r']) ? $data['r'] : null;
-        $this->container['g'] = isset($data['g']) ? $data['g'] : null;
-        $this->container['b'] = isset($data['b']) ? $data['b'] : null;
-        $this->container['a'] = isset($data['a']) ? $data['a'] : null;
-        $this->container['is_known_color'] = isset($data['is_known_color']) ? $data['is_known_color'] : null;
-        $this->container['is_empty'] = isset($data['is_empty']) ? $data['is_empty'] : null;
-        $this->container['is_named_color'] = isset($data['is_named_color']) ? $data['is_named_color'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['inner_error'] = isset($data['inner_error']) ? $data['inner_error'] : null;
     }
 
     /**
@@ -226,27 +203,6 @@ class Color implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['r'] === null) {
-            $invalidProperties[] = "'r' can't be null";
-        }
-        if ($this->container['g'] === null) {
-            $invalidProperties[] = "'g' can't be null";
-        }
-        if ($this->container['b'] === null) {
-            $invalidProperties[] = "'b' can't be null";
-        }
-        if ($this->container['a'] === null) {
-            $invalidProperties[] = "'a' can't be null";
-        }
-        if ($this->container['is_known_color'] === null) {
-            $invalidProperties[] = "'is_known_color' can't be null";
-        }
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
-        }
-        if ($this->container['is_named_color'] === null) {
-            $invalidProperties[] = "'is_named_color' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -259,219 +215,102 @@ class Color implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['r'] === null) {
-            return false;
-        }
-        if ($this->container['g'] === null) {
-            return false;
-        }
-        if ($this->container['b'] === null) {
-            return false;
-        }
-        if ($this->container['a'] === null) {
-            return false;
-        }
-        if ($this->container['is_known_color'] === null) {
-            return false;
-        }
-        if ($this->container['is_empty'] === null) {
-            return false;
-        }
-        if ($this->container['is_named_color'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets r
-     *
-     * @return int
-     */
-    public function getR()
-    {
-        return $this->container['r'];
-    }
-
-    /**
-     * Sets r
-     *
-     * @param int $r r
-     *
-     * @return $this
-     */
-    public function setR($r)
-    {
-        $this->container['r'] = $r;
-
-        return $this;
-    }
-
-    /**
-     * Gets g
-     *
-     * @return int
-     */
-    public function getG()
-    {
-        return $this->container['g'];
-    }
-
-    /**
-     * Sets g
-     *
-     * @param int $g g
-     *
-     * @return $this
-     */
-    public function setG($g)
-    {
-        $this->container['g'] = $g;
-
-        return $this;
-    }
-
-    /**
-     * Gets b
-     *
-     * @return int
-     */
-    public function getB()
-    {
-        return $this->container['b'];
-    }
-
-    /**
-     * Sets b
-     *
-     * @param int $b b
-     *
-     * @return $this
-     */
-    public function setB($b)
-    {
-        $this->container['b'] = $b;
-
-        return $this;
-    }
-
-    /**
-     * Gets a
-     *
-     * @return int
-     */
-    public function getA()
-    {
-        return $this->container['a'];
-    }
-
-    /**
-     * Sets a
-     *
-     * @param int $a a
-     *
-     * @return $this
-     */
-    public function setA($a)
-    {
-        $this->container['a'] = $a;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_known_color
-     *
-     * @return bool
-     */
-    public function getIsKnownColor()
-    {
-        return $this->container['is_known_color'];
-    }
-
-    /**
-     * Sets is_known_color
-     *
-     * @param bool $is_known_color is_known_color
-     *
-     * @return $this
-     */
-    public function setIsKnownColor($is_known_color)
-    {
-        $this->container['is_known_color'] = $is_known_color;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_empty
-     *
-     * @return bool
-     */
-    public function getIsEmpty()
-    {
-        return $this->container['is_empty'];
-    }
-
-    /**
-     * Sets is_empty
-     *
-     * @param bool $is_empty is_empty
-     *
-     * @return $this
-     */
-    public function setIsEmpty($is_empty)
-    {
-        $this->container['is_empty'] = $is_empty;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_named_color
-     *
-     * @return bool
-     */
-    public function getIsNamedColor()
-    {
-        return $this->container['is_named_color'];
-    }
-
-    /**
-     * Sets is_named_color
-     *
-     * @param bool $is_named_color is_named_color
-     *
-     * @return $this
-     */
-    public function setIsNamedColor($is_named_color)
-    {
-        $this->container['is_named_color'] = $is_named_color;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets code
      *
      * @return string
      */
-    public function getName()
+    public function getCode()
     {
-        return $this->container['name'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets name
+     * Sets code
      *
-     * @param string $name name
+     * @param string $code Code
      *
      * @return $this
      */
-    public function setName($name)
+    public function setCode($code)
     {
-        $this->container['name'] = $name;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message Message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description Description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets inner_error
+     *
+     * @return \Aspose\CAD\Model\ErrorDetails
+     */
+    public function getInnerError()
+    {
+        return $this->container['inner_error'];
+    }
+
+    /**
+     * Sets inner_error
+     *
+     * @param \Aspose\CAD\Model\ErrorDetails $inner_error Inner Error
+     *
+     * @return $this
+     */
+    public function setInnerError($inner_error)
+    {
+        $this->container['inner_error'] = $inner_error;
 
         return $this;
     }

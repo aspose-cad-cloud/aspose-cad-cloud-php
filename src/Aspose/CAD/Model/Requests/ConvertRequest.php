@@ -39,18 +39,18 @@ use \Aspose\CAD\CadRequest as CadRequest;
 class ConvertRequest extends CadRequest
 {
     /**
+     * Input drawing
+     *
+     * @var string
+     */
+    public $drawing_data;
+    
+    /**
      * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
      *
      * @var string
      */
     public $output_format;
-    
-    /**
-     * Form-data file
-     *
-     * @var string
-     */
-    public $drawing;
     
     /**
      * For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format
@@ -62,17 +62,38 @@ class ConvertRequest extends CadRequest
     /**
      * Initializes a new instance of the ConvertRequest class.
      *  
+     * @param string $drawing_data Input drawing
      * @param string $output_format Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
-     * @param string $drawing Form-data file
      * @param string $output_type_ext For output pdf format: PDF_15, PDFa_1a OR PDFa_1b. Null for another format
      */
-    public function __construct($output_format, $drawing = null, $output_type_ext = null)             
+    public function __construct($drawing_data, $output_format, $output_type_ext = null)             
     {
+        $this->drawing_data = $drawing_data;
         $this->output_format = $output_format;
-        $this->drawing = $drawing;
         $this->output_type_ext = $output_type_ext;
     }
 
+    /**
+     * Input drawing
+     *
+     * @return string
+     */
+    public function get_drawing_data()
+    {
+        return $this->drawing_data;
+    }
+
+    /**
+     * Input drawing
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
+     */
+    public function set_drawing_data($value)
+    {
+        $this->drawing_data = $value;
+        return $this;
+    }
+    
     /**
      * Output DXF, DWG, DGN, DWF, DWFX, DRC, IFC, STL, STP, STEP, CGM, GLB, GLTF, DWT, IGES, PLT, CF2, OBJ, HPGL, IGS, PCL, FBX, PDF, SVG, PNG, BMP, DIB, TIFF, TIF, JPEG, GIF, PSD, JPG, JPE, JIF, JFIF, PSD, WEBP, DCM, DICOM, JP2, J2K, JPF, JPM, JPG2, J2C, JPC, JPX, MJ2 , DJVU file format.
      *
@@ -91,27 +112,6 @@ class ConvertRequest extends CadRequest
     public function set_output_format($value)
     {
         $this->output_format = $value;
-        return $this;
-    }
-    
-    /**
-     * Form-data file
-     *
-     * @return string
-     */
-    public function get_drawing()
-    {
-        return $this->drawing;
-    }
-
-    /**
-     * Form-data file
-     *
-     * @return \Aspose\CAD\Model\Requests\Request
-     */
-    public function set_drawing($value)
-    {
-        $this->drawing = $value;
         return $this;
     }
     
@@ -143,6 +143,10 @@ class ConvertRequest extends CadRequest
      */
     public function getHttpRequestInfo($config)
     {
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling convert');
+        }
         // verify the required parameter 'output_format' is set
         if ($this->output_format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $output_format when calling convert');
@@ -180,15 +184,15 @@ class ConvertRequest extends CadRequest
         $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
 
         // form params
-        if ($this->drawing !== null) {
-            $formParams[ObjectSerializer::toStandardName('drawing')] = ObjectSerializer::toFormValue($this->drawing);
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
         }
         // body params
         $httpBody = null;
 
         $headers = $this->selectHeaders(
             ['application/json'],
-            ['multipart/form-data', 'application/octet-stream']
+            ['application/octet-stream', 'multipart/form-data']
         );
         
         $httpInfo = array(

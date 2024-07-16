@@ -57,8 +57,8 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         'border_y' => 'double',
         'page_height' => 'double',
         'page_width' => 'double',
-        'background_color' => '\Aspose\CAD\Model\Color',
-        'draw_color' => '\Aspose\CAD\Model\Color',
+        'background_color' => '\Aspose\CAD\Model\ColorDTO',
+        'draw_color' => '\Aspose\CAD\Model\ColorDTO',
         'unit_type' => 'string',
         'content_as_bitmap' => 'bool',
         'graphics_options' => '\Aspose\CAD\Model\GraphicsOptions'
@@ -304,12 +304,6 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
         if ($this->container['page_width'] === null) {
             $invalidProperties[] = "'page_width' can't be null";
         }
-        if ($this->container['background_color'] === null) {
-            $invalidProperties[] = "'background_color' can't be null";
-        }
-        if ($this->container['draw_color'] === null) {
-            $invalidProperties[] = "'draw_color' can't be null";
-        }
         if ($this->container['unit_type'] === null) {
             $invalidProperties[] = "'unit_type' can't be null";
         }
@@ -346,12 +340,6 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
             return false;
         }
         if ($this->container['page_width'] === null) {
-            return false;
-        }
-        if ($this->container['background_color'] === null) {
-            return false;
-        }
-        if ($this->container['draw_color'] === null) {
             return false;
         }
         if ($this->container['unit_type'] === null) {
@@ -467,7 +455,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     /**
      * Gets background_color
      *
-     * @return \Aspose\CAD\Model\Color
+     * @return \Aspose\CAD\Model\ColorDTO
      */
     public function getBackgroundColor()
     {
@@ -477,7 +465,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     /**
      * Sets background_color
      *
-     * @param \Aspose\CAD\Model\Color $background_color Gets or sets a background color.
+     * @param \Aspose\CAD\Model\ColorDTO $background_color Gets or sets a background color.
      *
      * @return $this
      */
@@ -491,7 +479,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     /**
      * Gets draw_color
      *
-     * @return \Aspose\CAD\Model\Color
+     * @return \Aspose\CAD\Model\ColorDTO
      */
     public function getDrawColor()
     {
@@ -501,7 +489,7 @@ class VectorRasterizationOptionsDTO implements ArrayAccess
     /**
      * Sets draw_color
      *
-     * @param \Aspose\CAD\Model\Color $draw_color Gets or sets a foreground color.
+     * @param \Aspose\CAD\Model\ColorDTO $draw_color Gets or sets a foreground color.
      *
      * @return $this
      */

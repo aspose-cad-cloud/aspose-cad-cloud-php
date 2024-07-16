@@ -39,6 +39,13 @@ use \Aspose\CAD\CadRequest as CadRequest;
 class ExtractMetadataRequest extends CadRequest
 {
     /**
+     * Input drawing
+     *
+     * @var string
+     */
+    public $drawing_data;
+    
+    /**
      * Output TXT, XML or JSON file format.
      *
      * @var string
@@ -46,24 +53,38 @@ class ExtractMetadataRequest extends CadRequest
     public $output_format;
     
     /**
-     * Form-data file
-     *
-     * @var string
-     */
-    public $drawing;
-    
-    /**
      * Initializes a new instance of the ExtractMetadataRequest class.
      *  
+     * @param string $drawing_data Input drawing
      * @param string $output_format Output TXT, XML or JSON file format.
-     * @param string $drawing Form-data file
      */
-    public function __construct($output_format, $drawing = null)             
+    public function __construct($drawing_data, $output_format)             
     {
+        $this->drawing_data = $drawing_data;
         $this->output_format = $output_format;
-        $this->drawing = $drawing;
     }
 
+    /**
+     * Input drawing
+     *
+     * @return string
+     */
+    public function get_drawing_data()
+    {
+        return $this->drawing_data;
+    }
+
+    /**
+     * Input drawing
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
+     */
+    public function set_drawing_data($value)
+    {
+        $this->drawing_data = $value;
+        return $this;
+    }
+    
     /**
      * Output TXT, XML or JSON file format.
      *
@@ -84,27 +105,6 @@ class ExtractMetadataRequest extends CadRequest
         $this->output_format = $value;
         return $this;
     }
-    
-    /**
-     * Form-data file
-     *
-     * @return string
-     */
-    public function get_drawing()
-    {
-        return $this->drawing;
-    }
-
-    /**
-     * Form-data file
-     *
-     * @return \Aspose\CAD\Model\Requests\Request
-     */
-    public function set_drawing($value)
-    {
-        $this->drawing = $value;
-        return $this;
-    }
 
     /**
      * Prepares initial info for HTTP request
@@ -113,6 +113,10 @@ class ExtractMetadataRequest extends CadRequest
      */
     public function getHttpRequestInfo($config)
     {
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling extractMetadata');
+        }
         // verify the required parameter 'output_format' is set
         if ($this->output_format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $output_format when calling extractMetadata');
@@ -140,15 +144,15 @@ class ExtractMetadataRequest extends CadRequest
         $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
 
         // form params
-        if ($this->drawing !== null) {
-            $formParams[ObjectSerializer::toStandardName('drawing')] = ObjectSerializer::toFormValue($this->drawing);
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
         }
         // body params
         $httpBody = null;
 
         $headers = $this->selectHeaders(
             ['application/json'],
-            ['multipart/form-data', 'application/octet-stream']
+            ['application/octet-stream', 'multipart/form-data']
         );
         
         $httpInfo = array(

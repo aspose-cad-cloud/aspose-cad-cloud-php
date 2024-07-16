@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ErrorModel.php">
+ * <copyright company="Aspose" file="ColorDTO.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * ErrorModel
+ * ColorDTO
  *
- * @description Error
+ * @description RGB color values
  */
-class ErrorModel implements ArrayAccess
+class ColorDTO implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class ErrorModel implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "ErrorModel";
+    protected static $swaggerModelName = "ColorDTO";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -53,10 +53,9 @@ class ErrorModel implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'description' => 'string',
-        'inner_error' => '\Aspose\CAD\Model\ErrorDetails'
+        'r' => 'int',
+        'g' => 'int',
+        'b' => 'int'
     ];
 
     /**
@@ -65,10 +64,9 @@ class ErrorModel implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'description' => null,
-        'inner_error' => null
+        'r' => 'int32',
+        'g' => 'int32',
+        'b' => 'int32'
     ];
 
     /**
@@ -98,10 +96,9 @@ class ErrorModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'Code',
-        'message' => 'Message',
-        'description' => 'Description',
-        'inner_error' => 'InnerError'
+        'r' => 'R',
+        'g' => 'G',
+        'b' => 'B'
     ];
 
     /**
@@ -110,10 +107,9 @@ class ErrorModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'description' => 'setDescription',
-        'inner_error' => 'setInnerError'
+        'r' => 'setR',
+        'g' => 'setG',
+        'b' => 'setB'
     ];
 
     /**
@@ -122,10 +118,9 @@ class ErrorModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'description' => 'getDescription',
-        'inner_error' => 'getInnerError'
+        'r' => 'getR',
+        'g' => 'getG',
+        'b' => 'getB'
     ];
 
     /**
@@ -188,10 +183,9 @@ class ErrorModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['inner_error'] = isset($data['inner_error']) ? $data['inner_error'] : null;
+        $this->container['r'] = isset($data['r']) ? $data['r'] : null;
+        $this->container['g'] = isset($data['g']) ? $data['g'] : null;
+        $this->container['b'] = isset($data['b']) ? $data['b'] : null;
     }
 
     /**
@@ -203,6 +197,15 @@ class ErrorModel implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['r'] === null) {
+            $invalidProperties[] = "'r' can't be null";
+        }
+        if ($this->container['g'] === null) {
+            $invalidProperties[] = "'g' can't be null";
+        }
+        if ($this->container['b'] === null) {
+            $invalidProperties[] = "'b' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -215,102 +218,87 @@ class ErrorModel implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['r'] === null) {
+            return false;
+        }
+        if ($this->container['g'] === null) {
+            return false;
+        }
+        if ($this->container['b'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets code
+     * Gets r
      *
-     * @return string
+     * @return int
      */
-    public function getCode()
+    public function getR()
     {
-        return $this->container['code'];
+        return $this->container['r'];
     }
 
     /**
-     * Sets code
+     * Sets r
      *
-     * @param string $code Code
+     * @param int $r Red light(0-255).
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setR($r)
     {
-        $this->container['code'] = $code;
+        $this->container['r'] = $r;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets g
      *
-     * @return string
+     * @return int
      */
-    public function getMessage()
+    public function getG()
     {
-        return $this->container['message'];
+        return $this->container['g'];
     }
 
     /**
-     * Sets message
+     * Sets g
      *
-     * @param string $message Message
+     * @param int $g Green light(0-255).
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setG($g)
     {
-        $this->container['message'] = $message;
+        $this->container['g'] = $g;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets b
      *
-     * @return string
+     * @return int
      */
-    public function getDescription()
+    public function getB()
     {
-        return $this->container['description'];
+        return $this->container['b'];
     }
 
     /**
-     * Sets description
+     * Sets b
      *
-     * @param string $description Description
+     * @param int $b Blue light(0-255).
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setB($b)
     {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets inner_error
-     *
-     * @return \Aspose\CAD\Model\ErrorDetails
-     */
-    public function getInnerError()
-    {
-        return $this->container['inner_error'];
-    }
-
-    /**
-     * Sets inner_error
-     *
-     * @param \Aspose\CAD\Model\ErrorDetails $inner_error Inner Error
-     *
-     * @return $this
-     */
-    public function setInnerError($inner_error)
-    {
-        $this->container['inner_error'] = $inner_error;
+        $this->container['b'] = $b;
 
         return $this;
     }

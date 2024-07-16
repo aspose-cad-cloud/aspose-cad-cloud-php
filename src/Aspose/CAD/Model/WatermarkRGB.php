@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="FilesUploadResult.php">
+ * <copyright company="Aspose" file="WatermarkRGB.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \Aspose\CAD\ObjectSerializer;
 
 /**
- * FilesUploadResult
+ * WatermarkRGB
  *
- * @description File upload result
+ * @description Watermark text with RGB values
  */
-class FilesUploadResult implements ArrayAccess
+class WatermarkRGB implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class FilesUploadResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "FilesUploadResult";
+    protected static $swaggerModelName = "WatermarkRGB";
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +53,10 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'uploaded' => 'string[]',
-        'errors' => '\Aspose\CAD\Model\Error[]'
+        'text' => 'string',
+        'r' => 'int',
+        'g' => 'int',
+        'b' => 'int'
     ];
 
     /**
@@ -63,8 +65,10 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'uploaded' => null,
-        'errors' => null
+        'text' => null,
+        'r' => 'int32',
+        'g' => 'int32',
+        'b' => 'int32'
     ];
 
     /**
@@ -94,8 +98,10 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uploaded' => 'Uploaded',
-        'errors' => 'Errors'
+        'text' => 'Text',
+        'r' => 'R',
+        'g' => 'G',
+        'b' => 'B'
     ];
 
     /**
@@ -104,8 +110,10 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uploaded' => 'setUploaded',
-        'errors' => 'setErrors'
+        'text' => 'setText',
+        'r' => 'setR',
+        'g' => 'setG',
+        'b' => 'setB'
     ];
 
     /**
@@ -114,8 +122,10 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uploaded' => 'getUploaded',
-        'errors' => 'getErrors'
+        'text' => 'getText',
+        'r' => 'getR',
+        'g' => 'getG',
+        'b' => 'getB'
     ];
 
     /**
@@ -178,8 +188,10 @@ class FilesUploadResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['r'] = isset($data['r']) ? $data['r'] : null;
+        $this->container['g'] = isset($data['g']) ? $data['g'] : null;
+        $this->container['b'] = isset($data['b']) ? $data['b'] : null;
     }
 
     /**
@@ -191,6 +203,15 @@ class FilesUploadResult implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['r'] === null) {
+            $invalidProperties[] = "'r' can't be null";
+        }
+        if ($this->container['g'] === null) {
+            $invalidProperties[] = "'g' can't be null";
+        }
+        if ($this->container['b'] === null) {
+            $invalidProperties[] = "'b' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,54 +224,111 @@ class FilesUploadResult implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['r'] === null) {
+            return false;
+        }
+        if ($this->container['g'] === null) {
+            return false;
+        }
+        if ($this->container['b'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets uploaded
+     * Gets text
      *
-     * @return string[]
+     * @return string
      */
-    public function getUploaded()
+    public function getText()
     {
-        return $this->container['uploaded'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets uploaded
+     * Sets text
      *
-     * @param string[] $uploaded List of uploaded file names
+     * @param string $text Watermark text.
      *
      * @return $this
      */
-    public function setUploaded($uploaded)
+    public function setText($text)
     {
-        $this->container['uploaded'] = $uploaded;
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets r
      *
-     * @return \Aspose\CAD\Model\Error[]
+     * @return int
      */
-    public function getErrors()
+    public function getR()
     {
-        return $this->container['errors'];
+        return $this->container['r'];
     }
 
     /**
-     * Sets errors
+     * Sets r
      *
-     * @param \Aspose\CAD\Model\Error[] $errors List of errors.
+     * @param int $r Red light(0-255).
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setR($r)
     {
-        $this->container['errors'] = $errors;
+        $this->container['r'] = $r;
+
+        return $this;
+    }
+
+    /**
+     * Gets g
+     *
+     * @return int
+     */
+    public function getG()
+    {
+        return $this->container['g'];
+    }
+
+    /**
+     * Sets g
+     *
+     * @param int $g Green light(0-255).
+     *
+     * @return $this
+     */
+    public function setG($g)
+    {
+        $this->container['g'] = $g;
+
+        return $this;
+    }
+
+    /**
+     * Gets b
+     *
+     * @return int
+     */
+    public function getB()
+    {
+        return $this->container['b'];
+    }
+
+    /**
+     * Sets b
+     *
+     * @param int $b Blue light(0-255).
+     *
+     * @return $this
+     */
+    public function setB($b)
+    {
+        $this->container['b'] = $b;
 
         return $this;
     }

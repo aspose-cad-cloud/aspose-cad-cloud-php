@@ -39,6 +39,13 @@ use \Aspose\CAD\CadRequest as CadRequest;
 class WatermarkRequest extends CadRequest
 {
     /**
+     * Input drawing
+     *
+     * @var string
+     */
+    public $drawing_data;
+    
+    /**
      * Gets or sets output_format
      *
      * @var string
@@ -46,18 +53,11 @@ class WatermarkRequest extends CadRequest
     public $output_format;
     
     /**
-     * Gets or sets drawing
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WatermarkRGB model definition.
      *
      * @var string
      */
-    public $drawing;
-    
-    /**
-     * Gets or sets watermark_rgb
-     *
-     * @var string
-     */
-    public $watermark_rgb;
+    public $watermark;
     
     /**
      * Gets or sets output_type_ext
@@ -69,19 +69,40 @@ class WatermarkRequest extends CadRequest
     /**
      * Initializes a new instance of the WatermarkRequest class.
      *  
+     * @param string $drawing_data Input drawing
      * @param string $output_format 
-     * @param string $drawing 
-     * @param string $watermark_rgb 
+     * @param string $watermark JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WatermarkRGB model definition.
      * @param string $output_type_ext 
      */
-    public function __construct($output_format, $drawing = null, $watermark_rgb = null, $output_type_ext = null)             
+    public function __construct($drawing_data, $output_format, $watermark, $output_type_ext = null)             
     {
+        $this->drawing_data = $drawing_data;
         $this->output_format = $output_format;
-        $this->drawing = $drawing;
-        $this->watermark_rgb = $watermark_rgb;
+        $this->watermark = $watermark;
         $this->output_type_ext = $output_type_ext;
     }
 
+    /**
+     * Input drawing
+     *
+     * @return string
+     */
+    public function get_drawing_data()
+    {
+        return $this->drawing_data;
+    }
+
+    /**
+     * Input drawing
+     *
+     * @return \Aspose\CAD\Model\Requests\Request
+     */
+    public function set_drawing_data($value)
+    {
+        $this->drawing_data = $value;
+        return $this;
+    }
+    
     /**
      * Gets output_format
      *
@@ -104,44 +125,23 @@ class WatermarkRequest extends CadRequest
     }
     
     /**
-     * Gets drawing
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WatermarkRGB model definition.
      *
      * @return string
      */
-    public function get_drawing()
+    public function get_watermark()
     {
-        return $this->drawing;
+        return $this->watermark;
     }
 
     /**
-     * Sets drawing
+     * JSON-serialized export options passed as zero-indexed multipart/form-data. Follow #/definitions/WatermarkRGB model definition.
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
-    public function set_drawing($value)
+    public function set_watermark($value)
     {
-        $this->drawing = $value;
-        return $this;
-    }
-    
-    /**
-     * Gets watermark_rgb
-     *
-     * @return string
-     */
-    public function get_watermark_rgb()
-    {
-        return $this->watermark_rgb;
-    }
-
-    /**
-     * Sets watermark_rgb
-     *
-     * @return \Aspose\CAD\Model\Requests\Request
-     */
-    public function set_watermark_rgb($value)
-    {
-        $this->watermark_rgb = $value;
+        $this->watermark = $value;
         return $this;
     }
     
@@ -173,9 +173,17 @@ class WatermarkRequest extends CadRequest
      */
     public function getHttpRequestInfo($config)
     {
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling watermark');
+        }
         // verify the required parameter 'output_format' is set
         if ($this->output_format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $output_format when calling watermark');
+        }
+        // verify the required parameter 'watermark' is set
+        if ($this->watermark === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $watermark when calling watermark');
         }
 
         $resourcePath = '/cad/Watermark';
@@ -210,19 +218,19 @@ class WatermarkRequest extends CadRequest
         $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
 
         // form params
-        if ($this->drawing !== null) {
-            $formParams[ObjectSerializer::toStandardName('drawing')] = ObjectSerializer::toFormValue($this->drawing);
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
         }
         // form params
-        if ($this->watermark_rgb !== null) {
-            $formParams[ObjectSerializer::toStandardName('watermark_rgb')] = ObjectSerializer::toFormValue($this->watermark_rgb);
+        if ($this->watermark !== null) {
+            $formParams[ObjectSerializer::toStandardName('watermark')] = ObjectSerializer::toFormValue($this->watermark);
         }
         // body params
         $httpBody = null;
 
         $headers = $this->selectHeaders(
             ['application/json'],
-            ['multipart/form-data', 'application/octet-stream']
+            ['application/octet-stream', 'multipart/form-data']
         );
         
         $httpInfo = array(

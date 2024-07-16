@@ -39,40 +39,40 @@ use \Aspose\CAD\CadRequest as CadRequest;
 class EditMetadataRequest extends CadRequest
 {
     /**
-     * Gets or sets drawing
+     * Input drawing
      *
      * @var string
      */
-    public $drawing;
+    public $drawing_data;
     
     /**
      * Initializes a new instance of the EditMetadataRequest class.
      *  
-     * @param string $drawing 
+     * @param string $drawing_data Input drawing
      */
-    public function __construct($drawing = null)             
+    public function __construct($drawing_data)             
     {
-        $this->drawing = $drawing;
+        $this->drawing_data = $drawing_data;
     }
 
     /**
-     * Gets drawing
+     * Input drawing
      *
      * @return string
      */
-    public function get_drawing()
+    public function get_drawing_data()
     {
-        return $this->drawing;
+        return $this->drawing_data;
     }
 
     /**
-     * Sets drawing
+     * Input drawing
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
-    public function set_drawing($value)
+    public function set_drawing_data($value)
     {
-        $this->drawing = $value;
+        $this->drawing_data = $value;
         return $this;
     }
 
@@ -83,6 +83,10 @@ class EditMetadataRequest extends CadRequest
      */
     public function getHttpRequestInfo($config)
     {
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling editMetadata');
+        }
 
         $resourcePath = '/cad/EditMetadata';
         $formParams = [];
@@ -96,15 +100,15 @@ class EditMetadataRequest extends CadRequest
         $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
 
         // form params
-        if ($this->drawing !== null) {
-            $formParams[ObjectSerializer::toStandardName('drawing')] = ObjectSerializer::toFormValue($this->drawing);
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
         }
         // body params
         $httpBody = null;
 
         $headers = $this->selectHeaders(
             ['application/json'],
-            ['multipart/form-data', 'application/octet-stream']
+            ['application/octet-stream', 'multipart/form-data']
         );
         
         $httpInfo = array(
