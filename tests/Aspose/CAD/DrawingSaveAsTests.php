@@ -92,8 +92,3 @@ class DrawingSaveAsTests extends BaseTestContext
         Assert::greaterThan(0, $stream->getSize());
     }
 }
-
-//$test = new DrawingSaveAsTests();
-//$test->setUp();
-//$test->testPostDrawingSaveAs();
-//$test->testGetDrawingSaveAs();
