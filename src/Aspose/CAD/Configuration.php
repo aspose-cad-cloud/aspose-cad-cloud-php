@@ -99,7 +99,7 @@ class Configuration
      * Version of Aspose.CAD Cloud API
      *
      */
-    private $clientVersion = '24.5';
+    private $clientVersion = '24.5.1';
 
     /**
      * Constructor
