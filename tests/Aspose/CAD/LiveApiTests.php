@@ -67,6 +67,8 @@ class LiveApiTests extends BaseTestContext
         $request = new \Aspose\CAD\Model\Requests\ConvertRequest(file_get_contents($file), $outputFormat);
 
         $stream = $this->CAD->convert($request);
+
+        $this->overrideReferenceFiles($etalonFileName, $stream);
         
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
@@ -94,6 +96,8 @@ class LiveApiTests extends BaseTestContext
         $request = new \Aspose\CAD\Model\Requests\PaperToCadRequest(file_get_contents($file), $outputFormat);
 
         $stream = $this->CAD->paperToCad($request);
+        
+        $this->overrideReferenceFiles($etalonFileName, $stream);
 
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
@@ -124,6 +128,8 @@ class LiveApiTests extends BaseTestContext
         $request = new \Aspose\CAD\Model\Requests\WatermarkRequest(file_get_contents($file), $outputFormat, $watermark);
 
         $stream = $this->CAD->watermark($request);
+        
+        $this->overrideReferenceFiles($etalonFileName, $stream);
 
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
@@ -151,6 +157,8 @@ class LiveApiTests extends BaseTestContext
         $request = new \Aspose\CAD\Model\Requests\ExtractTextRequest(file_get_contents($file));
 
         $stream = $this->CAD->extractText($request);
+        
+        $this->overrideReferenceFiles($etalonFileName, $stream);
 
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
@@ -180,6 +188,8 @@ class LiveApiTests extends BaseTestContext
             $request = new \Aspose\CAD\Model\Requests\ExtractMetadataRequest(file_get_contents($file), $outputFormat);
     
             $stream = $this->CAD->extractMetadata($request);
+            
+            $this->overrideReferenceFiles($etalonFileName, $stream);
     
             Assert::assertEquals($stream->getSize(), strlen($etalonFile));
         }        
@@ -209,6 +219,8 @@ class LiveApiTests extends BaseTestContext
         $request = new \Aspose\CAD\Model\Requests\EditMetadataRequest(file_get_contents($file));
     
         $stream = $this->CAD->editMetadata($request);
+        
+        $this->overrideReferenceFiles($etalonFileName, $stream);
     
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
           
@@ -239,6 +251,8 @@ class LiveApiTests extends BaseTestContext
         $stream = $this->CAD->putEditMetadata($request);
 
         $etalonFile = file_get_contents(realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $etalonFileName);
+        
+        $this->overrideReferenceFiles($etalonFileName, $stream);
 
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
           

@@ -234,6 +234,10 @@
       <Level>2</Level>
     </Components>
     <Components>
+      <Name>GroupHandle</Name>
+      <Level>2</Level>
+    </Components>
+    <Components>
       <Name>Numreactors</Name>
       <Value>0</Value>
       <Level>2</Level>
@@ -500,6 +504,10 @@
       <Level>2</Level>
     </Components>
     <Components>
+      <Name>GroupHandle</Name>
+      <Level>2</Level>
+    </Components>
+    <Components>
       <Name>Numreactors</Name>
       <Value>0</Value>
       <Level>2</Level>
@@ -698,6 +706,10 @@
     <Components>
       <Name>IsAssocViewPortHandleSet</Name>
       <Value>False</Value>
+      <Level>2</Level>
+    </Components>
+    <Components>
+      <Name>GroupHandle</Name>
       <Level>2</Level>
     </Components>
     <Components>
@@ -902,6 +914,10 @@
       <Level>2</Level>
     </Components>
     <Components>
+      <Name>GroupHandle</Name>
+      <Level>2</Level>
+    </Components>
+    <Components>
       <Name>Numreactors</Name>
       <Value>0</Value>
       <Level>2</Level>
@@ -1100,6 +1116,10 @@
     <Components>
       <Name>IsAssocViewPortHandleSet</Name>
       <Value>False</Value>
+      <Level>2</Level>
+    </Components>
+    <Components>
+      <Name>GroupHandle</Name>
       <Level>2</Level>
     </Components>
     <Components>

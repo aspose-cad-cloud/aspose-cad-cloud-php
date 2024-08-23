@@ -60,6 +60,8 @@ class BaseTestContext extends TestCase
     public static $baseRemoteFolder = "CloudTestPhp/";
     public static $etalonFolder = "ReferenceData/";
 
+    public static $overrideReference = false;
+
     /**
      * Setup before running each test case
      */
@@ -135,6 +137,7 @@ class BaseTestContext extends TestCase
         return $this->CAD;
     }
 
+
     /*
      * Returns storage instance
      */
@@ -160,24 +163,26 @@ class BaseTestContext extends TestCase
         return strtolower($testNameWithUnderscores); // Convert to lowercase
     }
 
-    protected function saveFileToEtalon($fileName, $stream)
+    protected function overrideReferenceFiles($fileName, $stream)
     {
-        $fileName = realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $fileName;
+        if(self::$overrideReference) {
+            $fileName = realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $fileName;
         
-        $handle = fopen($fileName, 'w');
-
-        // Check if file opened successfully
-        if ($handle === false) {
-            die("Couldn't open file for writing");
-        }
-
-        // Data to be written to the file
-        $data = $stream;
-
-        // Write data to the file
-        fwrite($handle, $data);
-
-        // Close the file handle
-        fclose($handle);
+            $handle = fopen($fileName, 'w');
+    
+            // Check if file opened successfully
+            if ($handle === false) {
+                die("Couldn't open file for writing");
+            }
+    
+            // Data to be written to the file
+            $data = $stream;
+    
+            // Write data to the file
+            fwrite($handle, $data);
+    
+            // Close the file handle
+            fclose($handle);
+        }        
     }
 }

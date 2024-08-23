@@ -87,6 +87,8 @@ class BmpApiTests extends BaseTestContext
 
         $etalonFile = file_get_contents(realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $etalonFileName);
 
+        $this->overrideReferenceFiles($etalonFileName, $stream);
+
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
 
@@ -113,6 +115,8 @@ class BmpApiTests extends BaseTestContext
         $stream = $this->CAD->putDrawingBmp($request);
 
         $etalonFile = file_get_contents(realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $etalonFileName);
+
+        $this->overrideReferenceFiles($etalonFileName, $stream);
 
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
@@ -154,6 +158,8 @@ class BmpApiTests extends BaseTestContext
         $stream = $this->CAD->putDrawingBmp($request);
 
         $etalonFile = file_get_contents(realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $etalonFileName);
+
+        $this->overrideReferenceFiles($etalonFileName, $stream);
 
         Assert::assertEquals($stream->getSize(), strlen($etalonFile));
     }
