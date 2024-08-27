@@ -115,3 +115,4 @@ vendor/*
 testReports/*
 /Settings/servercreds.json
 /TestData/serverAccess.json
+/.phpunit.result.cache
