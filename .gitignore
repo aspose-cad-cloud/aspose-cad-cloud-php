@@ -116,3 +116,4 @@ testReports/*
 /Settings/servercreds.json
 /TestData/serverAccess.json
 /.phpunit.result.cache
+/composer.lock
