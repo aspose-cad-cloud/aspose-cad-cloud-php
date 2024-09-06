@@ -39,14 +39,14 @@ use \Aspose\CAD\CadRequest as CadRequest;
 class PutEditMetadataRequest extends CadRequest
 {
     /**
-     * Gets or sets drawing
+     * Input drawing
      *
      * @var string
      */
-    public $drawing;
+    public $drawing_data;
     
     /**
-     * Gets or sets metadata_component
+     * Metadata string json from POST/EditMetadata
      *
      * @var string
      */
@@ -55,38 +55,38 @@ class PutEditMetadataRequest extends CadRequest
     /**
      * Initializes a new instance of the PutEditMetadataRequest class.
      *  
-     * @param string $drawing 
-     * @param string $metadata_component 
+     * @param string $drawing_data Input drawing
+     * @param string $metadata_component Metadata string json from POST/EditMetadata
      */
-    public function __construct($drawing = null, $metadata_component = null)             
+    public function __construct($drawing_data, $metadata_component)             
     {
-        $this->drawing = $drawing;
+        $this->drawing_data = $drawing_data;
         $this->metadata_component = $metadata_component;
     }
 
     /**
-     * Gets drawing
+     * Input drawing
      *
      * @return string
      */
-    public function get_drawing()
+    public function get_drawing_data()
     {
-        return $this->drawing;
+        return $this->drawing_data;
     }
 
     /**
-     * Sets drawing
+     * Input drawing
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
-    public function set_drawing($value)
+    public function set_drawing_data($value)
     {
-        $this->drawing = $value;
+        $this->drawing_data = $value;
         return $this;
     }
     
     /**
-     * Gets metadata_component
+     * Metadata string json from POST/EditMetadata
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class PutEditMetadataRequest extends CadRequest
     }
 
     /**
-     * Sets metadata_component
+     * Metadata string json from POST/EditMetadata
      *
      * @return \Aspose\CAD\Model\Requests\Request
      */
@@ -113,6 +113,14 @@ class PutEditMetadataRequest extends CadRequest
      */
     public function getHttpRequestInfo($config)
     {
+        // verify the required parameter 'drawing_data' is set
+        if ($this->drawing_data === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $drawing_data when calling putEditMetadata');
+        }
+        // verify the required parameter 'metadata_component' is set
+        if ($this->metadata_component === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $metadata_component when calling putEditMetadata');
+        }
 
         $resourcePath = '/cad/EditMetadata';
         $formParams = [];
@@ -126,8 +134,8 @@ class PutEditMetadataRequest extends CadRequest
         $resourcePath = trim($resourcePath, "/") . "?" . http_build_query($queryParams);
 
         // form params
-        if ($this->drawing !== null) {
-            $formParams[ObjectSerializer::toStandardName('drawing')] = ObjectSerializer::toFormValue($this->drawing);
+        if ($this->drawing_data !== null) {
+            $formParams[ObjectSerializer::toStandardName('drawing_data')] = ObjectSerializer::toFormValue($this->drawing_data);
         }
         // form params
         if ($this->metadata_component !== null) {
@@ -138,7 +146,7 @@ class PutEditMetadataRequest extends CadRequest
 
         $headers = $this->selectHeaders(
             ['application/json'],
-            ['multipart/form-data', 'application/octet-stream']
+            ['application/octet-stream', 'multipart/form-data']
         );
         
         $httpInfo = array(

@@ -38,8 +38,10 @@ use Aspose\CAD\Model as Models;
 use Aspose\CAD\Model\Requests as Requests;
 use GuzzleHttp\Client;
 use DirectoryIterator;
+use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 
-class BaseTestContext extends \PHPUnit_Framework_TestCase
+class BaseTestContext extends TestCase
 {
     /**
      * CAD API instance
@@ -56,11 +58,14 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
     protected static $baseTestPath = "TestData/";
     public static $baseTestOut = "TestOut/";
     public static $baseRemoteFolder = "CloudTestPhp/";
+    public static $etalonFolder = "ReferenceData/";
+
+    public static $overrideReference = false;
 
     /**
      * Setup before running each test case
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->config = new Configuration();
         $creds = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__  . self::$relativeRootPath . self::$baseTestPath . "serverAccess.json")), true);
@@ -132,6 +137,7 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
         return $this->CAD;
     }
 
+
     /*
      * Returns storage instance
      */
@@ -144,5 +150,39 @@ class BaseTestContext extends \PHPUnit_Framework_TestCase
     {
         $length = strlen($needle);
         return (substr($haystack, -$length) === $needle);
+    }
+
+    protected function getTestNameInSnakeCase()
+    {
+        $reflection = new ReflectionMethod($this, $this->getName());
+        $testName = $reflection->getName();
+        $testNameWithoutPrefix = preg_replace('/^test/', '', $testName);
+
+        // Convert to snake_case
+        $testNameWithUnderscores = preg_replace('/([a-z])([A-Z])/', '$1_$2', $testNameWithoutPrefix); // Insert underscores before capital letters
+        return strtolower($testNameWithUnderscores); // Convert to lowercase
+    }
+
+    protected function overrideReferenceFiles($fileName, $stream)
+    {
+        if(self::$overrideReference) {
+            $fileName = realpath(__DIR__ . self::$relativeRootPath) . '/ReferenceData/' . $fileName;
+        
+            $handle = fopen($fileName, 'w');
+    
+            // Check if file opened successfully
+            if ($handle === false) {
+                die("Couldn't open file for writing");
+            }
+    
+            // Data to be written to the file
+            $data = $stream;
+    
+            // Write data to the file
+            fwrite($handle, $data);
+    
+            // Close the file handle
+            fclose($handle);
+        }        
     }
 }

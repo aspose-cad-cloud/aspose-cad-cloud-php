@@ -38,7 +38,7 @@ Please, add the following  to your composer.json as a dependency.
 ```json
 {
     "require": {
-        "aspose/aspose-cad-cloud": ">=24.5"
+        "aspose/aspose-cad-cloud": "24.5.2"
     }
 }
 ```
